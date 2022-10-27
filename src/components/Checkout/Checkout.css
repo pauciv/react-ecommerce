@@ -1,7 +1,7 @@
 .checkout {
     display: flex;
     padding: 10px;
-    height: max-content;
+    /* height: max-content; */
 }
 
 .checkout__left {
@@ -15,9 +15,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-right: 10px;
     padding: 4px;
     border-bottom: 1px solid lightgrey;
+    margin: 4px;
 }
 
 .checkout__title {
@@ -33,4 +33,12 @@
     background-color: white;
     margin: 10px;
     padding: 20px;
+}
+
+.checkout__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4px;
+    border-top: 1px solid lightgrey;
+    margin: 4px;
 }

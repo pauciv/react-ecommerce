@@ -14,7 +14,7 @@
 }
 
 .product__info {
-    height: 100px;
+    /* height: 100px; */
     /* margin-bottom: 10px; */
 }
 
@@ -45,7 +45,7 @@
     margin: 0 auto;
     background-color: #61dafb;
     border: 1px solid;
-    /* margin-top: 10px; */
+    margin-top: 10px;
     border-color: #2f6d7e;
     color: #11343d;
 }

@@ -19,9 +19,9 @@ function App() {
 				<Checkout />
 			</div>
 			{/* solo debe aparecer cuando haya más de un producto en el carrito */}
-			<div className="cart"> 
+			<aside className="cart"> 
 				<Cart />
-			</div>
+			</aside>
 		</div>
 	);
 }

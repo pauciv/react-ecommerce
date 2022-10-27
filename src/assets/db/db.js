@@ -14,6 +14,7 @@ const products = [
 		price: 159,
         rating: 4,
 		// img: img_1,
+		// stock
 	},
 	{
 		id: 102,
