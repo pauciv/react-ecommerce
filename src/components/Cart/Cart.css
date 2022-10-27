@@ -1,0 +1,32 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+.cart__subtotal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    padding: 10px 0;
+}
+
+.cart__subtotal--title {
+    font-size: 14px;
+}
+
+.cart__subtotal--price {
+    font-weight: 700;
+}
+
+.cart__product {
+    width: 100%;
+}
+
+.cart__product--image {
+    max-height: 200px;
+    width: 100%;
+    object-fit: contain;
+    margin: 8px 0;
+}

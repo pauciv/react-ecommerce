@@ -1,0 +1,33 @@
+// import React from 'react';
+// import './Product.css';
+
+// const defaultImg =
+// 	'https://media.istockphoto.com/vectors/default-image-icon-vector-missing-picture-page-for-website-design-or-vector-id1357365823?k=20&m=1357365823&s=612x612&w=0&h=ZH0MQpeUoSHM3G2AWzc8KkGYRg4uP_kuu0Za8GFxdFc=';
+
+// function Product({ id, image = defaultImg, title, price, rating }) {
+// 	return (
+// 		<div className="product">
+// 			<img className="product__image" src={image} alt="product image" />
+
+// 			<div className="product__info">
+// 				<p className="product__title">{title}</p>
+// 				<p className="product__price">
+// 					<small>$</small>
+// 					{price}
+// 				</p>
+// 				<div className="product__rating">
+// 					{Array(rating)
+// 						.fill()
+// 						.map((_, i) => (
+// 							<p>*</p>
+// 						))}
+// 				</div>
+// 			</div>
+
+// 			<button className="product__btnAddToCart">Add to Cart</button>
+// 		</div>
+// 	);
+// }
+
+// export default Product;
+   
