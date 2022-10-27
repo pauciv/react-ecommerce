@@ -2,8 +2,8 @@
 
 import React from 'react';
 import './Header.css';
-// import SearchIcon from '@mui/icons-material/Search';
-// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import { Link } from 'react-router-dom';
 
 function Header(/* props */) {
@@ -24,7 +24,7 @@ function Header(/* props */) {
 
 			<div className="header__search">
 				<input className="header__searchInput" type="text" />
-				{/* <SearchIcon className="header__searchIncon" /> */}
+				<SearchIcon className="header__searchIncon" />
 			</div>
 
 			<div className="header__nav">
@@ -49,7 +49,7 @@ function Header(/* props */) {
 
 				<div className="header__option header__optionBasket">
 					<span className="header__basketCount">0</span>
-					{/* <ShoppingCartIcon className="header__cartIncon" /> */}
+					<ShoppingCartIcon className="header__cartIncon" />
 				</div>
 			</div>
 		</div>
