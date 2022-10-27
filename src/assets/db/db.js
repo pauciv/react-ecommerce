@@ -10,7 +10,7 @@ const products = [
 	{
 		id: 101,
         image: 'https://resource.logitech.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-mechanical/gallery/mx-mechanical-mini/mx-mechanical-mini-mini-keyboard-top-view-graphite-deu.png?v=1',
-		title: 'MX MECHANICAL MINI',
+		title: 'MX Mechanical Mini',
 		price: 159,
         rating: 4,
 		// img: img_1,
@@ -18,7 +18,7 @@ const products = [
 	{
 		id: 102,
         image: 'https://resource.logitech.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/gallery/mx-master-3s-mouse-top-view-graphite.png?v=1',
-		title: "MX MASTER 3S",
+		title: "MX Master 3S",
 		price: 135,
         rating: 5,
 		// img: img_2,
@@ -26,9 +26,9 @@ const products = [
 	{
 		id: 103,
         image: 'https://resource.logitech.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-125/gallery/zone-vibe-125-gallery-mic-down-graphite-1-new.png?v=1',
-		title: 'ZONE VIBE 125',
+		title: 'Zone Vibe 125',
 		price: 145,
-        rating: 5,
+        rating: 4,
 		// img: img_3,
 	},
 	// {

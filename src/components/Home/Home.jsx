@@ -1,8 +1,15 @@
-import React from 'react';
+// import { useId } from 'react';
 // import Product from '../Product/Product';
 import ChildrenProd from '../Product/ChildrenProd';
 import Cart from '../Cart/Cart';
 import products from '../../assets/db/db';
+
+//rating star icons
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+// import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+
 import './Home.css';
 
 console.log(products);
@@ -20,8 +27,8 @@ function Home() {
 
 					<div className="home__row">
 						{products.map((product) => (
-							<ChildrenProd key={product.id}>
-								{console.log(product.id)}
+							<ChildrenProd key={product.id}> 
+								{/* useId() */}
 								<img
 									className="product__image"
 									src={product.image}
@@ -35,12 +42,20 @@ function Home() {
 										{product.price}
 									</p>
 									<div className="product__rating">
-										{Array(product.rating)
-											.fill()
-											.map((_, i) => (
-												<p>*</p>
-											))}
+										<StarIcon />
+										<StarIcon />
+										<StarIcon />
+										<StarHalfIcon />
+										<StarBorderIcon />
+										{/* <StarOutlineIcon /> */}
 									</div>
+									{/* <div className="product__rating">
+										{Array(product.rating)
+											// .fill()
+											.map(() => (
+												<p key={id}>*</p>
+											))}
+									</div> */}
 								</div>
 
 								<button className="product__btnAddToCart">Add to Cart</button>
