@@ -2,6 +2,8 @@
 import Product from '../Product/Product';
 import ChildrenProd from '../Product/ChildrenProd';
 import Counter from '../Counter/Counter';
+import CartButton from '../CartButton/CartButton';
+
 import products from '../../assets/db/db';
 
 //rating star icons
@@ -12,7 +14,7 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 
 import './Home.css';
 
-console.log(products);
+// console.log(products);
 
 function Home() {
   return (
@@ -59,6 +61,9 @@ function Home() {
                 </div>
 
                 <Counter />
+                <CartButton /* onClick={handleAddToCart} */>
+                  Add to C
+                </CartButton>
 
                 {/* Button puede ser un component */}
                 <button
@@ -69,6 +74,7 @@ function Home() {
               </ChildrenProd>
             ))}
           </div>
+
           {/* <div className="home__row">
             {products.map((product) => (
               <Product
@@ -77,7 +83,7 @@ function Home() {
                 title={product.title}
                 price={product.price}
                 rating={product.rating}
-				handleAddToCart={() => handleAddToCart(product.id)}
+				        // handleAddToCart={() => handleAddToCart(product.id)}
               />
             ))}
           </div> */}

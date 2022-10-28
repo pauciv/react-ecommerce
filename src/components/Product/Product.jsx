@@ -1,6 +1,7 @@
 import React from 'react';
 import './Product.css';
 import Counter from '../Counter/Counter';
+import CartButton from '../CartButton/CartButton';
 
 //rating star icons
 import StarIcon from '@mui/icons-material/Star';
@@ -16,7 +17,7 @@ function Product({
   image = defaultImg,
   title,
   price,
-  rating /* addToCart */,
+  rating /* handleAddToCart */,
 }) {
   return (
     <div className="product">
@@ -29,6 +30,7 @@ function Product({
           {price}
         </p>
         <div className="product__rating">
+          {/* svg para las estrellas */}
           <StarIcon />
           <StarIcon />
           <StarIcon />
@@ -46,6 +48,8 @@ function Product({
       </div>
 
       <Counter />
+
+      <CartButton /* onClick={handleAddToCart} */>Add to C</CartButton>
 
       {/* Button puede ser un component */}
       <button /* onClick={addToCart} */ className="product__btnAddToCart">Add to Cart</button>

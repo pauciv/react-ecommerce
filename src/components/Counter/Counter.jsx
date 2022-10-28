@@ -8,7 +8,7 @@ const Counter = ({ initialValue = 1 }) => {
     setNumItems(numItems + 1);
   };
 
-  const substractItem = () => {
+  const subtractItem = () => {
     setNumItems(numItems - 1);
   };
 
@@ -16,12 +16,13 @@ const Counter = ({ initialValue = 1 }) => {
     <div className="counter">
       <p>Qty: {numItems}</p>
       <button onClick={addItem}>+</button>
+      {numItems > 1 && <button onClick={subtractItem}>-</button>}
 
-      {numItems > 1 ? (
-        <button onClick={substractItem}>-</button>
+      {/* {numItems > 1 ? (
+        <button onClick={subtractItem}>-</button>
       ) : (
-        <button disabled>-</button>
-      )}
+        <button disabled>-</button> // undefined
+      )} */}
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Checkout = () => {
           <h2 className="checkout__title">Shopping Cart</h2>
           <p className="checkout__subtitle">Price</p>
         </div>
-		<Counter />
+        <Counter />
         {/* CartProduct */}
         {/* CartProduct */}
         {/* CartProduct */}
