@@ -1,4 +1,4 @@
-// import { useId } from 'react';
+import { useState, useEffect /* useId */ } from 'react';
 import Product from '../Product/Product';
 import ChildrenProd from '../Product/ChildrenProd';
 import Counter from '../Counter/Counter';
@@ -16,7 +16,38 @@ import './Home.css';
 
 // console.log(products);
 
+const loadCart = () => {
+  console.log(`loadCartItems`);
+  const getCart = localStorage.getItem('cart');
+  console.log(getCart)
+
+  if (getCart) {
+    try {
+      return JSON.parse(getCart);
+    } catch (error) {
+      return [];
+    }
+  } else {
+    return [];
+  }
+};
+
 function Home() {
+  const [cart, setCart] = useState(() => loadCart());
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (id) => {
+    console.log(id);
+    products.map((product) => {
+      if (product.id === id) {
+        console.log(product);
+      }
+    });
+  };
+
   return (
     <>
       <div className="home">
@@ -28,65 +59,68 @@ function Home() {
           /> */}
 
           <div className="home__row">
-            {products.map((product) => (
-              <ChildrenProd key={product.id}>
-                {/* useId() */}
-                <img
-                  className="product__image"
-                  src={product.image}
-                  alt="product image"
-                />
+            {(products &&
+              products.map((product) => (
+                <ChildrenProd key={product.id}>
+                  {/* useId() */}
+                  <img
+                    className="product__image"
+                    src={product.image}
+                    alt="product image"
+                  />
 
-                <div className="product__info">
-                  <p className="product__title">{product.title}</p>
-                  <p className="product__price">
-                    <small>$</small>
-                    {product.price}
-                  </p>
-                  <div className="product__rating">
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarHalfIcon />
-                    <StarBorderIcon />
-                    {/* <StarOutlineIcon /> */}
-                  </div>
-                  {/* <div className="product__rating">
+                  <div className="product__info">
+                    <p className="product__title">{product.title}</p>
+                    <p className="product__price">
+                      <small>$</small>
+                      {product.price}
+                    </p>
+                    <div className="product__rating">
+                      <StarIcon />
+                      <StarIcon />
+                      <StarIcon />
+                      <StarHalfIcon />
+                      <StarBorderIcon />
+                      {/* <StarOutlineIcon /> */}
+                    </div>
+                    {/* <div className="product__rating">
                     {Array(product.rating)
                       // .fill()
                       .map(() => (
                         <p key={id}>*</p>
                       ))}
                   </div> */}
-                </div>
+                  </div>
 
-                <Counter />
-                <CartButton /* onClick={handleAddToCart} */>
-                  Add to C
-                </CartButton>
+                  <Counter />
+                  <CartButton /* onClick={handleAddToCart} */>
+                    Add to C
+                  </CartButton>
 
-                {/* Button puede ser un component */}
-                <button
-                  /* onClick={addToCart} */ className="product__btnAddToCart"
-                >
-                  Add to Cart
-                </button>
-              </ChildrenProd>
-            ))}
+                  {/* Button puede ser un component */}
+                  <button
+                    onClick={() => addToCart(product.id)}
+                    className="product__btnAddToCart"
+                  >
+                    Add to Cart
+                  </button>
+                </ChildrenProd>
+              ))) || <h2>No products obtained</h2>}
           </div>
 
-          {/* <div className="home__row">
-            {products.map((product) => (
-              <Product
-                id={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-                rating={product.rating}
-				        // handleAddToCart={() => handleAddToCart(product.id)}
-              />
-            ))}
-          </div> */}
+          <div className="home__row">
+            {(products &&
+              products.map((product) => (
+                <Product
+                  key={product.id}
+                  image={product.image}
+                  title={product.title}
+                  price={product.price}
+                  rating={product.rating}
+                  addToCart={() => addToCart(product.id)}
+                />
+              ))) || <h2>No products obtained</h2>}
+          </div>
         </div>
       </div>
     </>

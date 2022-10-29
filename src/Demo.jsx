@@ -1,20 +1,12 @@
 import { useState, useEffect } from 'react';
 
-console.log('Demo');
+// console.log('Demo');
 
 const Demo = ({ initialValue = 1, btnProp }) => {
   const [numItems, setNumItems] = useState(initialValue);
 
-  //   useEffect(() => {
-  //     first
-
-  //     return () => {
-  //       second
-  //     }
-  //   }, [third])
-
   useEffect(() => {
-    console.log(`Qty: ${numItems}`)
+    // console.log(`Qty: ${numItems}`);
   }, [numItems]); // se ejecuta cada vez que numItems cambia
 
   const addItem = () => {
@@ -22,23 +14,49 @@ const Demo = ({ initialValue = 1, btnProp }) => {
   };
 
   const subtractItem = () => {
-    setNumItems(numItems - 1);
+    setNumItems((prev) => prev - 1);
+    setNumItems((prev) => prev - 1);
   };
 
-  return (
-    <div className="counter">
-      <p>Qty: {numItems}</p>
-      <button onClick={addItem}>+</button>
 
-      {/* {numItems > 1 ? (
+  const [state, setState] = useState({
+    name: 'Pau',
+    surname: 'Civill',
+  });
+
+  const assignId = () => {
+    setState((prevState) => {
+      console.log(prevState);
+      return {
+        ...prevState,
+        id: 1,
+      };
+    });
+  };
+
+
+  return (
+    <>
+      <div className="counter">
+        <p>Qty: {numItems}</p>
+        <button onClick={addItem}>+</button>
+
+        {/* {numItems > 1 ? (
         <button onClick={subtractItem}>-</button>
       ) : (
         // <button disabled>-</button>
         undefined
       )} */}
 
-      {numItems > 1 && <button onClick={subtractItem}>-</button>}
-    </div>
+        {numItems > 1 && <button onClick={subtractItem}>-</button>}
+      </div>
+
+      <div>
+        <p>{JSON.stringify(state)}</p>
+        <p>{state.name} {state.id}</p>
+        <button onClick={assignId}>Set Id</button>
+      </div>
+    </>
   );
 };
 

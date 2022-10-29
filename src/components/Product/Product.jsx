@@ -13,11 +13,11 @@ const defaultImg =
   'https://media.istockphoto.com/vectors/default-image-icon-vector-missing-picture-page-for-website-design-or-vector-id1357365823?k=20&m=1357365823&s=612x612&w=0&h=ZH0MQpeUoSHM3G2AWzc8KkGYRg4uP_kuu0Za8GFxdFc=';
 
 function Product({
-  id,
   image = defaultImg,
   title,
   price,
-  rating /* handleAddToCart */,
+  rating,
+  addToCart
 }) {
   return (
     <div className="product">
@@ -52,7 +52,7 @@ function Product({
       <CartButton /* onClick={handleAddToCart} */>Add to C</CartButton>
 
       {/* Button puede ser un component */}
-      <button /* onClick={addToCart} */ className="product__btnAddToCart">Add to Cart</button>
+      <button onClick={addToCart} className="product__btnAddToCart">Add to Cart</button>
     </div>
   );
 }
