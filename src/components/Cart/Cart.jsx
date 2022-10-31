@@ -3,7 +3,7 @@ import ChildrenProd from '../Product/ChildrenProd';
 import products from '../../assets/db/db';
 import './Cart.css';
 
-const Cart = () => {
+const Cart = ({ cart }) => {
 	return (
 		// <div className="cart">
         <>

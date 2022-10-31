@@ -14,10 +14,6 @@ import Checkout from './components/Checkout/Checkout';
 function App() {
   const [value, updateValue] = useState([]);
 
-  // function handleAddToCart() {
-  //     alert('handleAddToCart')
-  //   }
-
   return (
     <>
       <div className="app">
@@ -29,7 +25,7 @@ function App() {
         </div>
         {/* solo debe aparecer cuando haya más de un producto en el carrito */}
         <aside className="cart">
-          <Cart />
+          <Cart /* cart={cart} */ />
         </aside>
       </div>
       {/* <p>{JSON.stringify(cart)}</p> */}
