@@ -9,36 +9,38 @@ import Checkout from './components/Checkout/Checkout';
 // import ChildrenProd from './components/Product/ChildrenProd';
 // import products from './assets/db/db';
 
-
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-	const [value, updateValue] = useState([]);
+  const [value, updateValue] = useState([]);
 
-	// function handleAddToCart() {
-    //     alert('handleAddToCart')
-    //   }
+  // function handleAddToCart() {
+  //     alert('handleAddToCart')
+  //   }
 
-	return (
-		<div className="app">
-			<div className="main">
-				<Header />
-				<Home />
-				<p>The Checkout component will be displayed in another page</p>
-				<Checkout />
-			</div>
-			{/* solo debe aparecer cuando haya más de un producto en el carrito */}
-			<aside className="cart"> 
-				<Cart />
-			</aside>
-		</div>
-	);
+  return (
+    <>
+      <div className="app">
+        <div className="main">
+          <Header />
+          <Home />
+          {/* <p>The Checkout component will be displayed in another page</p>
+          <Checkout /> */}
+        </div>
+        {/* solo debe aparecer cuando haya más de un producto en el carrito */}
+        <aside className="cart">
+          <Cart />
+        </aside>
+      </div>
+      {/* <p>{JSON.stringify(cart)}</p> */}
+    </>
+  );
 }
 
 export default App;
 
 {
-	/* <Router>
+  /* <Router>
 	<div className="app">
 		<Switch>
 			<Route path="/checkout">

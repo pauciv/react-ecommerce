@@ -13,16 +13,22 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 
 import './Home.css';
+import Checkout from '../Checkout/Checkout';
+import Cart from '../Cart/Cart';
 
 // console.log(products);
 
 const loadCart = () => {
-  console.log(`loadCartItems`);
+  console.log(`loadCart`);
+  // * --- getItem para leer el item (cart) almacenado en el local storage.
   const getCart = localStorage.getItem('cart');
   // console.log(getCart);
 
   if (getCart) {
     try {
+      console.log(getCart);
+      console.log(JSON.parse(getCart));
+
       return JSON.parse(getCart);
     } catch (error) {
       return [];
@@ -38,16 +44,16 @@ function Home() {
   useEffect(() => {
     console.log(`useEffect`);
 
+    // * --- setItem para agregar un item (cart) al local storage.
     localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart); // está aquí para que me muestre el cart actualizado
+    console.log(cart); // está dentro del useEffect para que me muestre en consola el cart actualizado
   }, [cart]);
 
   const addToCart = (id) => {
     // console.log(id);
     // console.log(cart);
-    console.log(...cart)
-    console.log(...products)
-    console.log(...products.find((product) => product.id === id))
+    // console.log(...cart);
+    // console.log(...products);
 
     setCart([
       ...cart,
@@ -66,7 +72,7 @@ function Home() {
 
   return (
     <>
-      <div className="home">
+      <main className="home">
         <div className="home__container">
           {/* <img
             className="home__image"
@@ -137,8 +143,14 @@ function Home() {
                 />
               ))) || <h2>No products obtained</h2>}
           </div>
+          
+          <div className="home__row">
+            <Checkout cart={cart} />
+          </div>
         </div>
-      </div>
+      </main>
+      {/* <p>{JSON.stringify(cart)}</p> */}
+      {console.log(cart)}
     </>
   );
 }
