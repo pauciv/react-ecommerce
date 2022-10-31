@@ -19,7 +19,7 @@ import './Home.css';
 const loadCart = () => {
   console.log(`loadCartItems`);
   const getCart = localStorage.getItem('cart');
-  console.log(getCart)
+  // console.log(getCart);
 
   if (getCart) {
     try {
@@ -36,16 +36,32 @@ function Home() {
   const [cart, setCart] = useState(() => loadCart());
 
   useEffect(() => {
+    console.log(`useEffect`);
+
     localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart); // está aquí para que me muestre el cart actualizado
   }, [cart]);
 
   const addToCart = (id) => {
-    console.log(id);
-    products.map((product) => {
-      if (product.id === id) {
-        console.log(product);
-      }
-    });
+    // console.log(id);
+    // console.log(cart);
+    console.log(...cart)
+    console.log(...products)
+    console.log(...products.find((product) => product.id === id))
+
+    setCart([
+      ...cart,
+      {
+        ...products.find((product) => product.id === id),
+      },
+    ]);
+
+    // products.map((product) => {
+    //   // = cart.map ??
+    //   if (product.id === id) {
+    //     console.log(product);
+    //   }
+    // });
   };
 
   return (
