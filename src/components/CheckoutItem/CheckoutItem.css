@@ -7,7 +7,9 @@
 }
 
 .item__image {
-    width: 200px;
+    width: 160px;
+    height: 160px;
+    object-fit: scale-down;
 }
 
 .item__info {
