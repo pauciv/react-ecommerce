@@ -1,17 +1,21 @@
 import React from 'react';
 import './Subtotal.css';
 
-const Subtotal = () => {
+export const getTotalPrice = (cart) =>
+  cart.reduce((acc, cur) => acc + cur.price /* * cur.quantity */, 0);
+
+export const getTotalItems = (cart) => cart.length;
+
+const Subtotal = ({ cart }) => {
   return (
     <div className="subtotal">
       {/* npm i react-currency-format */}
       <div>
-        <p>Subtotal (0 item): $0</p>
-        {/* <small className="subtotal__gift">
-          <input type="checkbox" /> This order contains a gift
-        </small> */}
+        <p className='subtotal__p'>
+          Subtotal ({getTotalItems(cart)} item): <strong><small>$</small>
+          {getTotalPrice(cart)}</strong>
+        </p>
       </div>
-      <button className="subtotal__btncheckout">Proceed to Checkout</button>
     </div>
   );
 };

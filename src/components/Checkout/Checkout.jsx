@@ -6,12 +6,6 @@ import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
 
-function getTotal(cart) {
-  return cart.reduce((accum, curr) => {
-    return accum + curr.price * curr.quantity;
-  }, 0);
-}
-
 const Checkout = ({ cart, handleDelete }) => {
   // cart &&
   //   cart.map((item) => {
@@ -32,7 +26,8 @@ const Checkout = ({ cart, handleDelete }) => {
               // console.log(item.title);
               return (
                 <>
-                  <CheckoutItem key={`${item.id}`}>
+                  <CheckoutItem key={`c-${item.id}`}>
+                    {/* {console.log(item.id)} */}
                     {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
                     <div className="item__image">
                       <img
@@ -69,13 +64,15 @@ const Checkout = ({ cart, handleDelete }) => {
         {/* CartProduct */}
 
         <div className="checkout__footer">
-          <div>
-            <p>Subtotal (0 item): $0</p>
-          </div>
+          <Subtotal cart={cart} />
         </div>
       </div>
       <div className="checkout__right">
-        <Subtotal />
+        <Subtotal cart={cart} />
+        {/* <small className="subtotal__gift">
+          <input type="checkbox" /> This order contains a gift
+        </small> */}
+        <button className="subtotal__btn--checkout">Proceed to Checkout</button>
       </div>
     </div>
   );

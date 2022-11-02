@@ -16,8 +16,8 @@
     justify-content: space-between;
     align-items: flex-end;
     padding: 4px;
-    border-bottom: 1px solid lightgrey;
     margin: 4px;
+    border-bottom: 1px solid lightgrey;
 }
 
 .checkout__title {
@@ -39,6 +39,5 @@
     display: flex;
     justify-content: flex-end;
     padding: 4px;
-    border-top: 1px solid lightgrey;
     margin: 4px;
 }

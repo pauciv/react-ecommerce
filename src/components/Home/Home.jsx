@@ -38,7 +38,9 @@ const loadCart = () => {
   }
 };
 
-const Home = () => {
+const Home = (/* props */) => {
+  // props.cart(cart)
+
   const [cart, setCart] = useState(() => loadCart());
 
   useEffect(() => {

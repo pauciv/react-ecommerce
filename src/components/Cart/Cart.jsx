@@ -3,6 +3,8 @@ import ChildrenProd from '../Product/ChildrenProd';
 import products from '../../assets/db/db';
 import './Cart.css';
 
+import { getTotalPrice } from '../Subtotal/Subtotal';
+
 const Cart = ({ cart }) => {
 	return (
 		// <div className="cart">
@@ -10,8 +12,7 @@ const Cart = ({ cart }) => {
 			<div className="cart__subtotal">
 				<span className="cart__subtotal--title">Subtotal</span>
 				<span className="cart__subtotal--price">
-					<small>$</small>0
-					{/* price */}
+					{/* <small>$</small>{getTotalPrice(cart)} */}
 				</span>
 			</div>
 

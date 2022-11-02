@@ -6,7 +6,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import { Link } from 'react-router-dom';
 
-function Header(/* props */) {
+import { getTotalItems } from '../Subtotal/Subtotal';
+
+const Header = ({ /* cart */ }) => {
 	// const Header = () => {
 	return (
 		<div className="header">
@@ -48,7 +50,7 @@ function Header(/* props */) {
 				</div>
 
 				<div className="header__option header__optionBasket">
-					<span className="header__basketCount">0</span>
+					<span className="header__basketCount">{/* {getTotalItems(cart)} */}</span>
 					<ShoppingCartIcon className="header__cartIncon" />
 				</div>
 			</div>
