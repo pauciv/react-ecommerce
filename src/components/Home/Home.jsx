@@ -38,7 +38,7 @@ const loadCart = () => {
   }
 };
 
-function Home() {
+const Home = () => {
   const [cart, setCart] = useState(() => loadCart());
 
   useEffect(() => {
@@ -115,9 +115,6 @@ function Home() {
                   </div>
 
                   <Counter />
-                  <CartButton /* onClick={handleAddToCart} */>
-                    Add to C
-                  </CartButton>
 
                   {/* Button puede ser un component */}
                   <button
@@ -144,7 +141,7 @@ function Home() {
               ))) || <h2>No products obtained</h2>}
           </div> */}
           
-          <div className="home__row">
+          <div>
             <Checkout cart={cart} />
           </div>
         </div>

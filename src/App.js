@@ -5,6 +5,8 @@ import Home from './components/Home/Home';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 
+
+
 // import Product from './components/Product/Product';
 // import ChildrenProd from './components/Product/ChildrenProd';
 // import products from './assets/db/db';
@@ -20,12 +22,12 @@ function App() {
         <div className="main">
           <Header />
           <Home />
-          {/* <p>The Checkout component will be displayed in another page</p>
-          <Checkout /> */}
+          {/* <p>The Checkout component will be displayed in another page</p> */}
+          {/* <Checkout cart={cart} /> */}
         </div>
-        {/* solo debe aparecer cuando haya más de un producto en el carrito */}
+        {/* solo debe aparecer si hay > 0 productos en el carrito */}
         <aside className="cart">
-          <Cart /* cart={cart} */ />
+          <Cart />
         </aside>
       </div>
       {/* <p>{JSON.stringify(cart)}</p> */}

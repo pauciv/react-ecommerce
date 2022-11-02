@@ -1,0 +1,17 @@
+.checkout__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__image {
+    width: 200px;
+}
+
+.item__info {
+    width: 240px;
+}
+
+.item__price {
+    font-weight: 700;
+    font-size: 18px;
+}
