@@ -130,7 +130,7 @@ function Home() {
               ))) || <h2>No products obtained</h2>}
           </div>
 
-          <div className="home__row">
+          {/* <div className="home__row">
             {(products &&
               products.map((product) => (
                 <Product
@@ -142,7 +142,7 @@ function Home() {
                   addToCart={() => addToCart(product.id)}
                 />
               ))) || <h2>No products obtained</h2>}
-          </div>
+          </div> */}
           
           <div className="home__row">
             <Checkout cart={cart} />
