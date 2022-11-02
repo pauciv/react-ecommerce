@@ -6,7 +6,13 @@ import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
 
-const Checkout = ({ cart }) => {
+function getTotal(cart) {
+  return cart.reduce((accum, curr) => {
+    return accum + curr.price * curr.quantity;
+  }, 0);
+}
+
+const Checkout = ({ cart, handleDelete }) => {
   // cart &&
   //   cart.map((item) => {
   //     console.log(item.title);
