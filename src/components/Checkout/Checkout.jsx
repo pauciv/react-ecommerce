@@ -6,7 +6,7 @@ import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
 
-const Checkout = ({ cart, handleDelete }) => {
+const Checkout = ({ cart, quantity, handleDelete }) => {
   // cart &&
   //   cart.map((item) => {
   //     console.log(item.title);
@@ -26,7 +26,7 @@ const Checkout = ({ cart, handleDelete }) => {
               // console.log(item.title);
               return (
                 <>
-                  <CheckoutItem key={`c-${item.id}`}>
+                  <CheckoutItem key={`c-${item.id}`} quantity={item.quantity}>
                     {/* {console.log(item.id)} */}
                     {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
                     <div className="item__image">
@@ -39,7 +39,7 @@ const Checkout = ({ cart, handleDelete }) => {
 
                     <div className="item__info">
                       <p className="item__title">{item.title}</p>
-                      <Counter />
+                      <Counter initialValue={quantity} />
                       <button
                         /* onClick={handleDelete} */
                         className="item__btn--delete"

@@ -57,10 +57,20 @@ const Home = (/* props */) => {
     // console.log(...cart);
     // console.log(...products);
 
+    // const itemsQuantity = cart.map((item) => {
+    //   if (item.id === id) {
+    //     item.quantity = Number(item.quantity) + 1;
+    //   }
+    //   return item;
+    // });
+
+    // setCart(itemsQuantity);
+
     setCart([
       ...cart,
       {
         ...products.find((product) => product.id === id),
+        quantity: 1
       },
     ]);
 
@@ -142,7 +152,7 @@ const Home = (/* props */) => {
                 />
               ))) || <h2>No products obtained</h2>}
           </div> */}
-          
+
           <div>
             <Checkout cart={cart} />
           </div>
@@ -152,7 +162,7 @@ const Home = (/* props */) => {
       {console.log(cart)}
     </>
   );
-}
+};
 
 export default Home;
 
