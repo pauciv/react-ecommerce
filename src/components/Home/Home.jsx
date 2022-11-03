@@ -18,7 +18,7 @@ import Cart from '../Cart/Cart';
 
 // console.log(products);
 
-const loadCart = () => {
+/* const loadCart = () => {
   console.log(`loadCart`);
   // * --- getItem para leer el item (cart) almacenado en el local storage.
   const getCart = localStorage.getItem('cart');
@@ -36,12 +36,13 @@ const loadCart = () => {
   } else {
     return [];
   }
-};
+}; */
 
-const Home = (/* props */) => {
+const Home = ({ cart, addToCart }) => {
+  console.log(cart)
   // props.cart(cart)
 
-  const [cart, setCart] = useState(() => loadCart());
+/*   const [cart, setCart] = useState(() => loadCart());
 
   useEffect(() => {
     console.log(`useEffect`);
@@ -80,7 +81,7 @@ const Home = (/* props */) => {
     //     console.log(product);
     //   }
     // });
-  };
+  }; */
 
   return (
     <>
@@ -153,9 +154,9 @@ const Home = (/* props */) => {
               ))) || <h2>No products obtained</h2>}
           </div> */}
 
-          <div>
+          {/* <div>
             <Checkout cart={cart} />
-          </div>
+          </div> */}
         </div>
       </main>
       {/* <p>{JSON.stringify(cart)}</p> */}

@@ -8,8 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { getTotalItems } from '../Subtotal/Subtotal';
 
-const Header = ({ /* cart */ }) => {
-	// const Header = () => {
+const Header = ({ cart }) => {
 	return (
 		<div className="header">
 			{/* <Link to="/"> */}
@@ -50,7 +49,7 @@ const Header = ({ /* cart */ }) => {
 				</div>
 
 				<div className="header__option header__optionBasket">
-					<span className="header__basketCount">{/* {getTotalItems(cart)} */}</span>
+					<span className="header__basketCount">{getTotalItems(cart)}</span>
 					<ShoppingCartIcon className="header__cartIncon" />
 				</div>
 			</div>

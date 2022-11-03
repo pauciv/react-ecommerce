@@ -20,11 +20,11 @@
     font-weight: 700;
 }
 
-.cart__product {
+.cart__items {
     width: 100%;
 }
 
-.cart__product--image {
+.cart__item--image {
     max-height: 200px;
     width: 100%;
     object-fit: contain;
