@@ -15,7 +15,7 @@ const Counter = ({ initialValue = 1 }) => {
   return (
     <>
       <div className="counter">
-        <p>Qty: {numItems}</p>
+        <p>Qty: {numItems}</p> {/* numItems que sea el value de un input? */}
         <button onClick={addItem}>+</button>
 
         {(numItems > 1 && <button onClick={subtractItem}>-</button>) || (

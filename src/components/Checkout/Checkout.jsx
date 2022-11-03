@@ -40,9 +40,14 @@ const Checkout = ({ cart, quantity, handleDelete }) => {
                     <div className="item__info">
                       <p className="item__title">{item.title}</p>
 
-                      <Counter initialValue={quantity /* en el caso de que se haga add to cart con más de 1 item */}  />
+                      <Counter
+                        initialValue={
+                          quantity /* en el caso de que se haga add to cart con más de 1 item */
+                        }
+                      />
 
                       <button
+                        type="button"
                         onClick={() => handleDelete(item.id)}
                         className="item__btn--delete"
                       >
