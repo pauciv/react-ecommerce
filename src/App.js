@@ -76,10 +76,10 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    console.log("handleDelete")
+    console.log('handleDelete');
     const items = cart.filter((item) => item.id !== id);
     setCart(items);
-  }
+  };
 
   function handleQuantity(event, id) {
     const items = cart.map((item) => {
@@ -100,17 +100,17 @@ function App() {
           <Header cart={cart} />
           <Home cart={cart} addToCart={addToCart} /* cart={pullCart} */ />
           {/* <p>The Checkout component will be displayed in another page</p> */}
-          <Checkout cart={cart} />
+          <Checkout
+            cart={cart}
+            handleDelete={handleDelete}
+            handleQuantity={handleQuantity}
+          />
         </div>
         {/* solo debe aparecer si hay > 0 productos en el carrito */}
 
         {cart.length > 0 ? (
           <aside className="cart">
-            <Cart
-              cart={cart}
-              handleDelete={handleDelete}
-              handleQuantity={handleQuantity}
-            />
+            <Cart cart={cart} />
           </aside>
         ) : null}
       </div>
