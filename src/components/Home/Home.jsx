@@ -159,6 +159,7 @@ const Home = ({ cart, addToCart }) => {
           </div> */}
         </div>
       </main>
+      
       {/* <p>{JSON.stringify(cart)}</p> */}
       {console.log(cart)}
     </>

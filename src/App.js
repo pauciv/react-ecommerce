@@ -6,16 +6,12 @@ import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 
 import products from './assets/db/db';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 // import Product from './components/Product/Product';
 // import ChildrenProd from './components/Product/ChildrenProd';
 
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-// const pullCart = (cart) => {
-//   console.log(cart)
-//   console.log("yes")
-// }
 
 const loadCart = () => {
   console.log(`loadCart`);
@@ -79,6 +75,24 @@ function App() {
     // });
   };
 
+  const handleDelete = (id) => {
+    console.log("handleDelete")
+    const items = cart.filter((item) => item.id !== id);
+    setCart(items);
+  }
+
+  function handleQuantity(event, id) {
+    const items = cart.map((item) => {
+      if (item.id === id) {
+        item.quantity = Number(event.target.value);
+      }
+
+      return item;
+    });
+
+    setCart(items);
+  }
+
   return (
     <>
       <div className="app">
@@ -89,11 +103,30 @@ function App() {
           <Checkout cart={cart} />
         </div>
         {/* solo debe aparecer si hay > 0 productos en el carrito */}
-        <aside className="cart">
-          <Cart cart={cart} />
-        </aside>
+
+        {cart.length > 0 ? (
+          <aside className="cart">
+            <Cart
+              cart={cart}
+              handleDelete={handleDelete}
+              handleQuantity={handleQuantity}
+            />
+          </aside>
+        ) : null}
       </div>
       {/* <p>{JSON.stringify(cart)}</p> */}
+
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header cart={cart} />}>
+            <Route
+              index element={<Home cart={cart} addToCart={addToCart} />}
+            />
+            <Route path="checkout" element={<Checkout cart={cart} />} />
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </Route>
+        </Routes>
+      </BrowserRouter> */}
     </>
   );
 }
