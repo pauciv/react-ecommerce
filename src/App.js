@@ -33,8 +33,9 @@ const loadCart = () => {
   }
 };
 
-function App() {
+function App({ initialValue = 1 }) {
   const [cart, setCart] = useState(() => loadCart());
+  // const [numItems, setNumItems] = useState(initialValue);
 
   useEffect(() => {
     console.log(`useEffect`);
@@ -63,7 +64,7 @@ function App() {
       ...cart,
       {
         ...products.find((product) => product.id === id),
-        quantity: 1,
+        /* quantity: 1, */
       },
     ]);
 
@@ -81,29 +82,50 @@ function App() {
     setCart(items);
   };
 
-  function handleQuantity(event, id) {
-    const items = cart.map((item) => {
-      if (item.id === id) {
-        item.quantity = Number(event.target.value);
-      }
+  //   const handleDelete = useCallback(
+  //     (userId) => {
+  //       setUsers(users.filter((user) => user.id !== userId));
+  //     },
+  //     [users]
+  //   );
 
-      return item;
-    });
+  function handleIncrementQty(id) {
+    console.log(id);
+    // setNumItems((prevState) => prevState + 1);
 
-    setCart(items);
+    // const items = cart.map((item) => {
+    //   if (item.id === id) {
+    //     item.quantity = numItems;
+    //   }
+    //   return item;
+    // });
+    // console.log(items);
+    // setCart(items);
   }
+
+  // function handleQuantity(event, id) {
+  //   const items = cart.map((item) => {
+  //     if (item.id === id) {
+  //       item.quantity = Number(event.target.value);
+  //     }
+
+  //     return item;
+  //   });
+
+  //   setCart(items);
+  // }
 
   return (
     <>
       <div className="app">
         <div className="main">
           <Header cart={cart} />
-          <Home cart={cart} addToCart={addToCart} /* cart={pullCart} */ />
+          <Home cart={cart} addToCart={addToCart} />
           {/* <p>The Checkout component will be displayed in another page</p> */}
           <Checkout
             cart={cart}
             handleDelete={handleDelete}
-            handleQuantity={handleQuantity}
+            handleIncrementQty={handleIncrementQty}
           />
         </div>
         {/* solo debe aparecer si hay > 0 productos en el carrito */}
@@ -154,3 +176,80 @@ export default App;
 	</div>
 </Router> */
 }
+
+// import { useEffect, useState, useMemo, useCallback, useId } from 'react';
+// import List from './List';
+
+// const initialUsers = [
+//   { id: 1, name: 'Maria' },
+//   { id: 2, name: 'Pau' },
+// ];
+
+// function App() {
+//   const [users, setUsers] = useState(initialUsers);
+//   const [text, setText] = useState('');
+//   const [search, setSearch] = useState('');
+//   // const id = useId();
+
+//   const handleAdd = () => {
+//     const newUser = { id: Date.now(), name: text };
+//     setUsers([...users, newUser]);
+//   };
+
+//   // useCallback
+//   const handleDelete = useCallback(
+//     (userId) => {
+//       setUsers(users.filter((user) => user.id !== userId));
+//     },
+//     [users]
+//   );
+
+//   const handleSearch = () => {
+//     setSearch(text);
+//   };
+
+//   // const filteredUsers = users.filter((user) => {
+//   //   console.log('filter process');
+//   //   return user.name.toLowerCase().includes(search.toLowerCase()); // para hacer la búsqueda sin darle a search, en lugar de poner search, ponemos text.
+//   // });
+
+//   // useMemo
+//   const filteredUsers = useMemo(
+//     () =>
+//       users.filter((user) => {
+//         // console.log('filter process');
+//         return user.name.toLowerCase().includes(search.toLowerCase()); // para hacer la búsqueda sin darle a search, en lugar de poner search, ponemos text.
+//       }),
+//     [search, users]
+//   );
+
+//   const printUsers = useCallback(() => {
+//     console.log('users changed', users);
+//   }, [users]);
+
+//   useEffect(() => {
+//     // console.log('App render');
+//     // console.log(users);
+//   });
+
+//   useEffect(() => {
+//     printUsers();
+//   }, [users, printUsers]);
+
+//   return (
+//     <>
+//       <div>
+//         <input
+//           type="text"
+//           value={text}
+//           onChange={(e) => setText(e.target.value)}
+//         />
+//         <button onClick={handleSearch}>Search</button>
+//         <button onClick={handleAdd}>Add</button>
+//         <List users={filteredUsers} handleDelete={handleDelete} />
+//       </div>
+//     </>
+//   );
+// }
+
+// export default App;

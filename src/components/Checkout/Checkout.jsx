@@ -6,7 +6,7 @@ import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
 
-const Checkout = ({ cart, quantity, handleDelete }) => {
+const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
   // cart &&
   //   cart.map((item) => {
   //     console.log(item.title);
@@ -40,10 +40,10 @@ const Checkout = ({ cart, quantity, handleDelete }) => {
                     <div className="item__info">
                       <p className="item__title">{item.title}</p>
 
-                      <Counter
-                        initialValue={
-                          quantity /* en el caso de que se haga add to cart con más de 1 item */
-                        }
+                      <Counter handleIncrementQty={() => handleIncrementQty(item.id)}
+                        // initialValue={
+                        //   quantity /* en el caso de que se haga add to cart con más de 1 item */
+                        // }
                       />
 
                       <button

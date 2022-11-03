@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import './Counter.css';
 
-const Counter = ({ initialValue = 1 }) => {
+const Counter = ({ initialValue = 1, handleIncrementQty }) => {
   const [numItems, setNumItems] = useState(initialValue);
 
-  const addItem = () => {
+  const handleAddItem = () => {
     setNumItems((prevState) => prevState + 1);
   };
 
-  const subtractItem = () => {
+  const handleSubtractItem = () => {
     setNumItems((prevState) => prevState - 1);
   };
 
@@ -16,9 +16,10 @@ const Counter = ({ initialValue = 1 }) => {
     <>
       <div className="counter">
         <p>Qty: {numItems}</p> {/* numItems que sea el value de un input? */}
-        <button onClick={addItem}>+</button>
-
-        {(numItems > 1 && <button onClick={subtractItem}>-</button>) || (
+        <button onClick={handleAddItem}>+</button>
+        {/* <button onClick={handleIncrementQty}>+qty</button> */}
+        
+        {(numItems > 1 && <button onClick={handleSubtractItem}>-</button>) || (
           <button disabled>-</button>
         )}
 
