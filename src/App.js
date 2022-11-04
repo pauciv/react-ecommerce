@@ -8,21 +8,16 @@ import Checkout from './components/Checkout/Checkout';
 import products from './assets/db/db';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-// import Product from './components/Product/Product';
-// import ChildrenProd from './components/Product/ChildrenProd';
-
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 const loadCart = () => {
-  console.log(`loadCart`);
+  // console.log(`loadCart`);
   // * --- getItem para leer el item (cart) almacenado en el local storage.
   const getCart = localStorage.getItem('cart');
   // console.log(getCart);
 
   if (getCart) {
     try {
-      console.log(getCart);
-      console.log(JSON.parse(getCart));
+      // console.log(getCart);
+      // console.log(JSON.parse(getCart));
 
       return JSON.parse(getCart);
     } catch (error) {
@@ -33,47 +28,46 @@ const loadCart = () => {
   }
 };
 
-function App({ initialValue = 1 }) {
+function App() {
   const [cart, setCart] = useState(() => loadCart());
   // const [numItems, setNumItems] = useState(initialValue);
 
   useEffect(() => {
-    console.log(`useEffect`);
-
     // * --- setItem para agregar un item (cart) al local storage.
     localStorage.setItem('cart', JSON.stringify(cart));
     console.log(cart); // está dentro del useEffect para que me muestre en consola el cart actualizado
   }, [cart]);
 
   const addToCart = (id) => {
-    // console.log(id);
-    // console.log(cart);
-    // console.log(...cart);
-    // console.log(...products);
+    // Comprovar si el item añadido existe en cart (si no existe, findIndex retorna -1, y si existe, retorna el index del array)
+    const isInCart = cart.findIndex((item) => item.id === id);
 
-    // const itemsQuantity = cart.map((item) => {
-    //   if (item.id === id) {
-    //     item.quantity = Number(item.quantity) + 1;
-    //   }
-    //   return item;
-    // });
+    if (isInCart === -1) {
+      // ! NO
+      const items = [
+        ...cart,
+        {
+          ...products.find((product) => product.id === id),
+          quantity: 1,
+        },
+      ];
 
-    // setCart(itemsQuantity);
+      console.log(items);
+      setCart(items);
+    } else {
+      // ! YES
+      const items = cart.map((item) => {
+        if (item.id === id) {
+          item.quantity += 1; // item.quantity = Number(item.quantity) + 1;
+        }
 
-    setCart([
-      ...cart,
-      {
-        ...products.find((product) => product.id === id),
-        /* quantity: 1, */
-      },
-    ]);
+        console.log(item);
+        return item;
+      });
 
-    // products.map((product) => {
-    //   // = cart.map ??
-    //   if (product.id === id) {
-    //     console.log(product);
-    //   }
-    // });
+      console.log(items);
+      setCart(items);
+    }
   };
 
   const handleDelete = (id) => {
@@ -128,7 +122,6 @@ function App({ initialValue = 1 }) {
             handleIncrementQty={handleIncrementQty}
           />
         </div>
-        {/* solo debe aparecer si hay > 0 productos en el carrito */}
 
         {cart.length > 0 ? (
           <aside className="cart">
@@ -144,8 +137,8 @@ function App({ initialValue = 1 }) {
             <Route
               index element={<Home cart={cart} addToCart={addToCart} />}
             />
-            <Route path="checkout" element={<Checkout cart={cart} />} />
-            <Route path="*" element={<Navigate replace to="/" />} />
+            <Route path="/checkout" element={<Checkout cart={cart} />} />
+            <Route path="/*" element={<Navigate replace to="/" />} />
           </Route>
         </Routes>
       </BrowserRouter> */}

@@ -26,8 +26,8 @@ const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
               // console.log(item.title);
               return (
                 <>
-                  <CheckoutItem key={`c-${item.id}`} quantity={item.quantity}>
-                    {/* {console.log(item.id)} */}
+                  <CheckoutItem key={item.id} quantity={item.quantity}>
+                    {console.log(item.id)}
                     {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
                     <div className="item__image">
                       <img
@@ -40,7 +40,7 @@ const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
                     <div className="item__info">
                       <p className="item__title">{item.title}</p>
 
-                      <Counter handleIncrementQty={() => handleIncrementQty(item.id)}
+                      <Counter itemQuantity={item.quantity} handleIncrementQty={() => handleIncrementQty(item.id)}
                         // initialValue={
                         //   quantity /* en el caso de que se haga add to cart con más de 1 item */
                         // }

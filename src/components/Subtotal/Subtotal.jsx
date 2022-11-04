@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { dataContext } from '../../context/DataContextProvider';
+
+import { useDataContext } from '../../context/DataContextProvider';
+
 import './Subtotal.css';
 
 export const getTotalPrice = (cart) =>
@@ -6,7 +10,7 @@ export const getTotalPrice = (cart) =>
 
 export const getTotalItems = (cart) => cart.length;
 
-let item = "items";
+let item = 'items';
 
 const Subtotal = ({ cart }) => {
   // const getTotalPrice = (cart) =>
@@ -16,14 +20,21 @@ const Subtotal = ({ cart }) => {
 
   // cart.length = 1 ? (item = "item") : (item = "items")
 
+  // const contextData = useContext(dataContext)
+  const { contextData } = useContext(dataContext);
+  // const { contextData } = useDataContext();
+
   return (
     <div className="subtotal">
       {/* npm i react-currency-format */}
       <div>
-        <p className='subtotal__p'>
-        
-          Subtotal ({getTotalItems(cart)} {item}): <strong><small>$</small>
-          {getTotalPrice(cart)}</strong>
+        <p className="subtotal__p">
+          Subtotal ({getTotalItems(cart)} {item}):{' '}
+          <strong>
+            <small>$</small>
+            {getTotalPrice(cart)}
+          </strong>
+          {/* {contextData} */}
         </p>
       </div>
     </div>
