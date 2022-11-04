@@ -18,6 +18,7 @@ const Counter = ({ initialValue = 1, itemQuantity, handleIncrementQty }) => {
     <>
       <div className="counter">
         <p>Qty: {itemQty}</p> {/* numItems que sea el value de un input? */}
+        {/* <input type='num' value={itemQuantity} /> */}
         <button onClick={handleAddItem}>+</button>
         {/* <button onClick={handleIncrementQty}>+qty</button> */}
         {itemQty > 1 ? (
