@@ -1,6 +1,6 @@
 // rfce or rafce + enter (to create a component with the file name)
 
-import React from 'react';
+import React, { memo } from 'react';
 import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -15,13 +15,13 @@ const Header = ({ cart }) => {
     <>
       {/* <div className="flex__container"> */}
         <nav className="header">
-          {/* <Link to="/"> */}
+          <Link to="/">
             <img
               className="header__logo"
               src="logo512.png" /* src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" */
               alt="reactjs logo"
             />
-          {/* </Link> */}
+          </Link>
 
           <div className="header__option">
             <span className="header__optionLineOne">Deliver to</span>
@@ -53,14 +53,14 @@ const Header = ({ cart }) => {
               <span className="header__optionLineTwo">& Orders</span>
             </div>
 
-            {/* <Link to="/checkout"> */}
+            <Link to="/checkout">
               <div className="header__option header__optionBasket">
                 <span className="header__basketCount">
                   {getTotalItems(cart)}
                 </span>
                 <ShoppingCartIcon className="header__cartIncon" />
               </div>
-            {/* </Link> */}
+            </Link>
           </div>
         </nav>
 
@@ -76,4 +76,4 @@ const Header = ({ cart }) => {
   );
 };
 
-export default Header;
+export default memo(Header);

@@ -27,3 +27,5 @@ export const useDataContext = () => {
     throw new Error('useDataContext must be used within a DataContextProvider');
   }
 };
+
+//! index.js que sea archivo de barril donde exportamos todos los contexts.

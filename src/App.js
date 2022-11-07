@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
+import Footer from './components/Footer/Footer';
 
 import products from './assets/db/db';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Router from './routes/Router';
+import Cart from './components/Cart/Cart';
+import ItemQtyProvider from './components/context/ItemQtyProvider';
 
 const loadCart = () => {
   // console.log(`loadCart`);
@@ -111,11 +114,18 @@ function App() {
 
   return (
     <>
-      <div className="app">
+      {/* <ItemQtyProvider>
+        <BrowserRouter>
+          <Header />
+          <Router />
+          <Footer />
+        </BrowserRouter>
+      </ItemQtyProvider> */}
+
+      {/* <div className="app">
         <div className="main">
           <Header cart={cart} />
           <Home cart={cart} addToCart={addToCart} />
-          {/* <p>The Checkout component will be displayed in another page</p> */}
           <Checkout
             cart={cart}
             handleDelete={handleDelete}
@@ -128,20 +138,32 @@ function App() {
             <Cart cart={cart} />
           </aside>
         ) : null}
-      </div>
+      </div> */}
       {/* <p>{JSON.stringify(cart)}</p> */}
 
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Header cart={cart} />}>
-            <Route
-              index element={<Home cart={cart} addToCart={addToCart} />}
-            />
-            <Route path="/checkout" element={<Checkout cart={cart} />} />
-            <Route path="/*" element={<Navigate replace to="/" />} />
-          </Route>
-        </Routes>
-      </BrowserRouter> */}
+      <ItemQtyProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Header cart={cart} />}>
+              <Route
+                index
+                element={<Home cart={cart} addToCart={addToCart} />}
+              />
+              <Route
+                path="/checkout"
+                element={
+                  <Checkout
+                    cart={cart}
+                    handleDelete={handleDelete}
+                    handleIncrementQty={handleIncrementQty}
+                  />
+                }
+              />
+              <Route path="/*" element={<Navigate replace to="/" />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ItemQtyProvider>
     </>
   );
 }

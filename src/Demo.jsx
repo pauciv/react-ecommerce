@@ -18,7 +18,6 @@ const Demo = ({ initialValue = 1, btnProp }) => {
     setNumItems((prev) => prev - 1);
   };
 
-
   const [state, setState] = useState({
     name: 'Pau',
     surname: 'Civill',
@@ -33,7 +32,6 @@ const Demo = ({ initialValue = 1, btnProp }) => {
       };
     });
   };
-
 
   return (
     <>
@@ -53,7 +51,9 @@ const Demo = ({ initialValue = 1, btnProp }) => {
 
       <div>
         <p>{JSON.stringify(state)}</p>
-        <p>{state.name} {state.id}</p>
+        <p>
+          {state.name} {state.id}
+        </p>
         <button onClick={assignId}>Set Id</button>
       </div>
     </>
@@ -62,4 +62,17 @@ const Demo = ({ initialValue = 1, btnProp }) => {
 
 export default Demo;
 
+// * async / await
 
+// async function foo() {
+//   return 2; // el valor que retorna va encapsulado dentro de un objeto promise
+// }
+
+// // -- usando await (espera a que se resuelva la promesa)
+// // const a = await foo() // 2
+// // console.log(a)
+
+// // -- usando el callback then
+// const dev = foo(); // Objeto promise
+// // console.log(dev);
+// dev.then((value) => console.log(value)); // 2

@@ -5,8 +5,8 @@ const ItemQtyProvider = ({ initialValue = 1, children }) => {
   const [itemQty, setItemQty] = useState(initialValue);
 
   return (
-    <ItemQtyContext.Provider value={{ itemQty, setItemQty }}>
-        {children}
+    <ItemQtyContext.Provider value={[ itemQty, setItemQty ]}>
+      {children}
     </ItemQtyContext.Provider>
   );
 };

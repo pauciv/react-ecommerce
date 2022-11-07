@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Subtotal from '../Subtotal/Subtotal';
 import Counter from '../Counter/Counter';
 
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
+import { ItemQtyContext } from '../context/ItemQtyContext';
 
 const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
   // cart &&
   //   cart.map((item) => {
   //     console.log(item.title);
   //   });
+
+  //! ITEM QUANTITY CONTEXT
+  const [itemQty, setItemQty] = useContext(ItemQtyContext)
+  console.log(itemQty);
 
   return (
     <div className="checkout">
