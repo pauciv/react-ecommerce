@@ -5,7 +5,7 @@ const Counter = ({ initialValue = 1, itemQuantity, addToCart, handleSubtractQty,
   const [itemQty, setItemQty] = useState(initialValue);
 
   console.log(itemQuantity)
-
+  
   // const handleAddItem = () => {
   //   setItemQty((prevState) => prevState + 1);
   // };
