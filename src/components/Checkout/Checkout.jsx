@@ -7,14 +7,20 @@ import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
 import { ItemQtyContext } from '../context/ItemQtyContext';
 
-const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
+const Checkout = ({
+  cart,
+  addToCart,
+  handleDelete,
+  handleSubtractQty,
+  handleIncrementQty,
+}) => {
   // cart &&
   //   cart.map((item) => {
   //     console.log(item.title);
   //   });
 
   //! ITEM QUANTITY CONTEXT
-  const [itemQty, setItemQty] = useContext(ItemQtyContext)
+  const [itemQty, setItemQty] = useContext(ItemQtyContext); // el useState está en el ItemQtyProvider
   console.log(itemQty);
 
   return (
@@ -26,12 +32,13 @@ const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
         </div>
 
         <div className="checkout__items">
+          {console.log(cart)}
           {(cart &&
             cart.map((item) => {
               // console.log(item.title);
               return (
                 <>
-                  <CheckoutItem key={item.id} quantity={item.quantity}>
+                  <CheckoutItem key={item.id} /* quantity={item.quantity} */>
                     {console.log(item.id)}
                     {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
                     <div className="item__image">
@@ -45,7 +52,24 @@ const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
                     <div className="item__info">
                       <p className="item__title">{item.title}</p>
 
-                      <Counter itemQuantity={item.quantity} handleIncrementQty={() => handleIncrementQty(item.id)}
+                      <p>{itemQty}</p>
+                      <button
+                        onClick={() => setItemQty((prevState) => prevState + 1)}
+                      >
+                        +
+                      </button>
+                      <button
+                        onClick={() => setItemQty((prevState) => prevState - 1)}
+                      >
+                        -
+                      </button>
+
+                      <Counter
+                        itemQuantity={item.quantity}
+                        addToCart={() => addToCart(item.id)}
+                        handleSubtractQty={() => handleSubtractQty(item.id)}
+                        handleIncrementQty={() => handleIncrementQty(item.id)}
+
                         // initialValue={
                         //   quantity /* en el caso de que se haga add to cart con más de 1 item */
                         // }
@@ -63,7 +87,7 @@ const Checkout = ({ cart, handleDelete, handleIncrementQty }) => {
                     <div>
                       <p className="item__price">
                         <small>$</small>
-                        {item.price}
+                        {item.price * item.quantity}
                       </p>
                     </div>
                   </CheckoutItem>

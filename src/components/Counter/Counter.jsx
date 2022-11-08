@@ -1,28 +1,28 @@
 import { useState } from 'react';
 import './Counter.css';
 
-const Counter = ({ initialValue = 1, itemQuantity, handleIncrementQty }) => {
+const Counter = ({ initialValue = 1, itemQuantity, addToCart, handleSubtractQty, handleIncrementQty }) => {
   const [itemQty, setItemQty] = useState(initialValue);
 
   console.log(itemQuantity)
 
-  const handleAddItem = () => {
-    setItemQty((prevState) => prevState + 1);
-  };
+  // const handleAddItem = () => {
+  //   setItemQty((prevState) => prevState + 1);
+  // };
 
-  const handleSubtractItem = () => {
-    setItemQty((prevState) => prevState - 1);
-  };
+  // const handleSubtractItem = () => {
+  //   setItemQty((prevState) => prevState - 1);
+  // };
 
   return (
     <>
       <div className="counter">
-        <p>Qty: {itemQty}</p> {/* numItems que sea el value de un input? */}
+        <p>Qty: {itemQuantity}</p> {/* numItems que sea el value de un input? */}
         {/* <input type='num' value={itemQuantity} /> */}
-        <button onClick={handleAddItem}>+</button>
+        <button onClick={addToCart}>+</button>
         {/* <button onClick={handleIncrementQty}>+qty</button> */}
-        {itemQty > 1 ? (
-          <button onClick={handleSubtractItem}>-</button>
+        {itemQuantity > 1 ? (
+          <button onClick={handleSubtractQty}>-</button>
         ) : (
           <button disabled>-</button>
         )}

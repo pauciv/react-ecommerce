@@ -86,6 +86,23 @@ function App() {
   //     [users]
   //   );
 
+  const handleSubtractQty = (id) => {
+    const isInCart = cart.findIndex((item) => item.id === id);
+
+    if (isInCart !== -1) {
+      // ! YES
+      const items = cart.map((item) => {
+        if (item.id === id) {
+          item.quantity -= 1; // item.quantity = Number(item.quantity) - 1;
+        }
+
+        return item;
+      });
+
+      setCart(items);
+    }
+  };
+
   function handleIncrementQty(id) {
     console.log(id);
     // setNumItems((prevState) => prevState + 1);
@@ -142,6 +159,11 @@ function App() {
       {/* <p>{JSON.stringify(cart)}</p> */}
 
       <ItemQtyProvider>
+        {cart.length > 0 ? (
+          <aside className="cart">
+            <Cart cart={cart} />
+          </aside>
+        ) : null}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Header cart={cart} />}>
@@ -154,7 +176,9 @@ function App() {
                 element={
                   <Checkout
                     cart={cart}
+                    addToCart={addToCart}
                     handleDelete={handleDelete}
+                    handleSubtractQty={handleSubtractQty}
                     handleIncrementQty={handleIncrementQty}
                   />
                 }

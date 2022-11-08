@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ChildrenProd from '../Product/ChildrenProd';
 import products from '../../assets/db/db';
 import './Cart.css';
 
 import { getTotalPrice } from '../Subtotal/Subtotal';
 import CartItem from '../CartItem/CartItem';
+import { ItemQtyContext } from '../context/ItemQtyContext';
 
 const Cart = ({ cart }) => {
+  const [itemQty, setItemQty] = useContext(ItemQtyContext) // el useState está en el ItemQtyProvider
+
   return (
     <>
       <div className="cart__subtotal">
@@ -15,6 +18,7 @@ const Cart = ({ cart }) => {
           <small>$</small>
           {getTotalPrice(cart)}
         </span>
+        {itemQty}
       </div>
 
       <div className="cart__items">
@@ -29,6 +33,7 @@ const Cart = ({ cart }) => {
                     src={item.image}
                     alt="product image"
                   />
+                  <p>{item.quantity}</p>
                 </CartItem>
               </>
             );
