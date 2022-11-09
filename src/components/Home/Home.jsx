@@ -39,10 +39,10 @@ import Cart from '../Cart/Cart';
 }; */
 
 const Home = ({ cart, addToCart }) => {
-  console.log(cart)
+  // console.log(cart)
   // props.cart(cart)
 
-/*   const [cart, setCart] = useState(() => loadCart());
+  /*   const [cart, setCart] = useState(() => loadCart());
 
   useEffect(() => {
     console.log(`useEffect`);
@@ -159,9 +159,9 @@ const Home = ({ cart, addToCart }) => {
           </div> */}
         </div>
       </main>
-      
+
       {/* <p>{JSON.stringify(cart)}</p> */}
-      {console.log(cart)}
+      {/* {console.log(cart)} */}
     </>
   );
 };

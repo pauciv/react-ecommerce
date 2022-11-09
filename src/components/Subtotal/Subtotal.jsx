@@ -5,10 +5,15 @@ import { useDataContext } from '../context/DataContextProvider';
 
 import './Subtotal.css';
 
-export const getTotalPrice = (cart) =>
-  cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
+export const getTotalPrice = (cart) => {
+  const totalPrice = cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
+  return totalPrice;
+}
 
-export const getTotalItems = (cart) => cart.length;
+export const getTotalItems = (cart) => {
+  const totalItems = cart.reduce((acc, cur) => acc + cur.quantity, 0);
+  return totalItems;
+}
 
 let item = 'items';
 

@@ -21,7 +21,7 @@ const Checkout = ({
 
   //! ITEM QUANTITY CONTEXT
   const [itemQty, setItemQty] = useContext(ItemQtyContext); // el useState está en el ItemQtyProvider
-  console.log(itemQty);
+  // console.log(itemQty);
 
   return (
     <div className="checkout">
@@ -32,14 +32,13 @@ const Checkout = ({
         </div>
 
         <div className="checkout__items">
-          {console.log(cart)}
           {(cart &&
             cart.map((item) => {
               // console.log(item.title);
               return (
                 <>
                   <CheckoutItem key={item.id} /* quantity={item.quantity} */>
-                    {console.log(item.id)}
+                    {/* {console.log(item.id)} */}
                     {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
                     <div className="item__image">
                       <img

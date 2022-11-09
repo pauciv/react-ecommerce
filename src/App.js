@@ -10,6 +10,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
 import ItemQtyProvider from './components/context/ItemQtyProvider';
+import getProducts from './api/getProducts';
 
 const loadCart = () => {
   // console.log(`loadCart`);
@@ -32,6 +33,8 @@ const loadCart = () => {
 };
 
 function App() {
+  getProducts();
+
   const [cart, setCart] = useState(() => loadCart());
   // const [numItems, setNumItems] = useState(initialValue);
 
@@ -55,7 +58,7 @@ function App() {
         },
       ];
 
-      console.log(items);
+      // console.log(items);
       setCart(items);
     } else {
       // ! YES
@@ -64,11 +67,11 @@ function App() {
           item.quantity += 1; // item.quantity = Number(item.quantity) + 1;
         }
 
-        console.log(item);
+        // console.log(item);
         return item;
       });
 
-      console.log(items);
+      // console.log(items);
       setCart(items);
     }
   };

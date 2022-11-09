@@ -27,7 +27,7 @@ const Cart = ({ cart }) => {
             return (
               <>
                 <CartItem key={item.id}>
-                  {console.log(item.id)}
+                  {/* {console.log(item.id)} */}
                   <img
                     className="cart__item--image"
                     src={item.image}

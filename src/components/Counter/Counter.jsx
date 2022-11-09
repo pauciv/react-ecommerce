@@ -4,7 +4,7 @@ import './Counter.css';
 const Counter = ({ initialValue = 1, itemQuantity, addToCart, handleSubtractQty, handleIncrementQty }) => {
   const [itemQty, setItemQty] = useState(initialValue);
 
-  console.log(itemQuantity)
+  // console.log(itemQuantity)
   
   // const handleAddItem = () => {
   //   setItemQty((prevState) => prevState + 1);
