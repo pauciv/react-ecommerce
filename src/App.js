@@ -39,7 +39,13 @@ function App() {
   const [products, setProducts] = useState([]);
   console.log('products = ', products);
 
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setError(false);
+    setLoading(true);
+
     // const fetchData = async () => {
     //   const response = await fetch(url);
     //   console.log(response); // status: 200
@@ -47,7 +53,7 @@ function App() {
     //   const json = await response.json();
     //   console.log("json = ", json); // response.json is not a function (porque falta el async)
     // };
-    getProducts(setProducts); // únicamente se ejecuta una vez al renderizar el componente App.
+    getProducts(setProducts, setError, setLoading); // únicamente se ejecuta una vez al renderizar el componente App.
   }, [url]); // se volvería a renderizar si cambiara la url.
 
   //! ___
@@ -179,33 +185,45 @@ function App() {
       {/* <p>{JSON.stringify(cart)}</p> */}
 
       <ItemQtyProvider>
-        {cart.length > 0 ? (
-          <aside className="cart">
-            <Cart cart={cart} />
-          </aside>
-        ) : null}
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Header cart={cart} />}>
-              <Route
-                index
-                element={<Home products={products} cart={cart} addToCart={addToCart} />}
-              />
-              <Route
-                path="/checkout"
-                element={
-                  <Checkout
-                    cart={cart}
-                    addToCart={addToCart}
-                    handleDelete={handleDelete}
-                    handleSubtractQty={handleSubtractQty}
-                    handleIncrementQty={handleIncrementQty}
+          <div className="app">
+            <div className="main">
+              <Routes>
+                <Route path="/" element={<Header cart={cart} />}>
+                  <Route
+                    index
+                    element={
+                      <Home
+                        products={products}
+                        error={error}
+                        loading={loading}
+                        cart={cart}
+                        addToCart={addToCart}
+                      />
+                    }
                   />
-                }
-              />
-              <Route path="/*" element={<Navigate replace to="/" />} />
-            </Route>
-          </Routes>
+                  <Route
+                    path="/checkout"
+                    element={
+                      <Checkout
+                        cart={cart}
+                        addToCart={addToCart}
+                        handleDelete={handleDelete}
+                        handleSubtractQty={handleSubtractQty}
+                        handleIncrementQty={handleIncrementQty}
+                      />
+                    }
+                  />
+                  <Route path="/*" element={<Navigate replace to="/" />} />
+                </Route>
+              </Routes>
+            </div>
+            {cart.length > 0 ? (
+              <aside className="cart">
+                <Cart cart={cart} />
+              </aside>
+            ) : null}
+          </div>
         </BrowserRouter>
       </ItemQtyProvider>
     </>

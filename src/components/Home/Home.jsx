@@ -14,7 +14,9 @@ import './Home.css';
 import Checkout from '../Checkout/Checkout';
 import Cart from '../Cart/Cart';
 
-const Home = ({ products, cart, addToCart }) => {
+import { TailSpin } from 'react-loader-spinner';
+
+const Home = ({ products, error, loading, cart, addToCart }) => {
   return (
     <main className="home">
       <div className="home__container">
@@ -25,6 +27,19 @@ const Home = ({ products, cart, addToCart }) => {
           /> */}
 
         <div className="home__row">
+          {error ?? 'Page not found'}
+          {loading ? (
+            <TailSpin
+              height="80"
+              width="80"
+              color="#61dafb"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : null}
           {products ? (
             products.map((product) => (
               <ChildrenProd key={product.id}>
