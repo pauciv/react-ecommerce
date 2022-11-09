@@ -1,16 +1,30 @@
-const url = 'http://localhost:3001/products';
-// const url =
-//   'https://api.giphy.com/v1/gifs/search?api_key=9n97Krm5Q8sMwx8RjCd1Wv2pQj5AgUtB&q=basketball&limit=25&offset=0&rating=g&lang=en';
+export const url = 'http://localhost:3001/products';
 
-const getProducts = async () => {
-  const response = await fetch(url);
-  //console.log(response); // status: 200
+//TODO: implementar useCallback a esta función
 
-  const json = await response.json();
-  console.log(json); // response.json is not a function (porque falta el async)
+export const getProducts = async (setProducts) => {
+  try {
+    const response = await fetch(url);
+    console.log(response); // status: 200
 
-  const data = json.data;
-  console.log(data);
+    const json = await response.json();
+    console.log('json = ', json); // response.json is not a function (porque falta el async)
+
+    setProducts(json);
+
+  } catch (error) {
+    // declarar otro estado que gestione los errores.
+  }
 };
 
-export default getProducts;
+// const url = 'http://localhost:3001/products';
+
+// const getProducts = async () => {
+//   const response = await fetch(url);
+//   console.log(response); // status: 200
+
+//   const json = await response.json();
+//   console.log(json); // response.json is not a function (porque falta el async)
+// };
+
+// export default getProducts;

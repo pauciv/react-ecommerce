@@ -32,67 +32,65 @@ const Checkout = ({
         </div>
 
         <div className="checkout__items">
-          {(cart &&
-            cart.map((item) => {
-              // console.log(item.title);
-              return (
-                <>
-                  <CheckoutItem key={item.id} /* quantity={item.quantity} */>
-                    {/* {console.log(item.id)} */}
-                    {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
-                    <div className="item__image">
-                      <img
-                        className="item__image"
-                        src={item.image}
-                        alt="product image"
-                      />
-                    </div>
+          {cart ? (
+            cart.map((item) => (
+              <CheckoutItem key={item.id} /* quantity={item.quantity} */>
+                {/* {console.log(item.id)} */}
+                {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
+                <div className="item__image">
+                  <img
+                    className="item__image"
+                    src={item.image}
+                    alt="product image"
+                  />
+                </div>
 
-                    <div className="item__info">
-                      <p className="item__title">{item.title}</p>
+                <div className="item__info">
+                  <p className="item__title">{item.title}</p>
 
-                      <p>{itemQty}</p>
-                      <button
-                        onClick={() => setItemQty((prevState) => prevState + 1)}
-                      >
-                        +
-                      </button>
-                      <button
-                        onClick={() => setItemQty((prevState) => prevState - 1)}
-                      >
-                        -
-                      </button>
+                  <p>{itemQty}</p>
+                  <button
+                    onClick={() => setItemQty((prevState) => prevState + 1)}
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => setItemQty((prevState) => prevState - 1)}
+                  >
+                    -
+                  </button>
 
-                      <Counter
-                        itemQuantity={item.quantity}
-                        addToCart={() => addToCart(item.id)}
-                        handleSubtractQty={() => handleSubtractQty(item.id)}
-                        handleIncrementQty={() => handleIncrementQty(item.id)}
+                  <Counter
+                    itemQuantity={item.quantity}
+                    addToCart={() => addToCart(item.id)}
+                    handleSubtractQty={() => handleSubtractQty(item.id)}
+                    handleIncrementQty={() => handleIncrementQty(item.id)}
 
-                        // initialValue={
-                        //   quantity /* en el caso de que se haga add to cart con más de 1 item */
-                        // }
-                      />
+                    // initialValue={
+                    //   quantity /* en el caso de que se haga add to cart con más de 1 item */
+                    // }
+                  />
 
-                      <button
-                        type="button"
-                        onClick={() => handleDelete(item.id)}
-                        className="item__btn--delete"
-                      >
-                        Delete
-                      </button>
-                    </div>
+                  <button
+                    type="button"
+                    onClick={() => handleDelete(item.id)}
+                    className="item__btn--delete"
+                  >
+                    Delete
+                  </button>
+                </div>
 
-                    <div>
-                      <p className="item__price">
-                        <small>$</small>
-                        {item.price * item.quantity}
-                      </p>
-                    </div>
-                  </CheckoutItem>
-                </>
-              );
-            })) || <h3>Your Cart is empty</h3>}
+                <div>
+                  <p className="item__price">
+                    <small>$</small>
+                    {item.price * item.quantity}
+                  </p>
+                </div>
+              </CheckoutItem>
+            ))
+          ) : (
+            <h3>Your Cart is empty</h3>
+          )}
         </div>
 
         {/* CartProduct */}

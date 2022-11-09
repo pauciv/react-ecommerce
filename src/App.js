@@ -5,12 +5,13 @@ import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 
-import products from './assets/db/db';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
 import ItemQtyProvider from './components/context/ItemQtyProvider';
-import getProducts from './api/getProducts';
+import { getProducts, url } from './api/getProducts';
+
+// getProducts();
 
 const loadCart = () => {
   // console.log(`loadCart`);
@@ -33,7 +34,23 @@ const loadCart = () => {
 };
 
 function App() {
-  getProducts();
+  //! API
+
+  const [products, setProducts] = useState([]);
+  console.log('products = ', products);
+
+  useEffect(() => {
+    // const fetchData = async () => {
+    //   const response = await fetch(url);
+    //   console.log(response); // status: 200
+
+    //   const json = await response.json();
+    //   console.log("json = ", json); // response.json is not a function (porque falta el async)
+    // };
+    getProducts(setProducts); // únicamente se ejecuta una vez al renderizar el componente App.
+  }, [url]); // se volvería a renderizar si cambiara la url.
+
+  //! ___
 
   const [cart, setCart] = useState(() => loadCart());
   // const [numItems, setNumItems] = useState(initialValue);
@@ -41,7 +58,7 @@ function App() {
   useEffect(() => {
     // * --- setItem para agregar un item (cart) al local storage.
     localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart); // está dentro del useEffect para que me muestre en consola el cart actualizado
+    console.log('cart = ', cart); // está dentro del useEffect para que me muestre en consola el cart actualizado
   }, [cart]);
 
   const addToCart = (id) => {
@@ -172,7 +189,7 @@ function App() {
             <Route path="/" element={<Header cart={cart} />}>
               <Route
                 index
-                element={<Home cart={cart} addToCart={addToCart} />}
+                element={<Home products={products} cart={cart} addToCart={addToCart} />}
               />
               <Route
                 path="/checkout"

@@ -4,8 +4,6 @@ import ChildrenProd from '../Product/ChildrenProd';
 import Counter from '../Counter/Counter';
 import CartButton from '../CartButton/CartButton';
 
-import products from '../../assets/db/db';
-
 //rating star icons
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -16,131 +14,66 @@ import './Home.css';
 import Checkout from '../Checkout/Checkout';
 import Cart from '../Cart/Cart';
 
-// console.log(products);
-
-/* const loadCart = () => {
-  console.log(`loadCart`);
-  // * --- getItem para leer el item (cart) almacenado en el local storage.
-  const getCart = localStorage.getItem('cart');
-  // console.log(getCart);
-
-  if (getCart) {
-    try {
-      console.log(getCart);
-      console.log(JSON.parse(getCart));
-
-      return JSON.parse(getCart);
-    } catch (error) {
-      return [];
-    }
-  } else {
-    return [];
-  }
-}; */
-
-const Home = ({ cart, addToCart }) => {
-  // console.log(cart)
-  // props.cart(cart)
-
-  /*   const [cart, setCart] = useState(() => loadCart());
-
-  useEffect(() => {
-    console.log(`useEffect`);
-
-    // * --- setItem para agregar un item (cart) al local storage.
-    localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart); // está dentro del useEffect para que me muestre en consola el cart actualizado
-  }, [cart]);
-
-  const addToCart = (id) => {
-    // console.log(id);
-    // console.log(cart);
-    // console.log(...cart);
-    // console.log(...products);
-
-    // const itemsQuantity = cart.map((item) => {
-    //   if (item.id === id) {
-    //     item.quantity = Number(item.quantity) + 1;
-    //   }
-    //   return item;
-    // });
-
-    // setCart(itemsQuantity);
-
-    setCart([
-      ...cart,
-      {
-        ...products.find((product) => product.id === id),
-        quantity: 1
-      },
-    ]);
-
-    // products.map((product) => {
-    //   // = cart.map ??
-    //   if (product.id === id) {
-    //     console.log(product);
-    //   }
-    // });
-  }; */
-
+const Home = ({ products, cart, addToCart }) => {
   return (
-    <>
-      <main className="home">
-        <div className="home__container">
-          {/* <img
+    <main className="home">
+      <div className="home__container">
+        {/* <img
             className="home__image"
             src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg"
             alt="home image"
           /> */}
 
-          <div className="home__row">
-            {(products &&
-              products.map((product) => (
-                <ChildrenProd key={product.id}>
-                  {/* useId() */}
-                  <img
-                    className="product__image"
-                    src={product.image}
-                    alt="product image"
-                  />
+        <div className="home__row">
+          {products ? (
+            products.map((product) => (
+              <ChildrenProd key={product.id}>
+                <img
+                  className="product__image"
+                  src={product.image}
+                  alt="product image"
+                />
 
-                  <div className="product__info">
-                    <p className="product__title">{product.title}</p>
-                    <p className="product__price">
-                      <small>$</small>
-                      {product.price}
-                    </p>
-                    <div className="product__rating">
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarHalfIcon />
-                      <StarBorderIcon />
-                      {/* <StarOutlineIcon /> */}
-                    </div>
-                    {/* <div className="product__rating">
+                <div className="product__info">
+                  <p className="product__title">{product.title}</p>
+                  <p className="product__price">
+                    <small>$</small>
+                    {product.price}
+                  </p>
+                  <div className="product__rating">
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarHalfIcon />
+                    <StarBorderIcon />
+                    {/* <StarOutlineIcon /> */}
+                  </div>
+                  {/* <div className="product__rating">
                     {Array(product.rating)
                       // .fill()
                       .map(() => (
                         <p key={id}>*</p>
                       ))}
                   </div> */}
-                  </div>
+                </div>
 
-                  <Counter />
+                <Counter />
 
-                  {/* Button puede ser un component */}
-                  <button
-                    onClick={() => addToCart(product.id)}
-                    className="product__btnAddToCart"
-                  >
-                    Add to Cart
-                  </button>
-                </ChildrenProd>
-              ))) || <h2>No products obtained</h2>}
-          </div>
+                {/* Button puede ser un component */}
+                <button
+                  onClick={() => addToCart(product.id)}
+                  className="product__btnAddToCart"
+                >
+                  Add to Cart
+                </button>
+              </ChildrenProd>
+            ))
+          ) : (
+            <h2>No products obtained</h2>
+          )}
+        </div>
 
-          {/* <div className="home__row">
+        {/* <div className="home__row">
             {(products &&
               products.map((product) => (
                 <Product
@@ -154,15 +87,14 @@ const Home = ({ cart, addToCart }) => {
               ))) || <h2>No products obtained</h2>}
           </div> */}
 
-          {/* <div>
+        {/* <div>
             <Checkout cart={cart} />
           </div> */}
-        </div>
-      </main>
+      </div>
 
       {/* <p>{JSON.stringify(cart)}</p> */}
       {/* {console.log(cart)} */}
-    </>
+    </main>
   );
 };
 
