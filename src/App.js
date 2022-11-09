@@ -46,13 +46,6 @@ function App() {
     setError(false);
     setLoading(true);
 
-    // const fetchData = async () => {
-    //   const response = await fetch(url);
-    //   console.log(response); // status: 200
-
-    //   const json = await response.json();
-    //   console.log("json = ", json); // response.json is not a function (porque falta el async)
-    // };
     getProducts(setProducts, setError, setLoading); // únicamente se ejecuta una vez al renderizar el componente App.
   }, [url]); // se volvería a renderizar si cambiara la url.
 
@@ -155,6 +148,11 @@ function App() {
   //   setCart(items);
   // }
 
+  const handleSearch = () => {
+    console.log("handleSearch");
+    // https://www.youtube.com/watch?v=maUZjMJ4bF4
+  }
+
   return (
     <>
       {/* <ItemQtyProvider>
@@ -189,7 +187,7 @@ function App() {
           <div className="app">
             <div className="main">
               <Routes>
-                <Route path="/" element={<Header cart={cart} />}>
+                <Route path="/" element={<Header handleSearch={handleSearch} cart={cart} />}>
                   <Route
                     index
                     element={
