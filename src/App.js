@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './assets/css/global.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
-import ItemQtyProvider from './components/context/ItemQtyProvider';
+import ItemQtyProvider from './context/ItemQtyProvider';
 import { getProducts, url } from './api/getProducts';
 
 // getProducts();

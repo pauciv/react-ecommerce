@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { dataContext } from '../context/DataContextProvider';
+import { dataContext } from '../../context/DataContextProvider';
 
-import { useDataContext } from '../context/DataContextProvider';
+import { useDataContext } from '../../context/DataContextProvider';
 
 import './Subtotal.css';
 

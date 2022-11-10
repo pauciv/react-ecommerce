@@ -5,7 +5,7 @@ import Counter from '../Counter/Counter';
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
-import { ItemQtyContext } from '../context/ItemQtyContext';
+import { ItemQtyContext } from '../../context/ItemQtyContext';
 
 const Checkout = ({
   cart,

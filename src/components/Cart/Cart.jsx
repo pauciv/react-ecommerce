@@ -4,7 +4,7 @@ import './Cart.css';
 
 import { getTotalPrice } from '../Subtotal/Subtotal';
 import CartItem from '../CartItem/CartItem';
-import { ItemQtyContext } from '../context/ItemQtyContext';
+import { ItemQtyContext } from '../../context/ItemQtyContext';
 
 const Cart = ({ cart }) => {
   const [itemQty, setItemQty] = useContext(ItemQtyContext); // el useState está en el ItemQtyProvider
