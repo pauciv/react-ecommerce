@@ -5,7 +5,7 @@ import Counter from '../Counter/Counter';
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
-import { ItemQtyContext } from '../../context/ItemQtyContext';
+import { CartContext } from '../../context/ItemQtyContext';
 
 const Checkout = ({
   cart,
@@ -20,7 +20,7 @@ const Checkout = ({
   //   });
 
   //! ITEM QUANTITY CONTEXT
-  const [itemQty, setItemQty] = useContext(ItemQtyContext); // el useState está en el ItemQtyProvider
+  const [itemQty, setItemQty] = useContext(CartContext); // el useState está en el ItemQtyProvider
   // console.log(itemQty);
 
   return (

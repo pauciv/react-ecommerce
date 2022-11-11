@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
-export const ItemQtyContext = createContext();
+export const CartContext = createContext();
 

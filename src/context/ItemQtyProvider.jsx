@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-import { ItemQtyContext } from './ItemQtyContext';
+import React, { useReducer, useState } from 'react';
+import { CartContext } from './ItemQtyContext';
 
-const ItemQtyProvider = ({ initialValue = 1, children }) => {
-  const [itemQty, setItemQty] = useState(initialValue);
-
+const CartProvider = ({ reducer, initialValue, children }) => {
   return (
-    <ItemQtyContext.Provider value={[ itemQty, setItemQty ]}>
+    <CartContext.Provider value={useReducer}>
       {children}
-    </ItemQtyContext.Provider>
+    </CartContext.Provider>
   );
+  
+  // const [itemQty, setItemQty] = useState(initialValue);
+
+  // return (
+  //   <CartContext.Provider value={[ itemQty, setItemQty ]}>
+  //     {children}
+  //   </CartContext.Provider>
+  // );
 };
 
-export default ItemQtyProvider;
+export default CartProvider;

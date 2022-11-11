@@ -69,9 +69,9 @@ const Navbar = ({ handleSearch, cart }) => {
         </aside> */}
       {/* </div> */}
 
-      <section>
+      {/* <section>
         <Outlet />
-      </section>
+      </section> */}
     </>
   );
 };

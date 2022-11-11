@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
-import ItemQtyProvider from './context/ItemQtyProvider';
+import CartProvider from './context/ItemQtyProvider';
 import { getProducts, url } from './api/getProducts';
 
 // getProducts();
@@ -180,41 +180,44 @@ function App() {
       </div> */}
       {/* <p>{JSON.stringify(cart)}</p> */}
 
-      <ItemQtyProvider>
+      <CartProvider>
         <BrowserRouter>
           <div className="app">
             <div className="main">
+              <Navbar handleSearch={handleSearch} cart={cart} />
+
               <Routes>
-                <Route
+                {/* <Route
                   path="/"
                   element={<Navbar handleSearch={handleSearch} cart={cart} />}
-                >
-                  <Route
-                    index
-                    element={
-                      <Home
-                        products={products}
-                        error={error}
-                        loading={loading}
-                        cart={cart}
-                        addToCart={addToCart}
-                      />
-                    }
-                  />
-                  <Route
-                    path="/checkout"
-                    element={
-                      <Checkout
-                        cart={cart}
-                        addToCart={addToCart}
-                        handleDelete={handleDelete}
-                        handleSubtractQty={handleSubtractQty}
-                        handleIncrementQty={handleIncrementQty}
-                      />
-                    }
-                  />
-                  <Route path="/*" element={<Navigate replace to="/" />} />
-                </Route>
+                > */}
+                <Route
+                  /* index */
+                  path="/"
+                  element={
+                    <Home
+                      products={products}
+                      error={error}
+                      loading={loading}
+                      cart={cart}
+                      addToCart={addToCart}
+                    />
+                  }
+                />
+                <Route
+                  path="/checkout"
+                  element={
+                    <Checkout
+                      cart={cart}
+                      addToCart={addToCart}
+                      handleDelete={handleDelete}
+                      handleSubtractQty={handleSubtractQty}
+                      handleIncrementQty={handleIncrementQty}
+                    />
+                  }
+                />
+                <Route path="/*" element={<Navigate replace to="/" />} />
+                {/* </Route> */}
               </Routes>
             </div>
             {cart.length > 0 ? (
@@ -224,7 +227,7 @@ function App() {
             ) : null}
           </div>
         </BrowserRouter>
-      </ItemQtyProvider>
+      </CartProvider>
     </>
   );
 }
