@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './assets/css/global.css';
-import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
@@ -35,7 +35,6 @@ const loadCart = () => {
 
 function App() {
   //! API
-
   const [products, setProducts] = useState([]);
   console.log('products = ', products);
 
@@ -48,7 +47,6 @@ function App() {
 
     getProducts(setProducts, setError, setLoading); // únicamente se ejecuta una vez al renderizar el componente App.
   }, [url]); // se volvería a renderizar si cambiara la url.
-
   //! ___
 
   const [cart, setCart] = useState(() => loadCart());
@@ -149,15 +147,15 @@ function App() {
   // }
 
   const handleSearch = () => {
-    console.log("handleSearch");
+    console.log('handleSearch');
     // https://www.youtube.com/watch?v=maUZjMJ4bF4
-  }
+  };
 
   return (
     <>
       {/* <ItemQtyProvider>
         <BrowserRouter>
-          <Header />
+          <Navbar />
           <Router />
           <Footer />
         </BrowserRouter>
@@ -187,7 +185,10 @@ function App() {
           <div className="app">
             <div className="main">
               <Routes>
-                <Route path="/" element={<Header handleSearch={handleSearch} cart={cart} />}>
+                <Route
+                  path="/"
+                  element={<Navbar handleSearch={handleSearch} cart={cart} />}
+                >
                   <Route
                     index
                     element={

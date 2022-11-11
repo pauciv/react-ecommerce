@@ -1,7 +1,7 @@
 // rfce or rafce + enter (to create a component with the file name)
 
 import React, { memo } from 'react';
-import './Header.css';
+import './Navbar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 
-const Header = ({ handleSearch, cart }) => {
+const Navbar = ({ handleSearch, cart }) => {
   return (
     <>
       {/* <div className="flex__container"> */}
@@ -76,4 +76,4 @@ const Header = ({ handleSearch, cart }) => {
   );
 };
 
-export default memo(Header);
+export default memo(Navbar);
