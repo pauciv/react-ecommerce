@@ -8,8 +8,10 @@ import Footer from './components/Footer/Footer';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
-import CartProvider from './context/ItemQtyProvider';
+import CartProvider from './context/CartProvider';
 import { getProducts, url } from './api/getProducts';
+import CartReducer, { initialState } from './store/CartReducer';
+import { Login } from '@mui/icons-material';
 
 // getProducts();
 
@@ -180,7 +182,7 @@ function App() {
       </div> */}
       {/* <p>{JSON.stringify(cart)}</p> */}
 
-      <CartProvider>
+      <CartProvider initialState={initialState} reducer={CartReducer}> 
         <BrowserRouter>
           <div className="app">
             <div className="main">
@@ -216,6 +218,7 @@ function App() {
                     />
                   }
                 />
+                <Route path='/login' element={<Login />} />
                 <Route path="/*" element={<Navigate replace to="/" />} />
                 {/* </Route> */}
               </Routes>

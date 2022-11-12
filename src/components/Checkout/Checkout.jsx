@@ -5,7 +5,8 @@ import Counter from '../Counter/Counter';
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
-import { CartContext } from '../../context/ItemQtyContext';
+import { CartContext } from '../../context/CartContext';
+import { useStateValue } from '../../context/CartProvider';
 
 const Checkout = ({
   cart,
@@ -19,9 +20,18 @@ const Checkout = ({
   //     console.log(item.title);
   //   });
 
-  //! ITEM QUANTITY CONTEXT
-  const [itemQty, setItemQty] = useContext(CartContext); // el useState está en el ItemQtyProvider
+  // ITEM QUANTITY CONTEXT
+  //const [itemQty, setItemQty] = useContext(CartContext); // el useState está en el ItemQtyProvider
   // console.log(itemQty);
+
+  const [{ cartR }, dispatch] = useStateValue();
+
+  const deleteFromCart = (id) => {
+    dispatch({
+      type: 'delete_from_cart',
+      id: id,
+    });
+  };
 
   return (
     <div className="checkout">
@@ -34,9 +44,7 @@ const Checkout = ({
         <div className="checkout__items">
           {cart ? (
             cart.map((item) => (
-              <CheckoutItem key={item.id} /* quantity={item.quantity} */>
-                {/* {console.log(item.id)} */}
-                {/* habrá error de key hasta que en lugar de añadirse varias veces el mismo item, se modifique la cantidad del mismo. */}
+              <CheckoutItem key={item.id}>
                 <div className="item__image">
                   <img
                     className="item__image"
@@ -48,27 +56,11 @@ const Checkout = ({
                 <div className="item__info">
                   <p className="item__title">{item.title}</p>
 
-                  <p>{itemQty}</p>
-                  <button
-                    onClick={() => setItemQty((prevState) => prevState + 1)}
-                  >
-                    +
-                  </button>
-                  <button
-                    onClick={() => setItemQty((prevState) => prevState - 1)}
-                  >
-                    -
-                  </button>
-
                   <Counter
                     itemQuantity={item.quantity}
                     addToCart={() => addToCart(item.id)}
                     handleSubtractQty={() => handleSubtractQty(item.id)}
                     handleIncrementQty={() => handleIncrementQty(item.id)}
-
-                    // initialValue={
-                    //   quantity /* en el caso de que se haga add to cart con más de 1 item */
-                    // }
                   />
 
                   <button
@@ -93,8 +85,51 @@ const Checkout = ({
           )}
         </div>
 
-        {/* CartProduct */}
-        {/* CartProduct */}
+        <div className="checkout__items">
+          {cartR ? (
+            cartR.map((item) => (
+              <CheckoutItem key={item.id}>
+                <div className="item__image">
+                  <img
+                    className="item__image"
+                    src={item.image}
+                    alt="product image"
+                  />
+                </div>
+
+                <div className="item__info">
+                  <p className="item__title">{item.title}</p>
+
+                  <Counter
+                    itemQuantity={item.quantity}
+                    addToCart={() => addToCart(item.id)}
+                    handleSubtractQty={() => handleSubtractQty(item.id)}
+                    handleIncrementQty={() => handleIncrementQty(item.id)}
+                  />
+
+                  <button onClick={() => deleteFromCart(item.id)}>D</button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleDelete(item.id)}
+                    className="item__btn--delete"
+                  >
+                    Delete
+                  </button>
+                </div>
+
+                <div>
+                  <p className="item__price">
+                    <small>$</small>
+                    {item.price /* * item.quantity */}
+                  </p>
+                </div>
+              </CheckoutItem>
+            ))
+          ) : (
+            <h3>Your Cart is empty</h3>
+          )}
+        </div>
 
         <div className="checkout__footer">
           <Subtotal cart={cart} />

@@ -15,8 +15,11 @@ import Checkout from '../Checkout/Checkout';
 import Cart from '../Cart/Cart';
 
 import { TailSpin } from 'react-loader-spinner';
+import { useStateValue } from '../../context/CartProvider';
 
 const Home = ({ products, error, loading, cart, addToCart }) => {
+  
+
   return (
     <main className="home">
       <div className="home__container">
@@ -67,7 +70,7 @@ const Home = ({ products, error, loading, cart, addToCart }) => {
                     {Array(product.rating)
                       // .fill()
                       .map(() => (
-                        <p key={id}>*</p>
+                        <p>*</p>
                       ))}
                   </div> */}
                 </div>
@@ -81,6 +84,7 @@ const Home = ({ products, error, loading, cart, addToCart }) => {
                 >
                   Add to Cart
                 </button>
+
               </ChildrenProd>
             ))
           ) : (
@@ -88,11 +92,12 @@ const Home = ({ products, error, loading, cart, addToCart }) => {
           )}
         </div>
 
-        {/* <div className="home__row">
+        <div className="home__row">
             {(products &&
               products.map((product) => (
                 <Product
                   key={product.id}
+                  id={product.id}
                   image={product.image}
                   title={product.title}
                   price={product.price}
@@ -100,7 +105,7 @@ const Home = ({ products, error, loading, cart, addToCart }) => {
                   addToCart={() => addToCart(product.id)}
                 />
               ))) || <h2>No products obtained</h2>}
-          </div> */}
+          </div>
 
         {/* <div>
             <Checkout cart={cart} />

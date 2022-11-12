@@ -8,17 +8,29 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 // import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
+import { useStateValue } from '../../context/CartProvider';
 
 const defaultImg =
   'https://media.istockphoto.com/vectors/default-image-icon-vector-missing-picture-page-for-website-design-or-vector-id1357365823?k=20&m=1357365823&s=612x612&w=0&h=ZH0MQpeUoSHM3G2AWzc8KkGYRg4uP_kuu0Za8GFxdFc=';
 
-function Product({
-  image = defaultImg,
-  title,
-  price,
-  rating,
-  addToCart
-}) {
+function Product({ id, title, image = defaultImg, price, rating, addToCart }) {
+
+  const [{ cartR }, dispatch] = useStateValue();
+  console.log('cartR = ', cartR);
+
+  const add = () => {
+    dispatch({
+      type: 'add_to_cart',
+      payload: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
+
   return (
     <div className="product">
       <img className="product__image" src={image} alt="product image" />
@@ -49,10 +61,13 @@ function Product({
 
       <Counter />
 
-      <CartButton /* onClick={handleAddToCart} */>Add to C</CartButton>
+      {/* <CartButton onClick={handleAddToCart}>Add to C</CartButton> */}
+      <button onClick={() => add()}>Add</button>
 
       {/* Button puede ser un component */}
-      <button onClick={addToCart} className="product__btnAddToCart">Add to Cart</button>
+      <button onClick={addToCart} className="product__btnAddToCart">
+        Add to Cart
+      </button>
     </div>
   );
 }
