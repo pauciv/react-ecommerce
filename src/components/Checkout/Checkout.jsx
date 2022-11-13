@@ -25,6 +25,20 @@ const Checkout = ({
   // console.log(itemQty);
 
   const [{ cartR }, dispatch] = useStateValue();
+  console.log('cartR = ', cartR);
+
+  const addToWishlist = (id, title, image, price, quantity, rating) => {
+    dispatch({
+      type: 'add_to_cart',
+      payload: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
 
   const deleteFromCart = (id) => {
     dispatch({
@@ -43,29 +57,29 @@ const Checkout = ({
 
         <div className="checkout__items">
           {cart ? (
-            cart.map((item) => (
-              <CheckoutItem key={item.id}>
+            cart.map(({id, title, image, price, quantity, rating}) => (
+              <CheckoutItem key={id}>
                 <div className="item__image">
                   <img
                     className="item__image"
-                    src={item.image}
+                    src={image}
                     alt="product image"
                   />
                 </div>
 
                 <div className="item__info">
-                  <p className="item__title">{item.title}</p>
+                  <p className="item__title">{title}</p>
 
                   <Counter
-                    itemQuantity={item.quantity}
-                    addToCart={() => addToCart(item.id)}
-                    handleSubtractQty={() => handleSubtractQty(item.id)}
-                    handleIncrementQty={() => handleIncrementQty(item.id)}
+                    itemQuantity={quantity}
+                    addToCart={() => addToCart(id)}
+                    handleSubtractQty={() => handleSubtractQty(id)}
+                    handleIncrementQty={() => handleIncrementQty(id)}
                   />
 
                   <button
                     type="button"
-                    onClick={() => handleDelete(item.id)}
+                    onClick={() => handleDelete(id)}
                     className="item__btn--delete"
                   >
                     Delete
@@ -73,7 +87,7 @@ const Checkout = ({
 
                   <button
                     type="button"
-                    // onClick={() => handleDelete(item.id)}
+                    onClick={() => addToWishlist(id, title, image, price, quantity, rating)}
                     className="item__btn--wishlist"
                   >
                     Save to Wishlist
@@ -83,7 +97,7 @@ const Checkout = ({
                 <div>
                   <p className="item__price">
                     <small>$</small>
-                    {item.price * item.quantity}
+                    {price * quantity}
                   </p>
                 </div>
               </CheckoutItem>

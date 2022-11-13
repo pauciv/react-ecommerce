@@ -10,10 +10,24 @@ import { useStateValue } from '../../context/CartProvider';
 import WishlistItem from './WishlistItem';
 import ChildrenProd from '../Product/ChildrenProd';
 
-const Wishlist = ({ addToCart }) => {
+const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
   const [{ cartR }, dispatch] = useStateValue();
+  console.log('cartR = ', cartR);
 
-  const deleteFromCart = (id) => {
+  //   const add = () => {
+  //     dispatch({
+  //       type: 'add_to_cart',
+  //       payload: {
+  //         id: id,
+  //         title: title,
+  //         image: image,
+  //         price: price,
+  //         rating: rating,
+  //       },
+  //     });
+  //   };
+
+  const deleteFromWishlist = (id) => {
     dispatch({
       type: 'delete_from_cart',
       id: id,
@@ -71,11 +85,9 @@ const Wishlist = ({ addToCart }) => {
                     Move to Cart
                   </button>
 
-                  <button onClick={() => deleteFromCart(item.id)}>D</button>
-
                   <button
                     type="button"
-                    // onClick={() => handleDelete(item.id)}
+                    onClick={() => deleteFromWishlist(item.id)}
                     className="item__btn--delete"
                   >
                     Delete

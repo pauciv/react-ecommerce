@@ -61,7 +61,7 @@ const Navbar = ({ handleSearch, cart }) => {
           <Link to="/checkout">
             <div className="header__option header__optionBasket">
               <span className="header__basketCount">
-                {cartR?.length /* getTotalItems(cart) */}
+                {/* cartR?.length */ getTotalItems(cart)}
               </span>
               <ShoppingCartIcon className="header__cartIncon" />
             </div>
