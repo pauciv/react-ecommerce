@@ -1,25 +1,26 @@
 .home {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1600px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1600px;
+  height: 100vh;
 }
 
 .home__container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .home__image {
-    width: 100%;
-    z-index: -1;
-    margin-bottom: -150px;
+  width: 100%;
+  z-index: -1;
+  margin-bottom: -150px;
 }
 
 .home__row {
-    display: flex;
-    z-index: 1;
-    /* margin: 0 5px; */
+  display: flex;
+  z-index: 1;
+  /* margin: 0 5px; */
 }
 
 /* .cart {

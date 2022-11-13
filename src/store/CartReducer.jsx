@@ -17,6 +17,7 @@ const CartReducer = (state, action) => {
         ...state,
         cartR: [...state.cartR, action.payload], // action.payload
       };
+
     case 'delete_from_cart':
       const index = state.cartR.findIndex((item) => item.id === action.id);
 
@@ -34,6 +35,7 @@ const CartReducer = (state, action) => {
         ...state,
         cartR: newCartR,
       };
+
     default:
       return state;
   }

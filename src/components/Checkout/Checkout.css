@@ -1,45 +1,45 @@
 .checkout {
-    display: flex;
-    /* padding: 10px; */
-    margin: 0 auto;
-    max-width: 1600px;
-    /* height: max-content; */
+  display: flex;
+  /* padding: 10px; */
+  margin: 0 auto;
+  max-width: 1600px;
+  /* height: 100vh; */
 }
 
 .checkout__left {
-    width: 75%;
-    background-color: white;
-    margin: 10px;
-    padding: 20px;
+  width: 75%;
+  background-color: white;
+  margin: 10px;
+  padding: 20px;
 }
 
 .checkout__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 4px;
-    margin: 4px;
-    border-bottom: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 4px;
+  margin: 4px;
+  border-bottom: 1px solid lightgrey;
 }
 
 .checkout__title {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .checkout__subtitle {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .checkout__right {
-    width: 25%;
-    background-color: white;
-    margin: 10px;
-    padding: 20px;
+  width: 25%;
+  background-color: white;
+  margin: 10px;
+  padding: 20px;
 }
 
 .checkout__footer {
-    display: flex;
-    justify-content: flex-end;
-    padding: 4px;
-    margin: 4px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px;
+  margin: 4px;
 }

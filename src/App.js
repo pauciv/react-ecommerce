@@ -12,6 +12,7 @@ import CartProvider from './context/CartProvider';
 import { getProducts, url } from './api/getProducts';
 import CartReducer, { initialState } from './store/CartReducer';
 import Login from './components/Login/Login';
+import CheckoutView from './pages/CheckoutView';
 
 // getProducts();
 
@@ -209,7 +210,7 @@ function App() {
                 <Route
                   path="/checkout"
                   element={
-                    <Checkout
+                    <CheckoutView
                       cart={cart}
                       addToCart={addToCart}
                       handleDelete={handleDelete}

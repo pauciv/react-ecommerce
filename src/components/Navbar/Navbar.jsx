@@ -1,5 +1,3 @@
-// rfce or rafce + enter (to create a component with the file name)
-
 import React, { memo } from 'react';
 import './Navbar.css';
 import SearchIcon from '@mui/icons-material/Search';
@@ -10,7 +8,6 @@ import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import { useStateValue } from '../../context/CartProvider';
-import { SportsBasketball } from '@mui/icons-material';
 
 const Navbar = ({ handleSearch, cart }) => {
   const [{ cartR }, dispatch] = useStateValue();

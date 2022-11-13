@@ -2,28 +2,15 @@ import React, { useContext } from 'react';
 import Subtotal from '../Subtotal/Subtotal';
 import Counter from '../Counter/Counter';
 
-import './Checkout.css';
+import '../Checkout/Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
 import { CartContext } from '../../context/CartContext';
 import { useStateValue } from '../../context/CartProvider';
+import WishlistItem from './WishlistItem';
+import ChildrenProd from '../Product/ChildrenProd';
 
-const Checkout = ({
-  cart,
-  addToCart,
-  handleDelete,
-  handleSubtractQty,
-  handleIncrementQty,
-}) => {
-  // cart &&
-  //   cart.map((item) => {
-  //     console.log(item.title);
-  //   });
-
-  // ITEM QUANTITY CONTEXT
-  //const [itemQty, setItemQty] = useContext(CartContext); // el useState está en el ItemQtyProvider
-  // console.log(itemQty);
-
+const Wishlist = ({ addToCart }) => {
   const [{ cartR }, dispatch] = useStateValue();
 
   const deleteFromCart = (id) => {
@@ -37,14 +24,13 @@ const Checkout = ({
     <div className="checkout">
       <div className="checkout__left">
         <div className="checkout__header">
-          <h2 className="checkout__title">Shopping Cart</h2>
-          <p className="checkout__subtitle">Price</p>
+          <h2 className="checkout__title">Wishlist</h2>
         </div>
 
         <div className="checkout__items">
-          {cart ? (
-            cart.map((item) => (
-              <CheckoutItem key={item.id}>
+          {cartR ? (
+            cartR.map((item) => (
+              <ChildrenProd key={item.id}>
                 <div className="item__image">
                   <img
                     className="item__image"
@@ -55,58 +41,55 @@ const Checkout = ({
 
                 <div className="item__info">
                   <p className="item__title">{item.title}</p>
+                  <p className="item__price">
+                    <small>$</small>
+                    {item.price}
+                  </p>
+                  <div className="item__rating">
+                    {/* <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarHalfIcon />
+                    <StarBorderIcon /> */}
+                    {/* <StarOutlineIcon /> */}
+                  </div>
 
-                  <Counter
+                  {/* <Counter
                     itemQuantity={item.quantity}
                     addToCart={() => addToCart(item.id)}
                     handleSubtractQty={() => handleSubtractQty(item.id)}
                     handleIncrementQty={() => handleIncrementQty(item.id)}
-                  />
+                  /> */}
 
+                  <Counter />
+
+                  {/* Button puede ser un component */}
                   <button
-                    type="button"
-                    onClick={() => handleDelete(item.id)}
-                    className="item__btn--delete"
+                    onClick={() => addToCart(item.id)}
+                    className="product__btnAddToCart"
                   >
-                    Delete
+                    Move to Cart
                   </button>
+
+                  <button onClick={() => deleteFromCart(item.id)}>D</button>
 
                   <button
                     type="button"
                     // onClick={() => handleDelete(item.id)}
-                    className="item__btn--wishlist"
+                    className="item__btn--delete"
                   >
-                    Save to Wishlist
+                    Delete
                   </button>
                 </div>
-
-                <div>
-                  <p className="item__price">
-                    <small>$</small>
-                    {item.price * item.quantity}
-                  </p>
-                </div>
-              </CheckoutItem>
+              </ChildrenProd>
             ))
           ) : (
             <h3>Your Cart is empty</h3>
           )}
         </div>
-
-        <div className="checkout__footer">
-          <Subtotal cart={cart} />
-        </div>
-
-      </div>
-      <div className="checkout__right">
-        <Subtotal cart={cart} />
-        {/* <small className="subtotal__gift">
-          <input type="checkbox" /> This order contains a gift
-        </small> */}
-        <button className="subtotal__btn--checkout">Proceed to Checkout</button>
       </div>
     </div>
   );
 };
 
-export default Checkout;
+export default Wishlist;

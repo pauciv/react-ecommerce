@@ -7,20 +7,22 @@ import { getTotalPriceR } from '../../store/CartReducer';
 
 import './Subtotal.css';
 
-export const getTotalPrice = (cart) => (
-  cart?.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-)
+export const getTotalPrice = (cart) =>
+  cart?.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
 
-export const getTotalItems = (cart) => (
-  cart?.reduce((acc, cur) => acc + cur.quantity, 0)
-)
+export const getTotalItems = (cart) =>
+  cart?.reduce((acc, cur) => acc + cur.quantity, 0);
 
 let item = 'items';
 
-const Subtotal = ({ cart }) => {
-  
-  const [{ cartR }, dispatch] = useStateValue();
+// if (getTotalItems(cart) === 1) {
+//   item = 'item';
+// } else {
+//   item = 'items';
+// }
 
+const Subtotal = ({ cart }) => {
+  const [{ cartR }, dispatch] = useStateValue();
 
   const { contextData } = useContext(dataContext);
   // const { contextData } = useDataContext();
@@ -30,13 +32,13 @@ const Subtotal = ({ cart }) => {
       {/* npm i react-currency-format */}
       <div>
         <p className="subtotal__p">
-          Subtotal ({cartR.length}{/* {getTotalItems(cart)} */} {item}):{' '}
+          Subtotal ({/* {cartR.length} */}
+          {getTotalItems(cart)} {item}):{' '}
           <strong>
             <small>$</small>
-            {getTotalPriceR(cartR)}
-            {/* {getTotalPrice(cart)} */}
+            {/* {getTotalPriceR(cartR)} */}
+            {getTotalPrice(cart)}
           </strong>
-          
           {/* {contextData} */}
         </p>
       </div>
