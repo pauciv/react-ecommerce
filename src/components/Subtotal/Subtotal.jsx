@@ -3,7 +3,7 @@ import { useStateValue } from '../../context/CartProvider';
 import { dataContext } from '../../context/DataContextProvider';
 
 import { useDataContext } from '../../context/DataContextProvider';
-import { getTotalPriceR } from '../../store/CartReducer';
+import { getTotalPriceR } from '../../store/ProductsReducer';
 
 import './Subtotal.css';
 

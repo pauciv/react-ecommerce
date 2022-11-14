@@ -9,20 +9,16 @@ import { CartContext } from '../../context/CartContext';
 import { useStateValue } from '../../context/CartProvider';
 
 const Checkout = ({
-  cart,
+  /* cart, */
   addToCart,
   handleDelete,
   handleSubtractQty,
   handleIncrementQty,
 }) => {
-  // cart &&
-  //   cart.map((item) => {
-  //     console.log(item.title);
-  //   });
 
-  // ITEM QUANTITY CONTEXT
-  //const [itemQty, setItemQty] = useContext(CartContext); // el useState está en el ItemQtyProvider
-  // console.log(itemQty);
+  // CART CONTEXT
+  const cart = useContext(CartContext); // el useState está en el ItemQtyProvider
+  console.log(cart);
 
   const [{ cartR }, dispatch] = useStateValue();
   console.log('cartR = ', cartR);

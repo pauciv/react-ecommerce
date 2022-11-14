@@ -10,9 +10,10 @@ import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
 import CartProvider from './context/CartProvider';
 import { getProducts, url } from './api/getProducts';
-import CartReducer, { initialState } from './store/CartReducer';
+import ProductsReducer, { initialState } from './store/ProductsReducer';
 import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
+import Wishlist from './components/Wishlist/Wishlist';
 
 // getProducts();
 
@@ -183,11 +184,12 @@ function App() {
       </div> */}
       {/* <p>{JSON.stringify(cart)}</p> */}
 
-      <CartProvider initialState={initialState} reducer={CartReducer}> 
+      {/* <CartProvider initialState={initialState} reducer={ProductsReducer}>  */}
+      <CartProvider cart={cart}>
         <BrowserRouter>
           <div className="app">
             <div className="main">
-              <Navbar handleSearch={handleSearch} cart={cart} />
+              <Navbar handleSearch={handleSearch} /* cart={cart} */ />
 
               <Routes>
                 {/* <Route
@@ -202,16 +204,20 @@ function App() {
                       products={products}
                       error={error}
                       loading={loading}
-                      cart={cart}
                       addToCart={addToCart}
                     />
                   }
                 />
+
+                <Route path="/login" element={<Login />} />
+
+                <Route path="/wishlist" element={<Wishlist />} />
+
                 <Route
                   path="/checkout"
                   element={
                     <CheckoutView
-                      cart={cart}
+                      // cart={cart}
                       addToCart={addToCart}
                       handleDelete={handleDelete}
                       handleSubtractQty={handleSubtractQty}
@@ -219,14 +225,13 @@ function App() {
                     />
                   }
                 />
-                <Route path='/login' element={<Login />} />
                 <Route path="/*" element={<Navigate replace to="/" />} />
                 {/* </Route> */}
               </Routes>
             </div>
             {cart.length > 0 ? (
               <aside className="cart">
-                <Cart cart={cart} />
+                <Cart /* cart={cart} */ />
               </aside>
             ) : null}
           </div>

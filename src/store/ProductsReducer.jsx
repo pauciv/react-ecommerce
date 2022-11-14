@@ -1,5 +1,6 @@
 export const initialState = {
   cartR: [],
+  // wishlist: []
 };
 
 export const getTotalPriceR = (cartR) =>
@@ -8,17 +9,26 @@ export const getTotalPriceR = (cartR) =>
     0
   );
 
-const CartReducer = (state, action) => {
+const ProductsReducer = (state = initialState, action = {}) => {
   console.log(action);
 
   switch (action.type) {
     case 'add_to_cart':
+      return [
+        ...state,
+        action.payload,
+      ]
+
+    // case 'delete_from_cart':
+    //   return console.log('delete_from_cart');
+
+    case 'add_to_wishlist':
       return {
         ...state,
         cartR: [...state.cartR, action.payload], // action.payload
       };
 
-    case 'delete_from_cart':
+    case 'delete_from_wishlist':
       const index = state.cartR.findIndex((item) => item.id === action.id);
 
       let newCartR = [...state.cartR];
@@ -41,4 +51,15 @@ const CartReducer = (state, action) => {
   }
 };
 
-export default CartReducer;
+console.log(ProductsReducer());
+
+// esto iría en nuestro componente
+
+// const addProduct = {
+//   type: 'add_to_cart',
+//   payload: ''/* product */,
+// };
+
+// const addToCart = ProductsReducer(ProductsReducer(), addProduct)
+
+export default ProductsReducer;

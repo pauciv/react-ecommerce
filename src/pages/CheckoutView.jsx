@@ -13,7 +13,7 @@ const CheckoutView = ({
   return (
     <>
       <Checkout
-        cart={cart}
+        // cart={cart}
         addToCart={addToCart}
         handleDelete={handleDelete}
         handleSubtractQty={handleSubtractQty}

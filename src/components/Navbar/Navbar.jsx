@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useContext } from 'react';
 import './Navbar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -8,9 +8,13 @@ import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import { useStateValue } from '../../context/CartProvider';
+import { CartContext } from '../../context/CartContext';
 
-const Navbar = ({ handleSearch, cart }) => {
-  const [{ cartR }, dispatch] = useStateValue();
+const Navbar = ({ handleSearch/* , cart  */}) => {
+  const cart = useContext(CartContext);
+  console.log(cart);
+
+  const [{ cartR }, dispatch] = useStateValue(); //useStateValue = () => useContext(CartContext)
 
   return (
     <>
@@ -57,6 +61,12 @@ const Navbar = ({ handleSearch, cart }) => {
             <span className="header__optionLineOne">Returns</span>
             <span className="header__optionLineTwo">& Orders</span>
           </div>
+
+          <Link to="/wishlist">
+            <div className="header__option">
+              <span className="header__optionLineTwo">Wishlist</span>
+            </div>
+          </Link>
 
           <Link to="/checkout">
             <div className="header__option header__optionBasket">

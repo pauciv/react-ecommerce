@@ -17,8 +17,9 @@ import Cart from '../Cart/Cart';
 import { TailSpin } from 'react-loader-spinner';
 import { useStateValue } from '../../context/CartProvider';
 
-const Home = ({ products, error, loading, cart, addToCart }) => {
+const Home = ({ products, error, loading, addToCart }) => {
   
+  const [{ cartR }, dispatch] = useStateValue();
 
   return (
     <main className="home">
@@ -75,11 +76,17 @@ const Home = ({ products, error, loading, cart, addToCart }) => {
                   </div> */}
                 </div>
 
-                <Counter />
+                {/* <Counter /> */}
 
                 {/* Button puede ser un component */}
                 <button
-                  onClick={() => addToCart(product.id)}
+                  onClick={
+                    () =>
+                      dispatch({
+                        type: 'add_to_cart',
+                        // payload: '',
+                      }) /* () => addToCart(product.id) */
+                  }
                   className="product__btnAddToCart"
                 >
                   Add to Cart
@@ -93,19 +100,19 @@ const Home = ({ products, error, loading, cart, addToCart }) => {
         </div>
 
         <div className="home__row">
-            {(products &&
-              products.map((product) => (
-                <Product
-                  key={product.id}
-                  id={product.id}
-                  image={product.image}
-                  title={product.title}
-                  price={product.price}
-                  rating={product.rating}
-                  addToCart={() => addToCart(product.id)}
-                />
-              ))) || <h2>No products obtained</h2>}
-          </div>
+          {(products &&
+            products.map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                image={product.image}
+                title={product.title}
+                price={product.price}
+                rating={product.rating}
+                addToCart={() => addToCart(product.id)}
+              />
+            ))) || <h2>No products obtained</h2>}
+        </div>
 
         {/* <div>
             <Checkout cart={cart} />
