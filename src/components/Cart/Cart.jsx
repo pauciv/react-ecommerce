@@ -4,11 +4,11 @@ import './Cart.css';
 
 import { getTotalPrice } from '../Subtotal/Subtotal';
 import CartItem from '../CartItem/CartItem';
-import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../../context/ReducerStateContext';
 
-const Cart = ({ /* cart */ }) => {
-  const cart = useContext(CartContext);
-  console.log(cart);
+const Cart = ({ cart }) => {
+  // const cart = useContext(ReducerStateContext);
+  // console.log(cart);
 
   return (
     <>

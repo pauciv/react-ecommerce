@@ -15,11 +15,11 @@ import Checkout from '../Checkout/Checkout';
 import Cart from '../Cart/Cart';
 
 import { TailSpin } from 'react-loader-spinner';
-import { useStateValue } from '../../context/CartProvider';
+import { useReducerState } from '../../context/ReducerStateProvider';
 
 const Home = ({ products, error, loading, addToCart }) => {
   
-  const [{ cartR }, dispatch] = useStateValue();
+  // const [{ cartR }, dispatch] = useReducerState();
 
   return (
     <main className="home">
@@ -81,11 +81,11 @@ const Home = ({ products, error, loading, addToCart }) => {
                 {/* Button puede ser un component */}
                 <button
                   onClick={
-                    () =>
+                    /* () =>
                       dispatch({
                         type: 'add_to_cart',
-                        // payload: '',
-                      }) /* () => addToCart(product.id) */
+                        payload: '',
+                      }) */ () => addToCart(product.id)
                   }
                   className="product__btnAddToCart"
                 >

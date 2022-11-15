@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { useStateValue } from '../../context/CartProvider';
+import { useReducerState } from '../../context/ReducerStateProvider';
 import { dataContext } from '../../context/DataContextProvider';
 
 import { useDataContext } from '../../context/DataContextProvider';
-import { getTotalPriceR } from '../../store/ProductsReducer';
+import { getTotalPriceR } from '../../store/reducer';
 
 import './Subtotal.css';
 
@@ -22,7 +22,7 @@ let item = 'items';
 // }
 
 const Subtotal = ({ cart }) => {
-  const [{ cartR }, dispatch] = useStateValue();
+  const [{ cartR }, dispatch] = useReducerState();
 
   const { contextData } = useContext(dataContext);
   // const { contextData } = useDataContext();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStateValue } from '../../context/CartProvider';
+import { useReducerState } from '../../context/ReducerStateProvider';
 import './CheckoutItem.css';
 
 const CheckoutItem = ({ children }) => {

@@ -5,33 +5,28 @@ import Counter from '../Counter/Counter';
 import '../Checkout/Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
-import { CartContext } from '../../context/CartContext';
-import { useStateValue } from '../../context/CartProvider';
+import { CartContext } from '../../context/ReducerStateContext';
+import { useReducerState } from '../../context/ReducerStateProvider';
 import WishlistItem from './WishlistItem';
 import ChildrenProd from '../Product/ChildrenProd';
 
-const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
-  const [{ cartR }, dispatch] = useStateValue();
-  console.log('cartR = ', cartR);
+//rating star icons
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
 
-  //   const add = () => {
-  //     dispatch({
-  //       type: 'add_to_cart',
-  //       payload: {
-  //         id: id,
-  //         title: title,
-  //         image: image,
-  //         price: price,
-  //         rating: rating,
-  //       },
-  //     });
-  //   };
+const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
+
+  const [{ wishlist }, dispatch] = useReducerState();
+  // console.log('wishlist = ', wishlist);
 
   const deleteFromWishlist = (id) => {
-    dispatch({
-      type: 'delete_from_cart',
-      id: id,
-    });
+    const action = {
+      type: 'delete_from_wishlist',
+      payload: id,
+    }
+    console.log(id)
+    dispatch(action);
   };
 
   return (
@@ -42,8 +37,8 @@ const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
         </div>
 
         <div className="checkout__items">
-          {cartR ? (
-            cartR.map((item) => (
+          {wishlist ? (
+            wishlist.map((item) => (
               <ChildrenProd key={item.id}>
                 <div className="item__image">
                   <img
@@ -60,11 +55,11 @@ const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
                     {item.price}
                   </p>
                   <div className="item__rating">
-                    {/* <StarIcon />
+                    <StarIcon />
                     <StarIcon />
                     <StarIcon />
                     <StarHalfIcon />
-                    <StarBorderIcon /> */}
+                    <StarBorderIcon />
                     {/* <StarOutlineIcon /> */}
                   </div>
 
@@ -79,10 +74,10 @@ const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
 
                   {/* Button puede ser un component */}
                   <button
-                    onClick={() => addToCart(item.id)}
+                    onClick={() => addToCart(/* item.id */)}
                     className="product__btnAddToCart"
                   >
-                    Move to Cart
+                    Add to Cart
                   </button>
 
                   <button
@@ -99,6 +94,7 @@ const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
             <h3>Your Cart is empty</h3>
           )}
         </div>
+        
       </div>
     </div>
   );

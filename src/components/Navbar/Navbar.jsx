@@ -7,14 +7,14 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet } from 'react-router-dom';
 import Cart from '../Cart/Cart';
-import { useStateValue } from '../../context/CartProvider';
-import { CartContext } from '../../context/CartContext';
+import { useReducerState } from '../../context/ReducerStateProvider';
+import { ReducerStateContext } from '../../context/ReducerStateContext';
 
-const Navbar = ({ handleSearch/* , cart  */}) => {
-  const cart = useContext(CartContext);
-  console.log(cart);
+const Navbar = ({ handleSearch, cart }) => {
+  // const cart = useContext(ReducerStateContext);
+  // console.log(cart);
 
-  const [{ cartR }, dispatch] = useStateValue(); //useStateValue = () => useContext(CartContext)
+  // const [{ cartR }, dispatch] = useReducerState(); //useStateValue = () => useContext(CartContext)
 
   return (
     <>

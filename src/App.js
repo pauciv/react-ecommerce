@@ -8,12 +8,13 @@ import Footer from './components/Footer/Footer';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
-import CartProvider from './context/CartProvider';
+import ReducerStateProvider from './context/ReducerStateProvider';
 import { getProducts, url } from './api/getProducts';
-import ProductsReducer, { initialState } from './store/ProductsReducer';
+import reducer, { init, initialState } from './store/reducer';
 import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
 import Wishlist from './components/Wishlist/Wishlist';
+import WishlistReducer from './store/WishlistReducer';
 
 // getProducts();
 
@@ -124,32 +125,6 @@ function App() {
     }
   };
 
-  function handleIncrementQty(id) {
-    console.log(id);
-    // setNumItems((prevState) => prevState + 1);
-
-    // const items = cart.map((item) => {
-    //   if (item.id === id) {
-    //     item.quantity = numItems;
-    //   }
-    //   return item;
-    // });
-    // console.log(items);
-    // setCart(items);
-  }
-
-  // function handleQuantity(event, id) {
-  //   const items = cart.map((item) => {
-  //     if (item.id === id) {
-  //       item.quantity = Number(event.target.value);
-  //     }
-
-  //     return item;
-  //   });
-
-  //   setCart(items);
-  // }
-
   const handleSearch = () => {
     console.log('handleSearch');
     // https://www.youtube.com/watch?v=maUZjMJ4bF4
@@ -165,31 +140,13 @@ function App() {
         </BrowserRouter>
       </ItemQtyProvider> */}
 
-      {/* <div className="app">
-        <div className="main">
-          <Header cart={cart} />
-          <Home cart={cart} addToCart={addToCart} />
-          <Checkout
-            cart={cart}
-            handleDelete={handleDelete}
-            handleIncrementQty={handleIncrementQty}
-          />
-        </div>
-
-        {cart.length > 0 ? (
-          <aside className="cart">
-            <Cart cart={cart} />
-          </aside>
-        ) : null}
-      </div> */}
-      {/* <p>{JSON.stringify(cart)}</p> */}
-
-      {/* <CartProvider initialState={initialState} reducer={ProductsReducer}>  */}
-      <CartProvider cart={cart}>
+      <ReducerStateProvider reducer={reducer} initialState={initialState} init={init} > 
+      {/* <CartProvider cart={cart}> */}
         <BrowserRouter>
           <div className="app">
             <div className="main">
-              <Navbar handleSearch={handleSearch} /* cart={cart} */ />
+              <Navbar handleSearch={handleSearch} cart={cart} />
+              <WishlistReducer />
 
               <Routes>
                 {/* <Route
@@ -217,11 +174,10 @@ function App() {
                   path="/checkout"
                   element={
                     <CheckoutView
-                      // cart={cart}
+                      cart={cart}
                       addToCart={addToCart}
                       handleDelete={handleDelete}
                       handleSubtractQty={handleSubtractQty}
-                      handleIncrementQty={handleIncrementQty}
                     />
                   }
                 />
@@ -231,113 +187,14 @@ function App() {
             </div>
             {cart.length > 0 ? (
               <aside className="cart">
-                <Cart /* cart={cart} */ />
+                <Cart cart={cart} />
               </aside>
             ) : null}
           </div>
         </BrowserRouter>
-      </CartProvider>
+      </ReducerStateProvider>
     </>
   );
 }
 
 export default App;
-
-{
-  /* <Router>
-	<div className="app">
-		<Switch>
-			<Route path="/checkout">
-				<Header />
-				<h1>Checkout Component</h1>
-			</Route>
-			<Route path="/"> // default root at the bottom
-				<div className="main">
-					<Header />
-					<Home />
-				</div>
-				<div className="cart">
-					<Cart />
-				</div>
-			</Route>
-		</Switch>
-	</div>
-</Router> */
-}
-
-// import { useEffect, useState, useMemo, useCallback, useId } from 'react';
-// import List from './List';
-
-// const initialUsers = [
-//   { id: 1, name: 'Maria' },
-//   { id: 2, name: 'Pau' },
-// ];
-
-// function App() {
-//   const [users, setUsers] = useState(initialUsers);
-//   const [text, setText] = useState('');
-//   const [search, setSearch] = useState('');
-//   // const id = useId();
-
-//   const handleAdd = () => {
-//     const newUser = { id: Date.now(), name: text };
-//     setUsers([...users, newUser]);
-//   };
-
-//   // useCallback
-//   const handleDelete = useCallback(
-//     (userId) => {
-//       setUsers(users.filter((user) => user.id !== userId));
-//     },
-//     [users]
-//   );
-
-//   const handleSearch = () => {
-//     setSearch(text);
-//   };
-
-//   // const filteredUsers = users.filter((user) => {
-//   //   console.log('filter process');
-//   //   return user.name.toLowerCase().includes(search.toLowerCase()); // para hacer la búsqueda sin darle a search, en lugar de poner search, ponemos text.
-//   // });
-
-//   // useMemo
-//   const filteredUsers = useMemo(
-//     () =>
-//       users.filter((user) => {
-//         // console.log('filter process');
-//         return user.name.toLowerCase().includes(search.toLowerCase()); // para hacer la búsqueda sin darle a search, en lugar de poner search, ponemos text.
-//       }),
-//     [search, users]
-//   );
-
-//   const printUsers = useCallback(() => {
-//     console.log('users changed', users);
-//   }, [users]);
-
-//   useEffect(() => {
-//     // console.log('App render');
-//     // console.log(users);
-//   });
-
-//   useEffect(() => {
-//     printUsers();
-//   }, [users, printUsers]);
-
-//   return (
-//     <>
-//       <div>
-//         <input
-//           type="text"
-//           value={text}
-//           onChange={(e) => setText(e.target.value)}
-//         />
-//         <button onClick={handleSearch}>Search</button>
-//         <button onClick={handleAdd}>Add</button>
-//         <List users={filteredUsers} handleDelete={handleDelete} />
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;

@@ -5,11 +5,11 @@ import Counter from '../Counter/Counter';
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
-import { CartContext } from '../../context/CartContext';
-import { useStateValue } from '../../context/CartProvider';
+import { ReducerStateContext } from '../../context/ReducerStateContext';
+import { useReducerState } from '../../context/ReducerStateProvider';
 
 const Checkout = ({
-  /* cart, */
+  cart,
   addToCart,
   handleDelete,
   handleSubtractQty,
@@ -17,24 +17,26 @@ const Checkout = ({
 }) => {
 
   // CART CONTEXT
-  const cart = useContext(CartContext); // el useState está en el ItemQtyProvider
-  console.log(cart);
+  // const cart = useContext(ReducerStateContext); // el useState está en el ItemQtyProvider
+  // console.log(cart);
 
-  const [{ cartR }, dispatch] = useStateValue();
-  console.log('cartR = ', cartR);
+  const [{ wishlist }, dispatch] = useReducerState();
+  console.log('wishlist = ', wishlist);
 
   const addToWishlist = (id, title, image, price, quantity, rating) => {
-    dispatch({
-      type: 'add_to_cart',
+    const action = {
+      type: 'add_to_wishlist',
       payload: {
-        id: id,
-        title: title,
-        image: image,
-        price: price,
-        rating: rating,
+        id,
+        title,
+        image,
+        price,
+        rating,
       },
-    });
+    }
+    dispatch(action);
   };
+
 
   const deleteFromCart = (id) => {
     dispatch({
@@ -88,6 +90,7 @@ const Checkout = ({
                   >
                     Save to Wishlist
                   </button>
+                  
                 </div>
 
                 <div>
