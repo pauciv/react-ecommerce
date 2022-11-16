@@ -18,7 +18,7 @@ const reducer = (state, action) => {
 const WishlistReducer = () => {
 
   const [wishlist, dispatch] = useReducer(reducer, initialState/* , init */);
-  console.log(wishlist)
+  // console.log(wishlist)
 
   return (
     <div>WishlistReducer</div>

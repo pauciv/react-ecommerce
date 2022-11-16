@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Subtotal from '../Subtotal/Subtotal';
 import Counter from '../Counter/Counter';
 
@@ -20,7 +20,12 @@ const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
   const [{ wishlist }, dispatch] = useReducerState();
   // console.log('wishlist = ', wishlist);
 
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
+
   const deleteFromWishlist = (id) => {
+
     const action = {
       type: 'delete_from_wishlist',
       payload: id,
@@ -70,11 +75,11 @@ const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
                     handleIncrementQty={() => handleIncrementQty(item.id)}
                   /> */}
 
-                  <Counter />
+                  {/* <Counter /> */}
 
                   {/* Button puede ser un component */}
                   <button
-                    onClick={() => addToCart(/* item.id */)}
+                    onClick={() => addToCart(item.id)}
                     className="product__btnAddToCart"
                   >
                     Add to Cart

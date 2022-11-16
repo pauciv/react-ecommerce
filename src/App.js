@@ -41,7 +41,7 @@ const loadCart = () => {
 function App() {
   //! API
   const [products, setProducts] = useState([]);
-  console.log('products = ', products);
+  // console.log('products = ', products);
 
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -140,13 +140,12 @@ function App() {
         </BrowserRouter>
       </ItemQtyProvider> */}
 
-      <ReducerStateProvider reducer={reducer} initialState={initialState} init={init} > 
+      <ReducerStateProvider reducer={reducer} initialState={initialState}/*  init={init}  */> 
       {/* <CartProvider cart={cart}> */}
         <BrowserRouter>
           <div className="app">
             <div className="main">
               <Navbar handleSearch={handleSearch} cart={cart} />
-              <WishlistReducer />
 
               <Routes>
                 {/* <Route

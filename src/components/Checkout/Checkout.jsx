@@ -23,7 +23,7 @@ const Checkout = ({
   const [{ wishlist }, dispatch] = useReducerState();
   console.log('wishlist = ', wishlist);
 
-  const addToWishlist = (id, title, image, price, quantity, rating) => {
+  const addToWishlist = (id, title, image, price, rating) => {
     const action = {
       type: 'add_to_wishlist',
       payload: {
@@ -37,13 +37,6 @@ const Checkout = ({
     dispatch(action);
   };
 
-
-  const deleteFromCart = (id) => {
-    dispatch({
-      type: 'delete_from_cart',
-      id: id,
-    });
-  };
 
   return (
     <div className="checkout">
@@ -85,7 +78,7 @@ const Checkout = ({
 
                   <button
                     type="button"
-                    onClick={() => addToWishlist(id, title, image, price, quantity, rating)}
+                    onClick={() => addToWishlist(id, title, image, price, rating)}
                     className="item__btn--wishlist"
                   >
                     Save to Wishlist

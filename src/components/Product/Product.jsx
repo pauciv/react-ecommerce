@@ -17,21 +17,20 @@ import { ReducerStateContext } from '../../context/ReducerStateContext';
 const defaultImg =
   'https://media.istockphoto.com/vectors/default-image-icon-vector-missing-picture-page-for-website-design-or-vector-id1357365823?k=20&m=1357365823&s=612x612&w=0&h=ZH0MQpeUoSHM3G2AWzc8KkGYRg4uP_kuu0Za8GFxdFc=';
 
-
 function Product({ id, title, image = defaultImg, price, rating, addToCart }) {
-  
   // const [{ wishlist }, dispatch] = useReducerState();
   // console.log('wishlist = ', wishlist);
 
-  const [{ wishlist }, dispatch] = useContext(ReducerStateContext)
+  const [{ wishlist }, dispatch] = useContext(ReducerStateContext);
   console.log('wishlist = ', wishlist);
 
   // el useEffect deber'ia estar en el context para que actualice el localStorage tanto si se anade desde product como desde checkout
   useEffect(() => {
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
   const addToWishlist = () => {
+    // setState(true) //TODO. pintar el coraz'on en funci'on de si est'a o no en la wishlist.
     const action = {
       type: 'add_to_wishlist',
       payload: {
@@ -41,8 +40,9 @@ function Product({ id, title, image = defaultImg, price, rating, addToCart }) {
         price,
         rating,
       },
-    }
+    };
     dispatch(action);
+    console.log('action = ', action);
   };
 
   return (
@@ -82,6 +82,12 @@ function Product({ id, title, image = defaultImg, price, rating, addToCart }) {
         Add to Cart
       </button>
 
+      {/* {itemQuantity > 1 ? (
+          <button onClick={handleSubtractQty}>-</button>
+        ) : (
+          <button disabled>-</button>
+        )} */}
+      
       <FavoriteBorderIcon
         onClick={() => addToWishlist()}
         className="product__wishlist"

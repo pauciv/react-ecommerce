@@ -10,7 +10,7 @@ const ReducerStateProvider = ({ reducer, initialState, children, cart }) => {
   // }, [wishlist]);
 
   return (
-    <ReducerStateContext.Provider value={useReducer(reducer, initialState, init)}>
+    <ReducerStateContext.Provider value={useReducer(reducer, initialState/* , init */)}>
       {children}
     </ReducerStateContext.Provider>
 

@@ -5,10 +5,10 @@ export const url = 'http://localhost:3001/products';
 export const getProducts = async (setProducts, setError, setLoading) => {
   try {
     const response = await fetch(url);
-    console.log(response); // status: 200
+    // console.log(response); // status: 200
 
     const json = await response.json();
-    console.log('json = ', json); // response.json is not a function (porque falta el async)
+    // console.log('json = ', json); // response.json is not a function (porque falta el async)
 
     setProducts(json);
   } catch (error) {
