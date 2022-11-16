@@ -183,12 +183,14 @@ function App() {
                 <Route path="/*" element={<Navigate replace to="/" />} />
                 {/* </Route> */}
               </Routes>
+
             </div>
             {cart.length > 0 ? (
               <aside className="cart">
                 <Cart cart={cart} />
               </aside>
             ) : null}
+            
           </div>
         </BrowserRouter>
       </ReducerStateProvider>

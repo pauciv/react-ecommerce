@@ -56,8 +56,9 @@ const reducer = (state /*  = initialState */, action /*  = {} */) => {
 
       let updatedWishlist = [...state.wishlist];
 
-      if (index >= 0) {
+      if (index !== -1) {
         updatedWishlist.splice(index, 1);
+        console.log('updatedWishlist = ', updatedWishlist);
       } else {
         console.warn(
           `Can't delete product (id: ${action.payload}) as it's not in the wishlist`
