@@ -1,8 +1,5 @@
-import { useState, useEffect /* useId */ } from 'react';
 import Product from '../Product/Product';
 import ChildrenProd from '../Product/ChildrenProd';
-import Counter from '../Counter/Counter';
-import CartButton from '../CartButton/CartButton';
 
 //rating star icons
 import StarIcon from '@mui/icons-material/Star';
@@ -11,15 +8,13 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 
 import './Home.css';
-import Checkout from '../Checkout/Checkout';
-import Cart from '../Cart/Cart';
 
 import { TailSpin } from 'react-loader-spinner';
-import { useReducerState } from '../../context/ReducerStateProvider';
+import { Col, Row } from 'react-bootstrap';
+import StoreItem from '../StoreItem';
 
 const Home = ({ products, error, loading, addToCart }) => {
   
-  // const [{ cartR }, dispatch] = useReducerState();
 
   return (
     <main className="home">
@@ -30,7 +25,7 @@ const Home = ({ products, error, loading, addToCart }) => {
             alt="home image"
           /> */}
 
-        <div className="home__row">
+        <Row md={4} xs={3} lg={5}>
           {error ?? 'Page not found'}
           {loading ? (
             <TailSpin
@@ -46,58 +41,61 @@ const Home = ({ products, error, loading, addToCart }) => {
           ) : null}
           {products ? (
             products.map((product) => (
-              <ChildrenProd key={product.id}>
-                <img
-                  className="product__image"
-                  src={product.image}
-                  alt="product image"
-                />
+              <Col key={product.id}>
+                <StoreItem {...product} />
+              </Col>
+              // <ChildrenProd key={product.id}>
+              //   <img
+              //     className="product__image"
+              //     src={product.image}
+              //     alt="product image"
+              //   />
 
-                <div className="product__info">
-                  <p className="product__title">{product.title}</p>
-                  <p className="product__price">
-                    <small>$</small>
-                    {product.price}
-                  </p>
-                  <div className="product__rating">
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarHalfIcon />
-                    <StarBorderIcon />
-                    {/* <StarOutlineIcon /> */}
-                  </div>
-                  {/* <div className="product__rating">
-                    {Array(product.rating)
-                      // .fill()
-                      .map(() => (
-                        <p>*</p>
-                      ))}
-                  </div> */}
-                </div>
+              //   <div className="product__info">
+              //     <p className="product__title">{product.title}</p>
+              //     <p className="product__price">
+              //       <small>$</small>
+              //       {product.price}
+              //     </p>
+              //     <div className="product__rating">
+              //       <StarIcon />
+              //       <StarIcon />
+              //       <StarIcon />
+              //       <StarHalfIcon />
+              //       <StarBorderIcon />
+              //       {/* <StarOutlineIcon /> */}
+              //     </div>
+              //     {/* <div className="product__rating">
+              //       {Array(product.rating)
+              //         // .fill()
+              //         .map(() => (
+              //           <p>*</p>
+              //         ))}
+              //     </div> */}
+              //   </div>
 
-                {/* <Counter /> */}
+              //   {/* <Counter /> */}
 
-                {/* Button puede ser un component */}
-                <button
-                  onClick={
-                    /* () =>
-                      dispatch({
-                        type: 'add_to_cart',
-                        payload: '',
-                      }) */ () => addToCart(product.id)
-                  }
-                  className="product__btnAddToCart"
-                >
-                  Add to Cart
-                </button>
+              //   {/* Button puede ser un component */}
+              //   <button
+              //     onClick={
+              //       /* () =>
+              //         dispatch({
+              //           type: 'add_to_cart',
+              //           payload: '',
+              //         }) */ () => addToCart(product.id)
+              //     }
+              //     className="product__btnAddToCart"
+              //   >
+              //     Add to Cart
+              //   </button>
 
-              </ChildrenProd>
+              // </ChildrenProd>
             ))
           ) : (
             <h2>No products obtained</h2>
           )}
-        </div>
+        </Row>
 
         <div className="home__row">
           {(products &&

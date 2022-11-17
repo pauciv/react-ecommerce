@@ -1,4 +1,6 @@
-import React, { memo, useContext } from 'react';
+import { memo, useContext } from 'react';
+import { Navbar as BtNavbar } from 'react-bootstrap'
+
 import './Navbar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -6,9 +8,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet } from 'react-router-dom';
-import Cart from '../Cart/Cart';
-import { useReducerState } from '../../context/ReducerStateProvider';
-import { ReducerStateContext } from '../../context/ReducerStateContext';
+
+
 
 const Navbar = ({ handleSearch, cart }) => {
   // const cart = useContext(ReducerStateContext);
@@ -19,7 +20,8 @@ const Navbar = ({ handleSearch, cart }) => {
   return (
     <>
       {/* <div className="flex__container"> */}
-      <nav className="header">
+      {/* <nav className="header"> */}
+      <BtNavbar sticky='top' className='bg-black shadow-sm mb-3'>
         <Link to="/">
           <img
             className="header__logo"
@@ -28,10 +30,10 @@ const Navbar = ({ handleSearch, cart }) => {
           />
         </Link>
 
-        <div className="header__option">
+        {/* <div className="header__option">
           <span className="header__optionLineOne">Deliver to</span>
           <span className="header__optionLineTwo">Spain</span>
-        </div>
+        </div> */}
 
         <div className="header__search">
           <input className="header__searchInput" type="text" />
@@ -77,7 +79,8 @@ const Navbar = ({ handleSearch, cart }) => {
             </div>
           </Link>
         </div>
-      </nav>
+      </BtNavbar>
+      {/* </nav> */}
 
       {/* <aside className="cart">
           <Cart cart={cart} />

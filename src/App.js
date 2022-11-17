@@ -5,11 +5,11 @@ import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
 import ReducerStateProvider from './context/ReducerStateProvider';
-import { getProducts, url } from './api/getProducts';
+import { getProducts, url } from './utilities/api/getProducts';
 import reducer, { init, initialState } from './store/reducer';
 import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
@@ -133,16 +133,13 @@ function App() {
   return (
     <>
       {/* <ItemQtyProvider>
-        <BrowserRouter>
           <Navbar />
           <Router />
           <Footer />
-        </BrowserRouter>
       </ItemQtyProvider> */}
-
+      
       <ReducerStateProvider reducer={reducer} initialState={initialState}/*  init={init}  */> 
       {/* <CartProvider cart={cart}> */}
-        <BrowserRouter>
           <div className="app">
             <div className="main">
               <Navbar handleSearch={handleSearch} cart={cart} />
@@ -192,7 +189,6 @@ function App() {
             ) : null}
             
           </div>
-        </BrowserRouter>
       </ReducerStateProvider>
     </>
   );
