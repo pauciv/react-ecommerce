@@ -15,6 +15,7 @@ import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
 import Wishlist from './components/Wishlist/Wishlist';
 import WishlistReducer from './store/WishlistReducer';
+import { CartProvider } from './context/CartContext';
 
 // getProducts();
 
@@ -60,7 +61,7 @@ function App() {
   useEffect(() => {
     // * --- setItem para agregar un item (cart) al local storage.
     localStorage.setItem('cart', JSON.stringify(cart));
-    console.log('cart = ', cart); // está dentro del useEffect para que me muestre en consola el cart actualizado
+   //console.log('cart = ', cart); // está dentro del useEffect para que me muestre en consola el cart actualizado
   }, [cart]);
 
   const addToCart = (id) => {
@@ -137,9 +138,12 @@ function App() {
           <Router />
           <Footer />
       </ItemQtyProvider> */}
-      
-      <ReducerStateProvider reducer={reducer} initialState={initialState}/*  init={init}  */> 
-      {/* <CartProvider cart={cart}> */}
+      <CartProvider>
+        <ReducerStateProvider
+          reducer={reducer}
+          initialState={initialState} /*  init={init}  */
+        >
+          {/* <CartProvider cart={cart}> */}
           <div className="app">
             <div className="main">
               <Navbar handleSearch={handleSearch} cart={cart} />
@@ -180,16 +184,15 @@ function App() {
                 <Route path="/*" element={<Navigate replace to="/" />} />
                 {/* </Route> */}
               </Routes>
-
             </div>
             {cart.length > 0 ? (
               <aside className="cart">
                 <Cart cart={cart} />
               </aside>
             ) : null}
-            
           </div>
-      </ReducerStateProvider>
+        </ReducerStateProvider>
+      </CartProvider>
     </>
   );
 }
