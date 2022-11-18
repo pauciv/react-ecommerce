@@ -5,8 +5,12 @@ import './Cart.css';
 import { getTotalPrice } from '../Subtotal/Subtotal';
 import CartItem from '../CartItem/CartItem';
 import { CartContext } from '../../context/ReducerStateContext';
+import { formatCurrency } from '../../utilities/formatCurrency';
+import { useCartContext } from '../../context/CartContext';
 
 const Cart = ({ cart }) => {
+  const { cartItems } = useCartContext()
+
   // const cart = useContext(ReducerStateContext);
   // console.log(cart);
 
@@ -15,24 +19,16 @@ const Cart = ({ cart }) => {
       <div className="cart__subtotal">
         <span className="cart__subtotal--title">Subtotal</span>
         <span className="cart__subtotal--price">
-          <small>$</small>
-          {getTotalPrice(cart)}
+          {/* <small>$</small> */}
+          {formatCurrency(getTotalPrice(cart))}
         </span>
         {/* {itemQty} */}
       </div>
 
       <div className="cart__items">
-        {cart ? (
-          cart.map(({ id, image, quantity }) => (
-            <CartItem key={id}>
-              {/* {console.log(item.id)} */}
-              <img
-                className="cart__item--image"
-                src={image}
-                alt="product image"
-              />
-              <p>{quantity}</p>
-            </CartItem>
+        {cartItems ? (
+          cartItems.map((item) => (
+            <CartItem key={item.id} {...item} />
           ))
         ) : (
           <h3>Your Cart is empty</h3>

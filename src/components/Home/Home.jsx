@@ -11,7 +11,7 @@ import './Home.css';
 
 import { TailSpin } from 'react-loader-spinner';
 import { Col, Row } from 'react-bootstrap';
-import StoreItem from '../StoreItem';
+import StoreItem from '../Product/StoreItem';
 
 const Home = ({ products, error, loading, addToCart }) => {
   

@@ -8,14 +8,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet } from 'react-router-dom';
-
+import { useCartContext } from '../../context/CartContext';
 
 
 const Navbar = ({ handleSearch, cart }) => {
-  // const cart = useContext(ReducerStateContext);
-  // console.log(cart);
-
-  // const [{ cartR }, dispatch] = useReducerState(); //useStateValue = () => useContext(CartContext)
+  const { totalCartQuantity, openCart } = useCartContext()
 
   return (
     <>
@@ -73,7 +70,7 @@ const Navbar = ({ handleSearch, cart }) => {
           <Link to="/checkout">
             <div className="header__option header__optionBasket">
               <span className="header__basketCount">
-                {/* cartR?.length */ getTotalItems(cart)}
+                {/* cartR?.length */ totalCartQuantity /* getTotalItems(cart) */}
               </span>
               <ShoppingCartIcon className="header__cartIncon" />
             </div>

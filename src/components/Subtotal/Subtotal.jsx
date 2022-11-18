@@ -6,6 +6,7 @@ import { useDataContext } from '../../context/DataContextProvider';
 import { getTotalPriceR } from '../../store/reducer';
 
 import './Subtotal.css';
+import { useCartContext } from '../../context/CartContext';
 
 export const getTotalPrice = (cart) =>
   cart?.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
@@ -22,6 +23,8 @@ let item = 'items';
 // }
 
 const Subtotal = ({ cart }) => {
+  const {cartItems} = useCartContext();
+
   const [{ cartR }, dispatch] = useReducerState();
 
   const { contextData } = useContext(dataContext);
@@ -33,11 +36,11 @@ const Subtotal = ({ cart }) => {
       <div>
         <p className="subtotal__p">
           Subtotal ({/* {cartR.length} */}
-          {getTotalItems(cart)} {item}):{' '}
+          {getTotalItems(cartItems)} {item}):{' '}
           <strong>
             <small>$</small>
             {/* {getTotalPriceR(cartR)} */}
-            {getTotalPrice(cart)}
+            {getTotalPrice(cartItems)}
           </strong>
           {/* {contextData} */}
         </p>

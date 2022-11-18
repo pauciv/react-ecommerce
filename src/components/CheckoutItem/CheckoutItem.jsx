@@ -1,4 +1,5 @@
 import React from 'react';
+import { Stack } from 'react-bootstrap';
 import { useReducerState } from '../../context/ReducerStateProvider';
 import './CheckoutItem.css';
 
@@ -9,9 +10,9 @@ const CheckoutItem = ({ children }) => {
   // const deleteFromCart = () => null;
 
   return (
-    <div className="checkout__item">
+    <Stack className="checkout__item" direction='horizontal'>
       {children}
-    </div>
+    </Stack>
   );
 };
 

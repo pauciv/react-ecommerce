@@ -7,6 +7,7 @@ import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
 import { ReducerStateContext } from '../../context/ReducerStateContext';
 import { useReducerState } from '../../context/ReducerStateProvider';
+import { useCartContext } from '../../context/CartContext';
 
 const Checkout = ({
   cart,
@@ -15,6 +16,8 @@ const Checkout = ({
   handleSubtractQty,
   handleIncrementQty,
 }) => {
+
+  const {cartItems, deleteFromCart, decreaseQuantity} = useCartContext()
 
   // CART CONTEXT
   // const cart = useContext(ReducerStateContext); // el useState está en el ItemQtyProvider
@@ -47,8 +50,8 @@ const Checkout = ({
         </div>
 
         <div className="checkout__items">
-          {cart ? (
-            cart.map(({id, title, image, price, quantity, rating}) => (
+          {cartItems ? (
+            cartItems.map(({id, title, image, price, quantity, rating}) => (
               <CheckoutItem key={id}>
                 <div className="item__image">
                   <img
@@ -70,7 +73,7 @@ const Checkout = ({
 
                   <button
                     type="button"
-                    onClick={() => handleDelete(id)}
+                    onClick={() => deleteFromCart(id)}
                     className="item__btn--delete"
                   >
                     Delete

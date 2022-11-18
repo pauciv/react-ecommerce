@@ -1,11 +1,18 @@
-import React from 'react'
+import { useCartContext } from '../../context/CartContext';
 
-const CartItem = ({ children }) => {
+const CartItem = ({ id, image, quantity }) => {
+  const { deleteFromCart } = useCartContext();
+
   return (
-    <>
-      <div className="cart__item">{children}</div>
-    </>
-  )
-}
+    // <Link to="/product...">
+    <div className="cart__item">
+      <img className="cart__item--image" src={image} alt="product image" />
+      <div className="d-flex justify-content-center">
+        <p className="">{quantity > 1 ? quantity : null}</p>
+      </div>
+    </div>
+    // </Link>
+  );
+};
 
-export default CartItem
+export default CartItem;
