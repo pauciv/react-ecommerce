@@ -11,8 +11,8 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-import { useReducerState } from '../../context/ReducerStateProvider';
-import { ReducerStateContext } from '../../context/ReducerStateContext';
+import { useWishlistContext } from '../../context/WishlistProvider';
+import { WishlistContext } from '../../context/WishlistContext';
 
 const defaultImg =
   'https://media.istockphoto.com/vectors/default-image-icon-vector-missing-picture-page-for-website-design-or-vector-id1357365823?k=20&m=1357365823&s=612x612&w=0&h=ZH0MQpeUoSHM3G2AWzc8KkGYRg4uP_kuu0Za8GFxdFc=';
@@ -21,7 +21,7 @@ function Product({ id, title, image = defaultImg, price, rating, addToCart }) {
   // const [{ wishlist }, dispatch] = useReducerState();
   // console.log('wishlist = ', wishlist);
 
-  const [{ wishlist }, dispatch] = useContext(ReducerStateContext);
+  const [{ wishlist }, dispatch] = useContext(WishlistContext);
   console.log('wishlist = ', wishlist);
 
   // el useEffect deber'ia estar en el context para que actualice el localStorage tanto si se anade desde product como desde checkout

@@ -1,11 +1,11 @@
 import React from 'react';
 import Cart from '../components/Cart/Cart';
-import Home from '../components/Home/Home';
+import Store from '../components/Store/Store';
 
 const HomeView = () => {
   return (
     <>
-      <Home
+      <Store
         // products={products}
         // error={error}
         // loading={loading}

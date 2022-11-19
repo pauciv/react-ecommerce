@@ -5,41 +5,26 @@ import Counter from '../Counter/Counter';
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
-import { ReducerStateContext } from '../../context/ReducerStateContext';
-import { useReducerState } from '../../context/ReducerStateProvider';
+import { WishlistContext } from '../../context/WishlistContext';
+import { useWishlistContext } from '../../context/WishlistProvider';
 import { useCartContext } from '../../context/CartContext';
 
-const Checkout = ({
-  cart,
+const Checkout = (
+  {
+    /* cart,
   addToCart,
   handleDelete,
   handleSubtractQty,
-  handleIncrementQty,
-}) => {
-
-  const {cartItems, deleteFromCart, decreaseQuantity} = useCartContext()
+  handleIncrementQty, */
+  }
+) => {
+  const { cartItems } = useCartContext();
 
   // CART CONTEXT
   // const cart = useContext(ReducerStateContext); // el useState está en el ItemQtyProvider
   // console.log(cart);
 
-  const [{ wishlist }, dispatch] = useReducerState();
-  console.log('wishlist = ', wishlist);
-
-  const addToWishlist = (id, title, image, price, rating) => {
-    const action = {
-      type: 'add_to_wishlist',
-      payload: {
-        id,
-        title,
-        image,
-        price,
-        rating,
-      },
-    }
-    dispatch(action);
-  };
-
+  
 
   return (
     <div className="checkout">
@@ -51,51 +36,8 @@ const Checkout = ({
 
         <div className="checkout__items">
           {cartItems ? (
-            cartItems.map(({id, title, image, price, quantity, rating}) => (
-              <CheckoutItem key={id}>
-                <div className="item__image">
-                  <img
-                    className="item__image"
-                    src={image}
-                    alt="product image"
-                  />
-                </div>
-
-                <div className="item__info">
-                  <p className="item__title">{title}</p>
-
-                  <Counter
-                    itemQuantity={quantity}
-                    addToCart={() => addToCart(id)}
-                    handleSubtractQty={() => handleSubtractQty(id)}
-                    handleIncrementQty={() => handleIncrementQty(id)}
-                  />
-
-                  <button
-                    type="button"
-                    onClick={() => deleteFromCart(id)}
-                    className="item__btn--delete"
-                  >
-                    Delete
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => addToWishlist(id, title, image, price, rating)}
-                    className="item__btn--wishlist"
-                  >
-                    Save to Wishlist
-                  </button>
-                  
-                </div>
-
-                <div>
-                  <p className="item__price">
-                    <small>$</small>
-                    {price * quantity}
-                  </p>
-                </div>
-              </CheckoutItem>
+            cartItems.map((cartItem) => (
+              <CheckoutItem key={cartItem.id} {...cartItem} />
             ))
           ) : (
             <h3>Your Cart is empty</h3>
@@ -103,12 +45,11 @@ const Checkout = ({
         </div>
 
         <div className="checkout__footer">
-          <Subtotal cart={cart} />
+          <Subtotal cart={cartItems} />
         </div>
-
       </div>
       <div className="checkout__right">
-        <Subtotal cart={cart} />
+        <Subtotal cart={cartItems} />
         {/* <small className="subtotal__gift">
           <input type="checkbox" /> This order contains a gift
         </small> */}

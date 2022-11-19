@@ -5,8 +5,8 @@ import Counter from '../Counter/Counter';
 import '../Checkout/Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import CartButton from '../CartButton/CartButton';
-import { CartContext } from '../../context/ReducerStateContext';
-import { useReducerState } from '../../context/ReducerStateProvider';
+import { CartContext } from '../../context/WishlistContext';
+import { useWishlistContext } from '../../context/WishlistProvider';
 import WishlistItem from './WishlistItem';
 import ChildrenProd from '../Product/ChildrenProd';
 
@@ -17,7 +17,7 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 
 const Wishlist = ({ id, title, image, price, rating, addToCart }) => {
 
-  const [{ wishlist }, dispatch] = useReducerState();
+  const [{ wishlist }, dispatch] = useWishlistContext();
   // console.log('wishlist = ', wishlist);
 
   useEffect(() => {

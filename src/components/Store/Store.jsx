@@ -7,15 +7,14 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 // import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 
-import './Home.css';
+import './Store.css';
 
 import { TailSpin } from 'react-loader-spinner';
 import { Col, Row } from 'react-bootstrap';
 import StoreItem from '../Product/StoreItem';
 
-const Home = ({ products, error, loading, addToCart }) => {
+const Store = ({ products, error, loading, addToCart }) => {
   
-
   return (
     <main className="home">
       <div className="home__container">
@@ -44,60 +43,13 @@ const Home = ({ products, error, loading, addToCart }) => {
               <Col key={product.id}>
                 <StoreItem {...product} />
               </Col>
-              // <ChildrenProd key={product.id}>
-              //   <img
-              //     className="product__image"
-              //     src={product.image}
-              //     alt="product image"
-              //   />
-
-              //   <div className="product__info">
-              //     <p className="product__title">{product.title}</p>
-              //     <p className="product__price">
-              //       <small>$</small>
-              //       {product.price}
-              //     </p>
-              //     <div className="product__rating">
-              //       <StarIcon />
-              //       <StarIcon />
-              //       <StarIcon />
-              //       <StarHalfIcon />
-              //       <StarBorderIcon />
-              //       {/* <StarOutlineIcon /> */}
-              //     </div>
-              //     {/* <div className="product__rating">
-              //       {Array(product.rating)
-              //         // .fill()
-              //         .map(() => (
-              //           <p>*</p>
-              //         ))}
-              //     </div> */}
-              //   </div>
-
-              //   {/* <Counter /> */}
-
-              //   {/* Button puede ser un component */}
-              //   <button
-              //     onClick={
-              //       /* () =>
-              //         dispatch({
-              //           type: 'add_to_cart',
-              //           payload: '',
-              //         }) */ () => addToCart(product.id)
-              //     }
-              //     className="product__btnAddToCart"
-              //   >
-              //     Add to Cart
-              //   </button>
-
-              // </ChildrenProd>
             ))
           ) : (
             <h2>No products obtained</h2>
           )}
         </Row>
 
-        <div className="home__row">
+        {/* <div className="home__row">
           {(products &&
             products.map((product) => (
               <Product
@@ -110,7 +62,7 @@ const Home = ({ products, error, loading, addToCart }) => {
                 addToCart={() => addToCart(product.id)}
               />
             ))) || <h2>No products obtained</h2>}
-        </div>
+        </div> */}
 
         {/* <div>
             <Checkout cart={cart} />
@@ -123,7 +75,7 @@ const Home = ({ products, error, loading, addToCart }) => {
   );
 };
 
-export default Home;
+export default Store;
 
 {
   /* <div className="home__container">

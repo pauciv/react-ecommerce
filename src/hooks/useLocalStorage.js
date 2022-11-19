@@ -13,7 +13,7 @@ export const useLocalStorage = (key) => {
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(state));
-    console.log(`${key} = `, state); // está dentro del useEffect para que me muestre en consola el cart actualizado
+    console.log(`${key} = `, state);
   }, [key, state]);
 
   return [state, setState];

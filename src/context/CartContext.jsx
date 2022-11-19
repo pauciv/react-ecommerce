@@ -22,7 +22,10 @@ export const CartProvider = ({ children }) => {
   }, [url]); // se volvería a renderizar si cambiara la url.
   //! ___
 
-  const [cartIsOpen, setCartIsOpen] = useState(false);
+  // const [cartIsOpen, setCartIsOpen] = useState(false);
+  // const openCart = () => setCartIsOpen(true);
+  // const closeCart = () => setCartIsOpen(false);
+
   // const [cartItems, setCartItems] = useState([]);
   const [cartItems, setCartItems] = useLocalStorage('cart');
 
@@ -35,9 +38,6 @@ export const CartProvider = ({ children }) => {
     (prevPrice, item) => prevPrice + item.price * item.quantity,
     0
   );
-
-  const openCart = () => setCartIsOpen(true);
-  const closeCart = () => setCartIsOpen(false);
 
   // function getItemQuantity(id) {
   //   return cartItems.find(item => item.id === id)?.quantity || 0
@@ -73,6 +73,14 @@ export const CartProvider = ({ children }) => {
     console.log('handleDelete');
     const cart = cartItems.filter((item) => item.id !== id);
     setCartItems(cart);
+
+    // TODO: useCallback
+    //   const handleDelete = useCallback(
+    //     (userId) => {
+    //       setUsers(users.filter((user) => user.id !== userId));
+    //     },
+    //     [users]
+    //   );
   };
 
   const decreaseQuantity = (id) => {
@@ -80,7 +88,7 @@ export const CartProvider = ({ children }) => {
 
     if (isInCart !== -1) {
       // ! YES
-      const cartItems = cartItems.map((item) => {
+      const cart = cartItems.map((item) => {
         if (item.id === id) {
           item.quantity -= 1; // item.quantity = Number(item.quantity) - 1;
         }
@@ -88,7 +96,7 @@ export const CartProvider = ({ children }) => {
         return item;
       });
 
-      setCartItems(cartItems);
+      setCartItems(cart);
     }
   };
 
@@ -98,10 +106,9 @@ export const CartProvider = ({ children }) => {
         addToCart,
         decreaseQuantity,
         deleteFromCart,
-        openCart,
-        closeCart,
         cartItems,
         totalCartQuantity,
+        totalCartPrice,
       }}
     >
       {children}

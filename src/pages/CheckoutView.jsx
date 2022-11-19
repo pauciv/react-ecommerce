@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Checkout from '../components/Checkout/Checkout';
 import Wishlist from '../components/Wishlist/Wishlist';
-import { CartContext } from '../context/ReducerStateContext';
+import { CartContext } from '../context/WishlistContext';
 
 const CheckoutView = ({
   cart,
