@@ -1,4 +1,4 @@
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 import { formatCurrency } from '../../utilities/formatCurrency';
 
 const Subtotal = () => {

@@ -1,5 +1,5 @@
 import { Button, Card } from 'react-bootstrap';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 import { formatCurrency } from '../../utilities/formatCurrency';
 
 import StarIcon from '@mui/icons-material/Star';
@@ -23,20 +23,19 @@ const StoreItem = ({ id, image, title, price, rating /* quantity */ }) => {
     useWishlistContext();
 
   const isInWishlist = wishlistItems.findIndex((item) => item.id === id);
-  console.log(isInWishlist);
 
   return (
     <Card className="h-100">
       <div className="d-flex justify-content-end">
-        {isInWishlist !== -1 ? (
+        {isInWishlist === -1 ? (
+          <FavoriteBorderIcon
+            onClick={() => addToWishlist(id, image, title, price, rating)}
+            className="m-2"
+          />
+        ) : (
           <FavoriteIcon
             onClick={() => deleteFromWishlist(id)}
             className="product__wished m-2"
-          />
-        ) : (
-          <FavoriteBorderIcon
-            onClick={() => addToWishlist(id, image, title, price, rating)}
-            className='m-2'
           />
         )}
       </div>

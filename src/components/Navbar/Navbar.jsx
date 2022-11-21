@@ -8,7 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet } from 'react-router-dom';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 
 
 const Navbar = ({ handleSearch, cart }) => {

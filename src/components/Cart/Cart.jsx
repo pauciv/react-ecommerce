@@ -1,7 +1,7 @@
 import './Cart.css';
 import CartItem from '../CartItem/CartItem';
 import { formatCurrency } from '../../utilities/formatCurrency';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 
 const Cart = () => {
   const { cartItems, totalCartPrice } = useCartContext();

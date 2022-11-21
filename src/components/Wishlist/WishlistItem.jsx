@@ -2,7 +2,7 @@ import React from 'react';
 import '../CheckoutItem/CheckoutItem.css';
 
 import { Button, Card } from 'react-bootstrap';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 import { formatCurrency } from '../../utilities/formatCurrency';
 
 import StarIcon from '@mui/icons-material/Star';

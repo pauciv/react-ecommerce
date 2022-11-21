@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 
 const Counter = ({ id, itemQuantity}) => {
 

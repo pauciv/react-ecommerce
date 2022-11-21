@@ -2,19 +2,16 @@ import { useEffect, useState } from 'react';
 import './assets/css/global.css';
 import Navbar from './components/Navbar/Navbar';
 import Store from './components/Store/Store';
-import Checkout from './components/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
-
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
 import WishlistProvider from './context/WishlistProvider';
 import { getProducts, url } from './utilities/api/getProducts';
-import reducer, { init, initialState } from './store/WishlistReducer';
 import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
 import Wishlist from './components/Wishlist/Wishlist';
-import { CartProvider } from './context/CartContext';
+import { CartProvider } from './context/CartProvider';
 
 function App() {
   //! API

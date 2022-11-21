@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Stack } from 'react-bootstrap';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 import { useWishlistContext } from '../../context/WishlistProvider';
 import { formatCurrency } from '../../utilities/formatCurrency';
 import Counter from '../Counter/Counter';

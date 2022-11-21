@@ -3,7 +3,7 @@ import Subtotal from '../Subtotal/Subtotal';
 
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartProvider';
 import { Button } from 'react-bootstrap';
 
 const Checkout = () => {
