@@ -1,3 +1,7 @@
 .store__item--img {
   object-fit: contain;
 }
+
+.product__wished {
+  color: red;
+}

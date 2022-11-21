@@ -1,51 +1,68 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { init } from '../store/reducer';
+import WishlistReducer from '../store/WishlistReducer';
 import { WishlistContext } from './WishlistContext';
 
 export const useWishlistContext = () => useContext(WishlistContext);
 
-const WishlistProvider = ({ reducer, initialState, children, cart }) => {
-
-  // useEffect(() => {
-  //   localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  // }, [wishlist]);
-
-  // const [wishlistItems, setWishlistItems] = useLocalStorage('wishlist');
-
-  // const addToWishlist = (..........) => {
-  //   // setState(true) //TODO. pintar el corazón en función de si está o no en la wishlist.
-  //   const action = {
-  //     type: 'add_to_wishlist',
-  //     payload: {
-  //       id,
-  //       title,
-  //       image,
-  //       price,
-  //       rating,
-  //     },
-  //   };
-  //   dispatch(action);
-  //   console.log('action = ', action);
+const WishlistProvider = ({ children }) => {
+  // const loadWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  // const initialState = {
+  //   wishlistItems: loadWishlist,
   // };
 
+  const init = () => {
+    const wishlistStoraged = JSON.parse(localStorage.getItem('wishlist')) || [];
+    return {
+      wishlistItems: wishlistStoraged,
+    };
+  };
+
+  const [{ wishlistItems }, dispatch] = useReducer(WishlistReducer, {}, init);
+  console.log(wishlistItems);
+
+  useEffect(() => {
+    localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+    console.log('wishlistItems = ', wishlistItems);
+  }, [wishlistItems]);
+
+  const addToWishlist = (id, image, title, price, rating) => {
+    // setState(true) //TODO. pintar el corazón en función de si está o no en la wishlist.
+    const action = {
+      type: 'add_to_wishlist',
+      payload: {
+        id,
+        title,
+        image,
+        price,
+        rating,
+      },
+    };
+    dispatch(action);
+    console.log('action = ', action);
+  };
+
+  const deleteFromWishlist = (id) => {
+    const action = {
+      type: 'delete_from_wishlist',
+      payload: id,
+    };
+    console.log(id);
+    dispatch(action);
+  };
+
   return (
-    <WishlistContext.Provider value={useReducer(reducer, initialState/* , init */)}>
+    <WishlistContext.Provider
+      // value={useReducer(WishlistReducer, {}, init)}
+      value={{
+        wishlistItems,
+        addToWishlist,
+        deleteFromWishlist,
+      }}
+    >
       {children}
     </WishlistContext.Provider>
-
-    // <CartContext.Provider value={cart}>
-    //   {children}
-    // </CartContext.Provider>
   );
-
-  // const [itemQty, setItemQty] = useState(initialValue);
-
-  // return (
-  //   <CartContext.Provider value={ itemQty, setItemQty }>
-  //     {children}
-  //   </CartContext.Provider>
-  // );
 };
 
 export default WishlistProvider;

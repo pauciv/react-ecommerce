@@ -10,11 +10,10 @@ import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
 import WishlistProvider from './context/WishlistProvider';
 import { getProducts, url } from './utilities/api/getProducts';
-import reducer, { init, initialState } from './store/reducer';
+import reducer, { init, initialState } from './store/WishlistReducer';
 import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
 import Wishlist from './components/Wishlist/Wishlist';
-import WishlistReducer from './store/WishlistReducer';
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -47,10 +46,7 @@ function App() {
       </ItemQtyProvider> */}
 
       <CartProvider>
-        <WishlistProvider
-          reducer={reducer}
-          initialState={initialState} /*  init={init}  */
-        >
+        <WishlistProvider>
           {/* <CartProvider cart={cart}> */}
           <div className="app">
             <div className="main">

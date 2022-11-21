@@ -1,24 +1,12 @@
 import React, { useContext } from 'react';
 import Subtotal from '../Subtotal/Subtotal';
-import Counter from '../Counter/Counter';
 
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
-import CartButton from '../CartButton/CartButton';
-import { WishlistContext } from '../../context/WishlistContext';
-import { useWishlistContext } from '../../context/WishlistProvider';
 import { useCartContext } from '../../context/CartContext';
 import { Button } from 'react-bootstrap';
 
-const Checkout = (
-  {
-    /* cart,
-  addToCart,
-  handleDelete,
-  handleSubtractQty,
-  handleIncrementQty, */
-  }
-) => {
+const Checkout = () => {
   const { cartItems } = useCartContext();
 
   return (

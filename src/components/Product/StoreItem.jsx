@@ -13,38 +13,34 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import './StoreItem.css';
 import { useContext, useEffect } from 'react';
 import { WishlistContext } from '../../context/WishlistContext';
+import { useWishlistContext } from '../../context/WishlistProvider';
 
-const StoreItem = ({ /* product, */ id, image, title, price, rating }) => {
+const StoreItem = ({ id, image, title, price, rating /* quantity */ }) => {
   const { addToCart } = useCartContext();
   const quantity = 0;
 
-  // const [{ wishlist }, dispatch] = useReducerState();
-  const [{ wishlist }, dispatch] = useContext(WishlistContext);
-  console.log('wishlist = ', wishlist);
+  const { wishlistItems, addToWishlist, deleteFromWishlist } =
+    useWishlistContext();
 
-  // el useEffect deber'ia estar en el context para que actualice el localStorage tanto si se anade desde product como desde checkout
-  useEffect(() => {
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-  }, [wishlist]);
-
-  const addToWishlist = () => {
-    // setState(true) //TODO. pintar el corazón en función de si está o no en la wishlist.
-    const action = {
-      type: 'add_to_wishlist',
-      payload: {
-        id,
-        title,
-        image,
-        price,
-        rating,
-      },
-    };
-    dispatch(action);
-    console.log('action = ', action);
-  };
+  const isInWishlist = wishlistItems.findIndex((item) => item.id === id);
+  console.log(isInWishlist);
 
   return (
     <Card className="h-100">
+      <div className="d-flex justify-content-end">
+        {isInWishlist !== -1 ? (
+          <FavoriteIcon
+            onClick={() => deleteFromWishlist(id)}
+            className="product__wished m-2"
+          />
+        ) : (
+          <FavoriteBorderIcon
+            onClick={() => addToWishlist(id, image, title, price, rating)}
+            className='m-2'
+          />
+        )}
+      </div>
+
       <Card.Img className="store__item--img" src={image} height="150" />
       <Card.Body className="d-flex flex-column justify-content-end">
         <Card.Title>{title}</Card.Title>
@@ -71,13 +67,10 @@ const StoreItem = ({ /* product, */ id, image, title, price, rating }) => {
               Add to Cart
             </Button>
           ) : (
-            <Button variant="primary">Add another one</Button>
+            <Button onClick={() => addToCart(id)} variant="primary">
+              Add another one
+            </Button>
           )}
-
-          <FavoriteBorderIcon
-            onClick={() => addToWishlist({/* ...product */})}
-            className="product__wishlist"
-          />
         </div>
       </Card.Body>
     </Card>

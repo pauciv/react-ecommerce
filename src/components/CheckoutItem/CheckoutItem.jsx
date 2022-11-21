@@ -7,28 +7,26 @@ import Counter from '../Counter/Counter';
 import './CheckoutItem.css';
 
 const CheckoutItem = ({ id, title, image, price, rating, quantity }) => {
-  // en el caso de que en lugar de con children, añadieramos el código aquí.
-  // const [{ cartR }, dispatch] = useStateValue();
-  // const deleteFromCart = () => null;
 
   const { deleteFromCart } = useCartContext();
+  const { addToWishlist } = useWishlistContext();
 
-  const [{ wishlist }, dispatch] = useWishlistContext();
-  console.log('wishlist = ', wishlist);
+  // const [{ wishlist }, dispatch] = useWishlistContext();
+  // console.log('wishlist = ', wishlist);
 
-  const addToWishlist = (id, title, image, price, rating) => {
-    const action = {
-      type: 'add_to_wishlist',
-      payload: {
-        id,
-        title,
-        image,
-        price,
-        rating,
-      },
-    };
-    dispatch(action);
-  };
+  // const addToWishlist = (id, title, image, price, rating) => {
+  //   const action = {
+  //     type: 'add_to_wishlist',
+  //     payload: {
+  //       id,
+  //       title,
+  //       image,
+  //       price,
+  //       rating,
+  //     },
+  //   };
+  //   dispatch(action);
+  // };
 
   return (
     <Stack className="checkout__item" direction="horizontal">
@@ -52,7 +50,7 @@ const CheckoutItem = ({ id, title, image, price, rating, quantity }) => {
 
         <Button
           type="button"
-          onClick={() => addToWishlist(id, title, image, price, rating)}
+          onClick={() => addToWishlist(id, image, title, price, rating)}
           variant="outline-secondary" size="sm"
           className=" ms-1 item__btn--wishlist"
         >
