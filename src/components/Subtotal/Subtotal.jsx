@@ -1,4 +1,3 @@
-import './Subtotal.css';
 import { useCartContext } from '../../context/CartContext';
 import { formatCurrency } from '../../utilities/formatCurrency';
 
@@ -9,7 +8,7 @@ const Subtotal = () => {
     <div className="subtotal">
       {/* npm i react-currency-format */}
       <div>
-        <p className="subtotal__p">
+        <p className="fs-5">
           Subtotal ({totalCartQuantity} {totalCartQuantity === 1 ? 'item' : 'items'}){': '}
           <strong>
             {/* <small>$</small> */}

@@ -1,33 +1,22 @@
 import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { useCartContext } from '../../context/CartContext';
-import './Counter.css';
 
 const Counter = ({ id, itemQuantity}) => {
-  // const [itemQty, setItemQty] = useState(initialValue);
-
-  // console.log(itemQuantity)
-  
-  // const handleAddItem = () => {
-  //   setItemQty((prevState) => prevState + 1);
-  // };
-
-  // const handleSubtractItem = () => {
-  //   setItemQty((prevState) => prevState - 1);
-  // };
 
   const { addToCart, decreaseQuantity } = useCartContext()
 
   return (
     <>
-      <div className="counter">
+      <div className='d-flex align-items-center h-2'>
         <p>Qty: {itemQuantity}</p> {/* numItems que sea el value de un input? */}
         {/* <input type='num' value={itemQuantity} /> */}
-        <button onClick={() => addToCart(id)}>+</button>
+        <Button onClick={() => addToCart(id)} variant="outline-secondary" size="sm" className='m-1'>+</Button>
         {/* <button onClick={handleIncrementQty}>+qty</button> */}
         {itemQuantity > 1 ? (
-          <button onClick={() => decreaseQuantity(id)}>-</button>
+          <Button onClick={() => decreaseQuantity(id)} variant="outline-secondary" size="sm">-</Button>
         ) : (
-          <button disabled>-</button>
+          <Button disabled variant="outline-secondary" size="sm">-</Button>
         )}
       </div>
     </>

@@ -8,6 +8,7 @@ import CartButton from '../CartButton/CartButton';
 import { WishlistContext } from '../../context/WishlistContext';
 import { useWishlistContext } from '../../context/WishlistProvider';
 import { useCartContext } from '../../context/CartContext';
+import { Button } from 'react-bootstrap';
 
 const Checkout = (
   {
@@ -19,12 +20,6 @@ const Checkout = (
   }
 ) => {
   const { cartItems } = useCartContext();
-
-  // CART CONTEXT
-  // const cart = useContext(ReducerStateContext); // el useState está en el ItemQtyProvider
-  // console.log(cart);
-
-  
 
   return (
     <div className="checkout">
@@ -53,7 +48,7 @@ const Checkout = (
         {/* <small className="subtotal__gift">
           <input type="checkbox" /> This order contains a gift
         </small> */}
-        <button className="subtotal__btn--checkout">Proceed to Checkout</button>
+        <Button className="subtotal__btn--checkout">Proceed to Checkout</Button>
       </div>
     </div>
   );

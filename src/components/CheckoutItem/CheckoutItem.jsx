@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack } from 'react-bootstrap';
+import { Button, Stack } from 'react-bootstrap';
 import { useCartContext } from '../../context/CartContext';
 import { useWishlistContext } from '../../context/WishlistProvider';
 import { formatCurrency } from '../../utilities/formatCurrency';
@@ -41,21 +41,23 @@ const CheckoutItem = ({ id, title, image, price, rating, quantity }) => {
 
         <Counter id={id} itemQuantity={quantity} />
 
-        <button
+        <Button
           type="button"
           onClick={() => deleteFromCart(id)}
+          variant="outline-dark" size="sm"
           className="item__btn--delete"
         >
           Delete
-        </button>
+        </Button>
 
-        <button
+        <Button
           type="button"
           onClick={() => addToWishlist(id, title, image, price, rating)}
-          className="item__btn--wishlist"
+          variant="outline-secondary" size="sm"
+          className=" ms-1 item__btn--wishlist"
         >
           Save to Wishlist
-        </button>
+        </Button>
       </div>
 
       <div>
