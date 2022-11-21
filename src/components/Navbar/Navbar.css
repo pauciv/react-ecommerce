@@ -34,9 +34,8 @@
 }
 
 .header__searchIncon {
-    padding: 5px;
     height: 22px !important; 
-    background-color: #61dafb;
+    /* background-color: #61dafb; */
 }
 
 .header__nav {

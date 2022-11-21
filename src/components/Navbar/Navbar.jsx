@@ -1,5 +1,5 @@
 import { memo, useContext } from 'react';
-import { Navbar as BtNavbar } from 'react-bootstrap'
+import { Button, Navbar as NavbarB } from 'react-bootstrap'
 
 import './Navbar.css';
 import SearchIcon from '@mui/icons-material/Search';
@@ -18,7 +18,7 @@ const Navbar = ({ handleSearch, cart }) => {
     <>
       {/* <div className="flex__container"> */}
       {/* <nav className="header"> */}
-      <BtNavbar sticky='top' className='bg-black shadow-sm mb-3'>
+      <NavbarB sticky='top' className='bg-black shadow-sm mb-3'>
         <Link to="/">
           <img
             className="header__logo"
@@ -33,10 +33,10 @@ const Navbar = ({ handleSearch, cart }) => {
         </div> */}
 
         <div className="header__search">
-          <input className="header__searchInput" type="text" />
-          <button onClick={handleSearch}>
+          <input className="header__searchInput form-control h-100" type="text" />
+          <Button onClick={handleSearch}>
             <SearchIcon className="header__searchIncon" />
-          </button>
+          </Button>
         </div>
 
         <div className="header__nav">
@@ -76,7 +76,7 @@ const Navbar = ({ handleSearch, cart }) => {
             </div>
           </Link>
         </div>
-      </BtNavbar>
+      </NavbarB>
       {/* </nav> */}
 
       {/* <aside className="cart">
