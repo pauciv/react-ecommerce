@@ -2,7 +2,7 @@ export const url = 'http://localhost:3001/products';
 
 //TODO: implementar useCallback a esta función
 
-export const getProducts = async (setProducts, setError, setLoading) => {
+export const getData = async (setProducts, setError, setLoading) => {
   try {
     const response = await fetch(url);
     // console.log(response); // status: 200

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { getProducts, url } from '../utilities/api/getProducts';
+import { getData, url } from '../utilities/api/getProducts';
 import { CartContext } from './CartContext';
 
 export const useCartContext = () => useContext(CartContext);
@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
     setError(false);
     setLoading(true);
 
-    getProducts(setProducts, setError, setLoading); // únicamente se ejecuta una vez al renderizar el componente App.
+    getData(setProducts, setError, setLoading); // únicamente se ejecuta una vez al renderizar el componente App.
   }, [url]); // se volvería a renderizar si cambiara la url.
   //! ___
 

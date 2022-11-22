@@ -10,7 +10,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Router from './routes/Router';
 import Cart from './components/Cart/Cart';
 import WishlistProvider from './context/WishlistProvider';
-import { getProducts, url } from './utilities/api/getProducts';
+import { getData, url } from './utilities/api/getProducts';
 import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
 import Wishlist from './components/Wishlist/Wishlist';
@@ -29,7 +29,7 @@ function App() {
     setError(false);
     setLoading(true);
 
-    getProducts(setProducts, setError, setLoading); // únicamente se ejecuta una vez al renderizar el componente App.
+    getData(setProducts, setError, setLoading); // únicamente se ejecuta una vez al renderizar el componente App.
   }, [url]); // se volvería a renderizar si cambiara la url.
   //! ___
 

@@ -1,20 +1,71 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+  //! API
+  const [users, setUsers] = useState([]);
+  const url = 'http://localhost:3001/users';
+
+  console.log('users = ', users);
+
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setUsers(json)
+      } catch (error) {
+        console.warn('login error');
+      }
+    };
+    getUsers();
+  }, [url]);
+  //! ___
+
   const [formState, setFormState] = useState({
-    unserName: '',
+    userName: '',
     email: '',
     password: '',
   });
+  console.log('formState = ', formState);
 
   const { userName, email, password } = formState;
 
-  const onFormSubmit = () => {};
-
   const onInputChange = ({ target }) => {
     const { name, value } = target;
+    // console.log(name, value);
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (!userName || !email || !password) {
+      console.warn('you must complete all the inputs');
+      return;
+    }
+
+    const newUser = {
+      userName,
+      email,
+      password,
+    };
+    console.log('newUser = ', newUser);
+
+    // add the new user to the db.json
+    const addNewUser = () => {};
+
+    // reset the form
+    setFormState({
+      userName: '',
+      email: '',
+      password: '',
+    });
   };
 
   return (
@@ -28,17 +79,18 @@ const Register = () => {
           <h1>Create Account</h1>
 
           <form
-          // onSubmit={(e) => {
-          //   e.preventDefault();
-          //   login(email, password);
-          // }}
+            onSubmit={onFormSubmit}
+            // onSubmit={(e) => {
+            //   e.preventDefault();
+            //   login(email, password);
+            // }}
           >
             <h2>Name</h2>
             <input
               type="text"
-              name="name"
-              placeholder="First and last name"
+              name="userName"
               value={userName}
+              placeholder="First and last name"
               onChange={onInputChange}
             />
 
@@ -63,8 +115,8 @@ const Register = () => {
             <input
               type="password"
               name="password"
-              //   value={password}
-              //   onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              onChange={onInputChange}
             />
 
             <Button
