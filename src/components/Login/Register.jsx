@@ -12,9 +12,9 @@ const Register = () => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url); // cuando no especificamos el segundo parámetro en el fetch(), estamos haciendo una petición con el método GET.
         const json = await response.json();
-        setUsers(json)
+        setUsers(json);
       } catch (error) {
         console.warn('login error');
       }
@@ -58,7 +58,15 @@ const Register = () => {
     console.log('newUser = ', newUser);
 
     // add the new user to the db.json
-    const addNewUser = () => {};
+    const addNewUser = (newUser) => {
+      const userIds = users.map((user) => user.id);
+      const maxUserId = Math.max(...userIds) || 0;
+      newUser.id = maxUserId + 1;
+
+      console.log([...users, newUser]);
+      return [...users, newUser];
+    };
+    addNewUser(newUser);
 
     // reset the form
     setFormState({
