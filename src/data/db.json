@@ -21,5 +21,17 @@
       "price": 145,
       "rating": 4.5
     }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "userName": "Pau Civill",
+      "email": "pau@mail.com",
+      "phoneNumber": "688839761",
+      "password": "123qwe",
+      "address": "My Adress, 22",
+      "postalCode": "12345"
+    }
   ]
 }

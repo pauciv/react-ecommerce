@@ -1,7 +1,7 @@
 const WishlistReducer = (state, action) => {
   console.log('state = ', state);
   console.log('action = ', action);
-  console.log('state = ', state.wishlistItems);
+  console.log('state.wishlistItems = ', state.wishlistItems);
 
   switch (action.type) {
     case 'add_to_wishlist':

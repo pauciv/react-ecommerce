@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  console.log(email, password);
 
   const signIn = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+  };
 
-  }
+  const login = (email, password) => {
+    if (email === 'pau@gmail.com' && password === '123') {
+      console.log('logged');
+    } else console.log('incorrect');
+  };
 
   const createAccount = () => {
     return;
-  }
+  };
 
   return (
     <div className="login">
@@ -25,10 +32,16 @@ const Login = () => {
         <div className="login__container">
           <h1>Sign in</h1>
 
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              login(email, password);
+            }}
+          >
             <h2>Email</h2>
             <input
               type="text"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -36,23 +49,26 @@ const Login = () => {
             <h2>Password</h2>
             <input
               type="password"
+              name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button
+            <Button
               type="submit"
-              onClick={signIn}
+              // onClick={signIn}
               className="login__signInButton"
             >
               Sign In
-            </button>
+            </Button>
           </form>
         </div>
 
-        <button onClick={createAccount} className="login__registerButton">
-          Create your Account
-        </button>
+        <Link to='/register'>
+          <button onClick={createAccount} className="login__registerButton">
+            Create your Account
+          </button>
+        </Link>
       </div>
     </div>
   );

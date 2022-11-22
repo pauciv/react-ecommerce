@@ -19,11 +19,10 @@ const WishlistProvider = ({ children }) => {
   };
 
   const [{ wishlistItems }, dispatch] = useReducer(WishlistReducer, {}, init);
-  console.log(wishlistItems);
 
   useEffect(() => {
     localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
-    console.log('wishlistItems = ', wishlistItems);
+    // console.log('wishlistItems = ', wishlistItems);
   }, [wishlistItems]);
 
   const addToWishlist = (id, image, title, price, rating) => {
@@ -55,6 +54,7 @@ const WishlistProvider = ({ children }) => {
     <WishlistContext.Provider
       // value={useReducer(WishlistReducer, {}, init)}
       value={{
+        ...wishlistItems,
         wishlistItems,
         addToWishlist,
         deleteFromWishlist,

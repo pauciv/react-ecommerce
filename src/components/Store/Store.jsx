@@ -1,6 +1,3 @@
-import Product from '../Product/Product';
-import ChildrenProd from '../Product/ChildrenProd';
-
 //rating star icons
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -11,7 +8,7 @@ import './Store.css';
 
 import { TailSpin } from 'react-loader-spinner';
 import { Col, Row } from 'react-bootstrap';
-import StoreItem from '../Product/StoreItem';
+import StoreItem from '../StoreItem/StoreItem';
 
 const Store = ({ products, error, loading, addToCart }) => {
   

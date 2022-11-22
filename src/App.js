@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import './assets/css/global.css';
-import Navbar from './components/Navbar/Navbar';
+
+//! usando el archivo de barril
+import { Navbar } from './components';
+
 import Store from './components/Store/Store';
 import Footer from './components/Footer/Footer';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -12,6 +15,7 @@ import Login from './components/Login/Login';
 import CheckoutView from './pages/CheckoutView';
 import Wishlist from './components/Wishlist/Wishlist';
 import { CartProvider } from './context/CartProvider';
+import Register from './components/Login/Register';
 
 function App() {
   //! API
@@ -58,14 +62,17 @@ function App() {
                   /* index */
                   path="/"
                   element={
-                    <Store products={products} error={error} loading={loading} />
+                    <Store
+                      products={products}
+                      error={error}
+                      loading={loading}
+                    />
                   }
                 />
 
                 <Route path="/login" element={<Login />} />
-
+                <Route path="/register" element={<Register />} />
                 <Route path="/wishlist" element={<Wishlist />} />
-
                 <Route path="/checkout" element={<CheckoutView />} />
                 <Route path="/*" element={<Navigate replace to="/" />} />
                 {/* </Route> */}
