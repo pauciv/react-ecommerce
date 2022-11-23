@@ -36,6 +36,8 @@ const Checkout = () => {
         {/* <small className="subtotal__gift">
           <input type="checkbox" /> This order contains a gift
         </small> */}
+
+        //TODO: user ? ve al checkout con los datos rellenados : ve al login
         <Button className="subtotal__btn--checkout">Proceed to Checkout</Button>
       </div>
     </div>

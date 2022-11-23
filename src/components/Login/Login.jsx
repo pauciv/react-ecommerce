@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import './Login.css';
 
 const Login = () => {
@@ -18,8 +19,9 @@ const Login = () => {
   //   } else console.log('incorrect');
   // };
 
+  const { login } = useContext(AuthContext);
 
-
+  const navigate = useNavigate();
 
   const [loginState, setLoginState] = useState({
     email: '',
@@ -53,27 +55,38 @@ const Login = () => {
     };
     console.log('loginUser = ', loginUser);
 
+    const verifyLoginUser = async (loginUser) => {
+      try {
+        const url = 'http://localhost:3001/users';
+        const response = await fetch(url);
+        const json = await response.json();
 
-    // const verifyUser = async (loginUser) => {
-    //   try {
-    //     const url = 'http://localhost:3001/users';
-    //     const options = {
-    //       method: 'POST',
-    //       headers: { 'Content-type': 'application/json; charset=utf-8' },
-    //       body: JSON.stringify(loginUser),
-    //     };
-    //     const response = await fetch(url, options);
-    //     const json = await response.json();
+        const users = json;
+        const correctLoginUser = users.find(
+          (user) =>
+            user.email === loginUser.email &&
+            user.password === loginUser.password
+        );
+          console.log(correctLoginUser)
 
-    //     if (!response.ok) {
-    //       throw { status: response.status, statusText: response.statusText };
-    //     }
-    //   } catch (error) {
-    //     const message = error.statusText || 'unknown error';
-    //     console.error(`Error ${error.status}: ${message}`);
-    //   }
-    // };
-    // verifyUser(loginUser);
+        if (correctLoginUser) {
+          console.log(correctLoginUser)
+          login(correctLoginUser);
+
+          navigate('/', {
+            replace: true,
+          });
+        } 
+
+        if (!response.ok) {
+          throw { status: response.status, statusText: response.statusText };
+        }
+      } catch (error) {
+        const message = error.statusText || 'unknown error';
+        console.error(`Error ${error.status}: ${message}`);
+      }
+    };
+    verifyLoginUser(loginUser);
 
     // reset the form
     setLoginState({
@@ -92,9 +105,7 @@ const Login = () => {
         <div className="login__container">
           <h1>Sign in</h1>
 
-          <form
-            onSubmit={onFormSubmit}
-          >
+          <form onSubmit={onFormSubmit}>
             <h2>Email</h2>
             <input
               type="text"
@@ -121,10 +132,8 @@ const Login = () => {
           </form>
         </div>
 
-        <Link to='/register'>
-          <button className="login__registerButton">
-            Create your Account
-          </button>
+        <Link to="/register">
+          <button className="login__registerButton">Create your Account</button>
         </Link>
       </div>
     </div>

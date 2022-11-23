@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   //   };
 
   const init = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(sessionStorage.getItem('user'));
     return {
       isLogged: !!user,
       user,
@@ -19,22 +19,19 @@ export const AuthProvider = ({ children }) => {
 
   const [authState, dispatch] = useReducer(AuthReducer, {}, init);
 
-  const login = (name = '') => {
-    const user = {
-      id: 22,
-      name,
-    };
+  const login = (loginUser = {}) => {
+    console.log(loginUser)
 
-    localStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem('user', JSON.stringify(loginUser));
 
     dispatch({
       type: types.login,
-      payload: user,
+      payload: loginUser,
     });
   };
 
   const logout = () => {
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
 
     dispatch({
       type: types.logout,
@@ -45,8 +42,8 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         ...authState,
-        login: login,
-        logout: logout,
+        login,
+        logout,
       }}
     >
       {children}

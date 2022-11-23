@@ -3,25 +3,25 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-  // //! API
-  // const [users, setUsers] = useState([]);
-  // const url = 'http://localhost:3001/users';
+  //! API
+  const [users, setUsers] = useState([]);
+  const url = 'http://localhost:3001/users';
 
-  // console.log('users = ', users);
+  console.log('users = ', users);
 
-  // useEffect(() => {
-  //   const getUsers = async () => {
-  //     try {
-  //       const response = await fetch(url); // cuando no especificamos el segundo parámetro en el fetch(), estamos haciendo una petición con el método GET.
-  //       const json = await response.json();
-  //       setUsers(json);
-  //     } catch (error) {
-  //       console.warn('login error');
-  //     }
-  //   };
-  //   getUsers();
-  // }, [url]);
-  // //! ___
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const response = await fetch(url); // cuando no especificamos el segundo parámetro en el fetch(), estamos haciendo una petición con el método GET.
+        const json = await response.json();
+        setUsers(json);
+      } catch (error) {
+        console.warn('login error');
+      }
+    };
+    getUsers();
+  }, [url]);
+  //! ___
 
   const [registerState, setRegisterState] = useState({
     userName: '',
@@ -49,6 +49,9 @@ const Register = () => {
     if (!userName || !email || !password || !rePassword) {
       console.warn('you must complete all the inputs');
       return;
+    } else if (users.find((user) => user.email === email)) {
+      console.warn(`${email} is already used`);
+      return;
     } else if (password !== rePassword) {
       console.warn('passwords do not match');
       return;
@@ -75,7 +78,7 @@ const Register = () => {
           body: JSON.stringify(newUser),
         };
         const response = await fetch(url, options);
-        const json = await response.json();
+        // const json = await response.json();
 
         if (!response.ok) {
           throw { status: response.status, statusText: response.statusText };
@@ -100,7 +103,6 @@ const Register = () => {
   };
 
   return (
-
     // {success && <Navigate to="/" />}
 
     <div className="login">

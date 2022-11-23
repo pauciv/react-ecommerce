@@ -6,18 +6,32 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import { Link } from 'react-router-dom';
 
 import { getTotalItems } from '../Subtotal/Subtotal';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useCartContext } from '../../context/CartProvider';
 import SearchForm from './SearchForm';
+import { AuthContext } from '../../context/AuthContext';
 
-const Navbar = ({ handleSearch, cart }) => {
+const Navbar = ({ handleSearch }) => {
   const { totalCartQuantity, openCart } = useCartContext();
+
+  const { user, logout } = useContext(AuthContext);
+  console.log(user);
+
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    logout();
+
+    navigate('/login', {
+      replace: true,
+    });
+  };
 
   return (
     <>
       {/* <div className="flex__container"> */}
       {/* <nav className="header"> */}
-      <NavbarB sticky="top" className="bg-black shadow-sm mb-3">
+      <NavbarB sticky="top" className="bg-black shadow-sm mb-2">
         <Link to="/">
           <img
             className="header__logo"
@@ -26,67 +40,32 @@ const Navbar = ({ handleSearch, cart }) => {
           />
         </Link>
 
-        {/* <div className="header__option">
-          <span className="header__optionLineOne">Deliver to</span>
-          <span className="header__optionLineTwo">Spain</span>
-        </div> */}
-
         <SearchForm />
 
-        {/* <div className="header__search">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              console.log(event.target.searchInput.value);
-            }}
-            className="d-flex"
-          >
-            <input
-              type="text"
-              name="searchInput"
-              className="header__searchInput form-control h-100"
-            />
-            <Button type="submit" onClick={handleSearch}>
-              <SearchIcon className="header__searchIncon" />
-            </Button>
-          </form>
-        </div> */}
-
         <div className="header__nav">
-          {/* <div className="header__option">
-            <span className="header__optionLineOne">English</span>
-            <img
-              className="header__flagIcon"
-              src="https://flagpedia.net/data/flags/emoji/twitter/256x256/us.png"
-              alt="american flag image"
-            />
-          </div> */}
+          {user ? (
+            <span className="header__option">Hello, {user.userName}</span>
+          ) : (
+            <Link to="/login">
+              <span className="header__option">Hello, sign in</span>
+            </Link>
+          )}
 
-          <Link to="/login">
-            <div className="header__option">
-              <span className="header__optionLineTwo">Hello, sign in</span>
-              {/* <span className="header__optionLineTwo">Accounts & Lists</span> */}
-            </div>
-          </Link>
-
-          <div className="header__option">
-            {/* <span className="header__optionLineOne">Returns</span> */}
-            <span className="header__optionLineTwo">Orders</span>
-          </div>
+          {user &&
+            <span className="header__option" onClick={onLogout}>
+            Logout
+          </span>
+          }
+        
+          {/* <span className="header__option">Orders</span> */}
 
           <Link to="/wishlist">
-            <div className="header__option">
-              <span className="header__optionLineTwo">Wishlist</span>
-            </div>
+            <span className="header__option">Wishlist</span>
           </Link>
 
           <Link to="/checkout">
             <div className="header__option header__optionBasket">
-              <span className="header__basketCount">
-                {
-                  /* cartR?.length */ totalCartQuantity /* getTotalItems(cart) */
-                }
-              </span>
+              <span className="header__basketCount">{totalCartQuantity}</span>
               <ShoppingCartIcon className="header__cartIncon" />
             </div>
           </Link>
