@@ -26,7 +26,6 @@ const WishlistProvider = ({ children }) => {
   }, [wishlistItems]);
 
   const addToWishlist = (id, image, title, price, rating) => {
-    // setState(true) //TODO. pintar el corazón en función de si está o no en la wishlist.
     const action = {
       type: 'add_to_wishlist',
       payload: {

@@ -38,7 +38,6 @@ const Store = ({ products, error, loading, addToCart }) => {
           {products ? (
             products.map((product) => (
               <Col key={product.id}>
-                {/* TODO product param */}
                 <StoreItem product={product} {...product} />
               </Col>
             ))

@@ -3,41 +3,42 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-  //! API
-  const [users, setUsers] = useState([]);
-  const url = 'http://localhost:3001/users';
-  
-  console.log('users = ', users);
+  // //! API
+  // const [users, setUsers] = useState([]);
+  // const url = 'http://localhost:3001/users';
 
-  useEffect(() => {
-    const getUsers = async () => {
-      try {
-        const response = await fetch(url); // cuando no especificamos el segundo parámetro en el fetch(), estamos haciendo una petición con el método GET.
-        const json = await response.json();
-        setUsers(json);
-      } catch (error) {
-        console.warn('login error');
-      }
-    };
-    getUsers();
-  }, [url]);
-  //! ___
+  // console.log('users = ', users);
 
-  const [formState, setFormState] = useState({
+  // useEffect(() => {
+  //   const getUsers = async () => {
+  //     try {
+  //       const response = await fetch(url); // cuando no especificamos el segundo parámetro en el fetch(), estamos haciendo una petición con el método GET.
+  //       const json = await response.json();
+  //       setUsers(json);
+  //     } catch (error) {
+  //       console.warn('login error');
+  //     }
+  //   };
+  //   getUsers();
+  // }, [url]);
+  // //! ___
+
+  const [registerState, setRegisterState] = useState({
     userName: '',
     email: '',
     password: '',
+    rePassword: '',
   });
-  console.log('formState = ', formState);
+  console.log('registerState = ', registerState);
 
-  const { userName, email, password } = formState;
+  const { userName, email, password, rePassword } = registerState;
 
   const onInputChange = ({ target }) => {
     const { name, value } = target;
     // console.log(name, value);
 
-    setFormState({
-      ...formState,
+    setRegisterState({
+      ...registerState,
       [name]: value,
     });
   };
@@ -45,8 +46,11 @@ const Register = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
 
-    if (!userName || !email || !password) {
+    if (!userName || !email || !password || !rePassword) {
       console.warn('you must complete all the inputs');
+      return;
+    } else if (password !== rePassword) {
+      console.warn('passwords do not match');
       return;
     }
 
@@ -59,34 +63,46 @@ const Register = () => {
 
     // ! add the new user to the db.json
     const addNewUser = async (newUser) => {
+      // const userIds = users.map((user) => user.id);
+      // const maxUserId = Math.max(...userIds) || 0;
+      // newUser.id = maxUserId + 1;
+
       try {
+        const url = 'http://localhost:3001/users';
         const options = {
-          method: "POST",
-          headers: { "Content-type": "application/json; charset=utf-8" }
-        }
-        const response = await fetch(url, options); // cuando no especificamos el segundo parámetro en el fetch(), estamos haciendo una petición con el método GET.
+          method: 'POST',
+          headers: { 'Content-type': 'application/json; charset=utf-8' },
+          body: JSON.stringify(newUser),
+        };
+        const response = await fetch(url, options);
         const json = await response.json();
-      } catch (error) {}
 
+        if (!response.ok) {
+          throw { status: response.status, statusText: response.statusText };
+        }
+      } catch (error) {
+        const message = error.statusText || 'unknown error';
+        console.error(`Error ${error.status}: ${message}`);
+      }
 
-      const userIds = users.map((user) => user.id);
-      const maxUserId = Math.max(...userIds) || 0;
-      newUser.id = maxUserId + 1;
-
-      console.log([...users, newUser]);
-      return [...users, newUser];
+      // console.log([...users, newUser]);
+      // return [...users, newUser];
     };
     addNewUser(newUser);
 
     // reset the form
-    setFormState({
+    setRegisterState({
       userName: '',
       email: '',
       password: '',
+      rePassword: '',
     });
   };
 
   return (
+
+    // {success && <Navigate to="/" />}
+
     <div className="login">
       {/* <Link to="/"> */}
       <img className="login__logo" src="logo512.png" />
@@ -121,19 +137,19 @@ const Register = () => {
             />
 
             <h2>Password</h2>
-            {/* <input
+            <input
               type="password"
               name="password"
               placeholder="At least 6 characters"
-              //   value={password}
-              //   onChange={(e) => setPassword(e.target.value)}
-            /> */}
+              value={password}
+              onChange={onInputChange}
+            />
 
             <h2>Re-enter password</h2>
             <input
               type="password"
-              name="password"
-              value={password}
+              name="rePassword"
+              value={rePassword}
               onChange={onInputChange}
             />
 

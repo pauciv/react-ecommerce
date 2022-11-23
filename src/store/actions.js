@@ -1,3 +1,0 @@
-const actions = () => {
-    return null;
-}

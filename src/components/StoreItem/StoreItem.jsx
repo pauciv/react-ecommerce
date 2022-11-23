@@ -19,8 +19,7 @@ const StoreItem = ({ id, image, title, price, rating /* quantity */ }) => {
   const { addToCart } = useCartContext();
   const quantity = 0;
 
-  const { wishlistItems, addToWishlist, deleteFromWishlist } =
-    useWishlistContext();
+  const { wishlistItems, addToWishlist, deleteFromWishlist } = useWishlistContext();
 
   const isInWishlist = wishlistItems.findIndex((item) => item.id === id);
 

@@ -16,6 +16,7 @@ import CheckoutView from './pages/CheckoutView';
 import Wishlist from './components/Wishlist/Wishlist';
 import { CartProvider } from './context/CartProvider';
 import Register from './components/Login/Register';
+import { AuthProvider } from './context/AuthProvider';
 
 function App() {
   //! API
@@ -46,42 +47,44 @@ function App() {
           <Footer />
       </ItemQtyProvider> */}
 
-      <CartProvider>
-        <WishlistProvider>
-          {/* <CartProvider cart={cart}> */}
-          <div className="app">
-            <div className="main">
-              <Navbar handleSearch={handleSearch} />
+      <AuthProvider>
+        <CartProvider>
+          <WishlistProvider>
+            {/* <CartProvider cart={cart}> */}
+            <div className="app">
+              <div className="main">
+                <Navbar handleSearch={handleSearch} />
 
-              <Routes>
-                {/* <Route
+                <Routes>
+                  {/* <Route
                   path="/"
                   element={<Navbar handleSearch={handleSearch} cart={cart} />}
                 > */}
-                <Route
-                  /* index */
-                  path="/"
-                  element={
-                    <Store
-                      products={products}
-                      error={error}
-                      loading={loading}
-                    />
-                  }
-                />
+                  <Route
+                    /* index */
+                    path="/"
+                    element={
+                      <Store
+                        products={products}
+                        error={error}
+                        loading={loading}
+                      />
+                    }
+                  />
 
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="/checkout" element={<CheckoutView />} />
-                <Route path="/*" element={<Navigate replace to="/" />} />
-                {/* </Route> */}
-              </Routes>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/wishlist" element={<Wishlist />} />
+                  <Route path="/checkout" element={<CheckoutView />} />
+                  <Route path="/*" element={<Navigate replace to="/" />} />
+                  {/* </Route> */}
+                </Routes>
+              </div>
+              <Cart />
             </div>
-            <Cart />
-          </div>
-        </WishlistProvider>
-      </CartProvider>
+          </WishlistProvider>
+        </CartProvider>
+      </AuthProvider>
     </>
   );
 }

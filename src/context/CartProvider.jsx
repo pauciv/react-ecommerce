@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { getData, url } from '../utilities/api/getProducts';
-import { CartContext } from './CartContext';
+import { CartContext } from './CartContext'
 
 export const useCartContext = () => useContext(CartContext);
 

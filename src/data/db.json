@@ -22,7 +22,6 @@
       "rating": 4.5
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -32,6 +31,83 @@
       "password": "123qwe",
       "address": "My Adress, 22",
       "postalCode": "12345"
+    },
+    {
+      "userName": "Pepe",
+      "email": "786357653",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "userName": "Ezequiel",
+      "email": "435453",
+      "password": "hjkgfjhsfg",
+      "id": 3
+    },
+    {
+      "userName": "Maria",
+      "email": "maria@mail.com",
+      "password": "12",
+      "id": 4
+    },
+    {
+      "userName": "Pere",
+      "email": "pere@gmail.com",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "userName": "wererw",
+      "email": "rere",
+      "password": "12",
+      "id": 6
+    },
+    {
+      "userName": "ytr",
+      "email": "ryt",
+      "password": "1",
+      "id": 7
+    },
+    {
+      "userName": "terw",
+      "email": "543",
+      "password": "5",
+      "id": 8
+    },
+    {
+      "userName": "re",
+      "email": "334",
+      "password": "9",
+      "id": 9
+    },
+    {
+      "userName": "r",
+      "email": "4",
+      "password": "5",
+      "id": 10
+    },
+    {
+      "userName": "y",
+      "email": "6",
+      "password": "6",
+      "id": 11
+    },
+    {
+      "email": "pau@gmail.com",
+      "password": "123qwe",
+      "id": 12
+    },
+    {
+      "userName": "terw",
+      "email": "t",
+      "password": "45",
+      "id": 13
+    },
+    {
+      "userName": "tre",
+      "email": "4",
+      "password": "77",
+      "id": 14
     }
   ]
 }

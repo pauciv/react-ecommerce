@@ -17,10 +17,21 @@ import { useWishlistContext } from '../../context/WishlistProvider';
 
 const WishlistItem = ({ id, title, image, price, quantity }) => {
   const { addToCart } = useCartContext();
-  const { deleteFromWishlist } = useWishlistContext();
+  const { wishlistItems, deleteFromWishlist } = useWishlistContext();
+
+  const isInWishlist = wishlistItems.findIndex((item) => item.id === id);
 
   return (
     <Card className="h-100">
+      <div className="d-flex justify-content-end">
+        {isInWishlist === -1 ? null : (
+          <FavoriteIcon
+            onClick={() => deleteFromWishlist(id)}
+            className="product__wished m-2"
+          />
+        )}
+      </div>
+
       <Card.Img className="store__item--img" src={image} height="150" />
       <Card.Body className="d-flex flex-column justify-content-end">
         <Card.Title>{title}</Card.Title>
@@ -52,7 +63,7 @@ const WishlistItem = ({ id, title, image, price, quantity }) => {
             </Button>
           )}
 
-          <Button
+          {/* <Button
             type="button"
             onClick={() => deleteFromWishlist(id)}
             variant="outline-secondary"
@@ -60,7 +71,7 @@ const WishlistItem = ({ id, title, image, price, quantity }) => {
             className="item__btn--delete"
           >
             Delete
-          </Button>
+          </Button> */}
         </div>
       </Card.Body>
     </Card>

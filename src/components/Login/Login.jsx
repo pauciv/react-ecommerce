@@ -4,22 +4,82 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  console.log(email, password);
+  // const [email, setEmail] = useState();
+  // const [password, setPassword] = useState();
+  // // console.log(email, password);
 
-  const signIn = (e) => {
+  // const signIn = (e) => {
+  //   e.preventDefault();
+  // };
+
+  // const login = (email, password) => {
+  //   if (email === 'pau@gmail.com' && password === '123') {
+  //     console.log('logged');
+  //   } else console.log('incorrect');
+  // };
+
+
+
+
+  const [loginState, setLoginState] = useState({
+    email: '',
+    password: '',
+  });
+  // console.log('loginState = ', loginState);
+
+  const { email, password } = loginState;
+
+  const onInputChange = ({ target }) => {
+    const { name, value } = target;
+    // console.log(name, value);
+
+    setLoginState({
+      ...loginState,
+      [name]: value,
+    });
+  };
+
+  const onFormSubmit = (e) => {
     e.preventDefault();
-  };
 
-  const login = (email, password) => {
-    if (email === 'pau@gmail.com' && password === '123') {
-      console.log('logged');
-    } else console.log('incorrect');
-  };
+    if (!email || !password) {
+      console.warn('you must complete all the inputs');
+      return;
+    }
 
-  const createAccount = () => {
-    return;
+    const loginUser = {
+      email,
+      password,
+    };
+    console.log('loginUser = ', loginUser);
+
+
+    // const verifyUser = async (loginUser) => {
+    //   try {
+    //     const url = 'http://localhost:3001/users';
+    //     const options = {
+    //       method: 'POST',
+    //       headers: { 'Content-type': 'application/json; charset=utf-8' },
+    //       body: JSON.stringify(loginUser),
+    //     };
+    //     const response = await fetch(url, options);
+    //     const json = await response.json();
+
+    //     if (!response.ok) {
+    //       throw { status: response.status, statusText: response.statusText };
+    //     }
+    //   } catch (error) {
+    //     const message = error.statusText || 'unknown error';
+    //     console.error(`Error ${error.status}: ${message}`);
+    //   }
+    // };
+    // verifyUser(loginUser);
+
+    // reset the form
+    setLoginState({
+      email: '',
+      password: '',
+    });
   };
 
   return (
@@ -33,17 +93,14 @@ const Login = () => {
           <h1>Sign in</h1>
 
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              login(email, password);
-            }}
+            onSubmit={onFormSubmit}
           >
             <h2>Email</h2>
             <input
               type="text"
               name="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={onInputChange}
             />
 
             <h2>Password</h2>
@@ -51,7 +108,7 @@ const Login = () => {
               type="password"
               name="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={onInputChange}
             />
 
             <Button
@@ -65,7 +122,7 @@ const Login = () => {
         </div>
 
         <Link to='/register'>
-          <button onClick={createAccount} className="login__registerButton">
+          <button className="login__registerButton">
             Create your Account
           </button>
         </Link>
