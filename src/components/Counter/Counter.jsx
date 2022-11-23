@@ -17,20 +17,14 @@ const Counter = ({ id, itemQuantity }) => {
       >
         +
       </Button>
-      {/* <button onClick={handleIncrementQty}>+qty</button> */}
-      {itemQuantity > 1 ? (
-        <Button
-          onClick={() => decreaseQuantity(id)}
-          variant="outline-secondary"
-          size="sm"
-        >
-          -
-        </Button>
-      ) : (
-        <Button disabled variant="outline-secondary" size="sm">
-          -
-        </Button>
-      )}
+      <Button
+        onClick={() => decreaseQuantity(id)}
+        disabled={itemQuantity === 1}
+        variant="outline-secondary"
+        size="sm"
+      >
+        -
+      </Button>
     </div>
   );
 };

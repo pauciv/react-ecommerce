@@ -6,7 +6,7 @@ const Register = () => {
   //! API
   const [users, setUsers] = useState([]);
   const url = 'http://localhost:3001/users';
-
+  
   console.log('users = ', users);
 
   useEffect(() => {
@@ -57,8 +57,18 @@ const Register = () => {
     };
     console.log('newUser = ', newUser);
 
-    // add the new user to the db.json
-    const addNewUser = (newUser) => {
+    // ! add the new user to the db.json
+    const addNewUser = async (newUser) => {
+      try {
+        const options = {
+          method: "POST",
+          headers: { "Content-type": "application/json; charset=utf-8" }
+        }
+        const response = await fetch(url, options); // cuando no especificamos el segundo parámetro en el fetch(), estamos haciendo una petición con el método GET.
+        const json = await response.json();
+      } catch (error) {}
+
+
       const userIds = users.map((user) => user.id);
       const maxUserId = Math.max(...userIds) || 0;
       newUser.id = maxUserId + 1;
