@@ -4,6 +4,7 @@
       "id": 1,
       "title": "MX Mechanical Mini",
       "image": "https://resource.logitech.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-mechanical/gallery/mx-mechanical-mini/mx-mechanical-mini-mini-keyboard-top-view-graphite-deu.png?v=1",
+      "description": "Lorem ipsum...",
       "price": 159,
       "rating": 4
     },
@@ -27,7 +28,7 @@
       "id": 1,
       "userName": "Pau Civill",
       "email": "pau@mail.com",
-      "phoneNumber": "688839761",
+      "mobileNumber": "688839761",
       "password": "123qwe",
       "address": "My Adress, 22",
       "postalCode": "12345"

@@ -67,10 +67,10 @@ const Login = () => {
             user.email === loginUser.email &&
             user.password === loginUser.password
         );
-          console.log(correctLoginUser)
+        console.log(correctLoginUser);
 
         if (correctLoginUser) {
-          console.log(correctLoginUser)
+          console.log(correctLoginUser);
           login(correctLoginUser);
 
           navigate('/', {
@@ -98,7 +98,7 @@ const Login = () => {
   return (
     <div className="login">
       {/* <Link to="/"> */}
-      <img className="login__logo" src="logo512.png" />
+      <img className="login__logo" src="../../../public/logo512.png" />
       {/* </Link> */}
 
       <div>

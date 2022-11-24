@@ -14,12 +14,14 @@ import './StoreItem.css';
 import { useContext, useEffect } from 'react';
 import { WishlistContext } from '../../context/WishlistContext';
 import { useWishlistContext } from '../../context/WishlistProvider';
+import { Link } from 'react-router-dom';
 
 const StoreItem = ({ id, image, title, price, rating /* quantity */ }) => {
   const { addToCart } = useCartContext();
   const quantity = 0;
 
-  const { wishlistItems, addToWishlist, deleteFromWishlist } = useWishlistContext();
+  const { wishlistItems, addToWishlist, deleteFromWishlist } =
+    useWishlistContext();
 
   const isInWishlist = wishlistItems.findIndex((item) => item.id === id);
 
@@ -39,7 +41,10 @@ const StoreItem = ({ id, image, title, price, rating /* quantity */ }) => {
         )}
       </div>
 
-      <Card.Img className="store__item--img" src={image} height="150" />
+      <Link to={`/product/${id}`}>
+        <Card.Img className="store__item--img" src={image} height="150" />
+      </Link>
+
       <Card.Body className="d-flex flex-column justify-content-end">
         <Card.Title>{title}</Card.Title>
         <Card.Text className="mt-2">

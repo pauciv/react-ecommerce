@@ -34,7 +34,7 @@ const Navbar = ({ handleSearch }) => {
         <Link to="/">
           <img
             className="header__logo"
-            src="logo512.png" /* src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" */
+            src="../../logo512.png" /* src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" */
             alt="reactjs logo"
           />
         </Link>

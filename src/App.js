@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './assets/css/global.css';
 
 //! usando el archivo de barril
@@ -20,6 +20,8 @@ import { AuthProvider } from './context/AuthProvider';
 import Buy from './components/Buy/Buy';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
+import { AuthContext } from './context/AuthContext';
+import ProductPage from './components/ProductPage/ProductPage';
 
 function App() {
   //! API
@@ -75,13 +77,15 @@ function App() {
                     }
                   />
 
+                  <Route path="product/:id" element={<ProductPage products={products} />} />
+
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/wishlist" element={<Wishlist />} />
                   <Route path="/checkout" element={<CheckoutView />} />
 
                   <Route
-                    path="login/*"
+                    path="/login/*"
                     element={
                       <PublicRoutes>
                         <Routes>
@@ -92,7 +96,7 @@ function App() {
                   />
 
                   <Route
-                    path="/*"
+                    path="/buy/*"
                     element={
                       <PrivateRoutes>
                         <Buy />
