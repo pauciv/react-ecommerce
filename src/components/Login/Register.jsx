@@ -130,7 +130,7 @@ const Register = () => {
               onChange={onInputChange}
             />
 
-            <h2>Mobile number or email</h2>
+            <h2>Email</h2>
             <input
               type="text"
               name="email"

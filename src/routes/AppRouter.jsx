@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import HomeView from '../pages/HomeView';
 import CheckoutView from '../pages/CheckoutView';
 
-const Router = () => (
+const AppRouter = () => (
   <Routes>
     <Route
       path="/"
@@ -13,4 +13,4 @@ const Router = () => (
   </Routes>
 );
 
-export default Router;
+export default AppRouter;

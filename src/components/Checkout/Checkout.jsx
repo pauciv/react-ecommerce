@@ -5,6 +5,7 @@ import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import { useCartContext } from '../../context/CartProvider';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   const { cartItems } = useCartContext();
@@ -33,12 +34,13 @@ const Checkout = () => {
       </div>
       <div className="checkout__right">
         <Subtotal cart={cartItems} />
-        {/* <small className="subtotal__gift">
-          <input type="checkbox" /> This order contains a gift
-        </small> */}
 
-        //TODO: user ? ve al checkout con los datos rellenados : ve al login
-        <Button className="subtotal__btn--checkout">Proceed to Checkout</Button>
+        {/* TODO: user ? ve al Buy con los datos rellenados : ve al Login */}
+        <Link to="/buy">
+          <Button className="subtotal__btn--checkout">
+            Proceed to Checkout
+          </Button>
+        </Link>
       </div>
     </div>
   );

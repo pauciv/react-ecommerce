@@ -7,7 +7,7 @@ import { Navbar } from './components';
 import Store from './components/Store/Store';
 import Footer from './components/Footer/Footer';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Router from './routes/Router';
+import Router from './routes/AppRouter';
 import Cart from './components/Cart/Cart';
 import WishlistProvider from './context/WishlistProvider';
 import { getData, url } from './utilities/api/getProducts';
@@ -17,6 +17,9 @@ import Wishlist from './components/Wishlist/Wishlist';
 import { CartProvider } from './context/CartProvider';
 import Register from './components/Login/Register';
 import { AuthProvider } from './context/AuthProvider';
+import Buy from './components/Buy/Buy';
+import PrivateRoutes from './routes/PrivateRoutes';
+import PublicRoutes from './routes/PublicRoutes';
 
 function App() {
   //! API
@@ -76,7 +79,28 @@ function App() {
                   <Route path="/register" element={<Register />} />
                   <Route path="/wishlist" element={<Wishlist />} />
                   <Route path="/checkout" element={<CheckoutView />} />
-                  <Route path="/*" element={<Navigate replace to="/" />} />
+
+                  <Route
+                    path="login/*"
+                    element={
+                      <PublicRoutes>
+                        <Routes>
+                          <Route path="/*" element={<Login />} />
+                        </Routes>
+                      </PublicRoutes>
+                    }
+                  />
+
+                  <Route
+                    path="/*"
+                    element={
+                      <PrivateRoutes>
+                        <Buy />
+                      </PrivateRoutes>
+                    }
+                  />
+
+                  {/* <Route path="/*" element={<Navigate replace to="/" />} /> */}
                   {/* </Route> */}
                 </Routes>
               </div>

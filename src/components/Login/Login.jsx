@@ -76,7 +76,7 @@ const Login = () => {
           navigate('/', {
             replace: true,
           });
-        } 
+        }
 
         if (!response.ok) {
           throw { status: response.status, statusText: response.statusText };

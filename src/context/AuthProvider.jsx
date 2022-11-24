@@ -4,10 +4,6 @@ import { AuthContext } from './AuthContext';
 import { types, AuthReducer } from '../store/AuthReducer';
 
 export const AuthProvider = ({ children }) => {
-  //   const initArgs = {
-  //     isLogged: false,
-  //     // user,
-  //   };
 
   const init = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));

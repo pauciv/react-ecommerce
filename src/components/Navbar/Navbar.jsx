@@ -15,7 +15,6 @@ const Navbar = ({ handleSearch }) => {
   const { totalCartQuantity, openCart } = useCartContext();
 
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
 
   const navigate = useNavigate();
 
