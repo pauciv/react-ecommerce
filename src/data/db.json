@@ -2,25 +2,123 @@
   "products": [
     {
       "id": 1,
-      "title": "MX Mechanical Mini",
-      "image": "https://resource.logitech.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-mechanical/gallery/mx-mechanical-mini/mx-mechanical-mini-mini-keyboard-top-view-graphite-deu.png?v=1",
+      "title": "Clean Code",
+      "image": "https://m.media-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg",
       "description": "Lorem ipsum...",
-      "price": 159,
+      "price": 35.61,
       "rating": 4
     },
     {
       "id": 2,
-      "title": "MX Master 3S",
-      "image": "https://resource.logitech.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/gallery/mx-master-3s-mouse-top-view-graphite.png?v=1",
-      "price": 135,
+      "title": "The Pragmatic Programmer",
+      "image": "https://m.media-amazon.com/images/I/51IA4hT6jrL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 36.17,
       "rating": 5
     },
     {
       "id": 3,
-      "title": "Zone Vibe 125",
-      "image": "https://resource.logitech.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/zone-vibe-125/gallery/zone-vibe-125-gallery-mic-down-graphite-1-new.png?v=1",
-      "price": 145,
+      "title": "Cracking the Coding Interview",
+      "image": "https://m.media-amazon.com/images/I/41oYsXjLvZL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 35.95,
       "rating": 4.5
+    },
+    {
+      "id": 4,
+      "title": "JavaScript: The Definitive Guide",
+      "image": "https://m.media-amazon.com/images/I/51HbNW6RzhL._SX375_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 30.99,
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "title": "Clean Architecture",
+      "image": "https://m.media-amazon.com/images/I/41-sN-mzwKL._SX381_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 34.19,
+      "rating": 4
+    },
+    {
+      "id": 6,
+      "title": "Software Architecture: The Hard Parts",
+      "image": "https://m.media-amazon.com/images/I/51qZnL+B63L._SX258_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 30.00,
+      "rating": 4.5
+    },
+    {
+      "id": 7,
+      "title": "Engineers Survival Guide",
+      "image": "https://m.media-amazon.com/images/I/41lkYRqFsUL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 29.99,
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "title": "Software Engineering at Google",
+      "image": "https://m.media-amazon.com/images/I/41uvuuFt06S._SX379_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 24.70,
+      "rating": 4
+    },
+    {
+      "id": 9,
+      "title": "Learning Algorithms",
+      "image": "https://m.media-amazon.com/images/I/41qI4ODE9ES._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 31.49,
+      "rating": 4
+    },
+    {
+      "id": 10,
+      "title": "The Complete Software Developer's Career Guide",
+      "image": "https://m.media-amazon.com/images/I/51CYOFLNoHL._SX404_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 25.99,
+      "rating": 4
+    },
+    {
+      "id": 11,
+      "title": "Docker: Up & Running",
+      "image": "https://m.media-amazon.com/images/I/51LlwzoO5hS._SX379_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 48.49,
+      "rating": 4
+    },
+    {
+      "id": 12,
+      "title": "Node.js Design Patterns",
+      "image": "https://m.media-amazon.com/images/I/51SBVyxyfxL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 46.74,
+      "rating": 4
+    },
+    {
+      "id": 13,
+      "title": "Foundations of Software Testing",
+      "image": "https://m.media-amazon.com/images/I/415EAeMW9nL._SX383_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 52.50,
+      "rating": 4
+    },
+    {
+      "id": 14,
+      "title": "Docker: Up & Running",
+      "image": "https://m.media-amazon.com/images/I/51LlwzoO5hS._SX379_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 48.49,
+      "rating": 4
+    },
+    {
+      "id": 15,
+      "title": "The Nature of Software Development",
+      "image": "https://m.media-amazon.com/images/I/514lvxHb+kL._SX538_BO1,204,203,200_.jpg",
+      "description": "Lorem ipsum...",
+      "price": 21.49,
+      "rating": 4
     }
   ],
   "users": [

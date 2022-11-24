@@ -7,21 +7,15 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 import './Store.css';
 
 import { TailSpin } from 'react-loader-spinner';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import StoreItem from '../StoreItem/StoreItem';
 
-const Store = ({ products, error, loading, addToCart }) => {
+const Store = ({ products, error, loading }) => {
   
   return (
     <main className="home">
-      <div className="home__container">
-        {/* <img
-            className="home__image"
-            src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg"
-            alt="home image"
-          /> */}
-
-        <Row md={4} xs={3} lg={5}>
+      <Container>
+        <Row md={3} xs={2} lg={5} className='mb-4'>
           {error ?? 'Page not found'}
           {loading ? (
             <TailSpin
@@ -37,7 +31,7 @@ const Store = ({ products, error, loading, addToCart }) => {
           ) : null}
           {products ? (
             products.map((product) => (
-              <Col key={product.id}>
+              <Col key={product.id} className="mt-3">
                 <StoreItem product={product} {...product} />
               </Col>
             ))
@@ -64,7 +58,7 @@ const Store = ({ products, error, loading, addToCart }) => {
         {/* <div>
             <Checkout cart={cart} />
           </div> */}
-      </div>
+      </Container>
 
       {/* <p>{JSON.stringify(cart)}</p> */}
       {/* {console.log(cart)} */}

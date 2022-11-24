@@ -4,14 +4,14 @@ import Subtotal from '../Subtotal/Subtotal';
 import './Checkout.css';
 import CheckoutItem from '../CheckoutItem/CheckoutItem';
 import { useCartContext } from '../../context/CartProvider';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   const { cartItems } = useCartContext();
 
   return (
-    <div className="checkout">
+    <Container className="checkout">
       <div className="checkout__left">
         <div className="checkout__header">
           <h2 className="checkout__title">Shopping Cart</h2>
@@ -42,7 +42,7 @@ const Checkout = () => {
           </Button>
         </Link>
       </div>
-    </div>
+    </Container>
   );
 };
 

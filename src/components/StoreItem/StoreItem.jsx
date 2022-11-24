@@ -11,8 +11,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import './StoreItem.css';
-import { useContext, useEffect } from 'react';
-import { WishlistContext } from '../../context/WishlistContext';
 import { useWishlistContext } from '../../context/WishlistProvider';
 import { Link } from 'react-router-dom';
 
@@ -51,7 +49,7 @@ const StoreItem = ({ id, image, title, price, rating /* quantity */ }) => {
           {/* <small>$</small> */}
           {formatCurrency(price)}
         </Card.Text>
-        <div className="product__rating">
+        <div className="product__rating ">
           {/* {Array(rating)
             .fill()
             .map(() => (
@@ -66,11 +64,11 @@ const StoreItem = ({ id, image, title, price, rating /* quantity */ }) => {
         </div>
         <div>
           {quantity === 0 ? (
-            <Button onClick={() => addToCart(id)} variant="primary">
+            <Button onClick={() => addToCart(id)} className="w-100" variant="primary">
               Add to Cart
             </Button>
           ) : (
-            <Button onClick={() => addToCart(id)} variant="primary">
+            <Button onClick={() => addToCart(id)} className="w-100" variant="primary">
               Add another one
             </Button>
           )}

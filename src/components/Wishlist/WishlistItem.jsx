@@ -54,11 +54,11 @@ const WishlistItem = ({ id, title, image, price, quantity }) => {
         </div>
         <div>
           {quantity === 0 ? (
-            <Button onClick={() => addToCart(id)} variant="primary">
+            <Button onClick={() => addToCart(id)} className="w-100" variant="primary">
               Add to Cart
             </Button>
           ) : (
-            <Button onClick={() => addToCart(id)} variant="primary">
+            <Button onClick={() => addToCart(id)} className="w-100" variant="primary">
               Add another one
             </Button>
           )}

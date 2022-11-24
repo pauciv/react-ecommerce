@@ -5,3 +5,8 @@
 .product__wished {
   color: red;
 }
+
+.product__rating {
+  color: orange;
+  margin-bottom: 10px;
+}

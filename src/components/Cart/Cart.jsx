@@ -8,11 +8,10 @@ const Cart = () => {
 
   if (cartItems.length > 0) {
     return (
-      <aside className="cart">
+      <aside className="cart" sticky="top">
         <div className="cart__subtotal">
           <span className="cart__subtotal--title">Subtotal</span>
           <span className="cart__subtotal--price">
-            {/* <small>$</small> */}
             {formatCurrency(totalCartPrice)}
           </span>
         </div>
