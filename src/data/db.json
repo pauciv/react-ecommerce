@@ -45,7 +45,7 @@
       "title": "Software Architecture: The Hard Parts",
       "image": "https://m.media-amazon.com/images/I/51qZnL+B63L._SX258_BO1,204,203,200_.jpg",
       "description": "There are no easy decisions in software architecture. Instead, there are many hard parts--difficult problems or issues with no best practices--that force you to choose among various compromises. With this book, you'll learn how to think critically about the trade-offs involved with distributed architectures. Architecture veterans and practicing consultants Neal Ford, Mark Richards, Pramod Sadalage, and Zhamak Dehghani discuss strategies for choosing an appropriate architecture. By interweaving a story about a fictional group of technology professionals--the Sysops Squad--they examine everything from how to determine service granularity, manage workflows and orchestration, manage and decouple contracts, and manage distributed transactions to how to optimize operational characteristics, such as scalability, elasticity, and performance. By focusing on commonly asked questions, this book provides techniques to help you discover and weigh the trade-offs as you confront the issues you face as an architect. Analyze trade-offs and effectively document your decisions Make better decisions regarding service granularity Understand the complexities of breaking apart monolithic applications Manage and decouple contracts between services Handle data in a highly distributed architecture Learn patterns to manage workflow and transactions when breaking apart applications.",
-      "price": 30.00,
+      "price": 30,
       "rating": 4.5
     },
     {
@@ -61,7 +61,7 @@
       "title": "Software Engineering at Google",
       "image": "https://m.media-amazon.com/images/I/41uvuuFt06S._SX379_BO1,204,203,200_.jpg",
       "description": "Today, software engineers need to know not only how to program effectively but also how to develop proper engineering practices to make their codebase sustainable and healthy. This book emphasizes this difference between programming and software engineering. How can software engineers manage a living codebase that evolves and responds to changing requirements and demands over the length of its life? Based on their experience at Google, software engineers Titus Winters and Hyrum Wright, along with technical writer Tom Manshreck, present a candid and insightful look at how some of the world’s leading practitioners construct and maintain software. This book covers Google’s unique engineering culture, processes, and tools and how these aspects contribute to the effectiveness of an engineering organization. You’ll explore three fundamental principles that software organizations should keep in mind when designing, architecting, writing, and maintaining code: How time affects the sustainability of software and how to make your code resilient over time How scale affects the viability of software practices within an engineering organization What trade-offs a typical engineer needs to make when evaluating design and development decisions.",
-      "price": 24.70,
+      "price": 24.7,
       "rating": 4
     },
     {
@@ -101,7 +101,7 @@
       "title": "Foundations of Software Testing",
       "image": "https://m.media-amazon.com/images/I/415EAeMW9nL._SX383_BO1,204,203,200_.jpg",
       "description": "Now in its fourth edition, Foundations of Software Testing: ISTQB Certification is the essential guide to software testing and to the ISTQB Foundation qualification. Completely updated to comprehensively reflect the most recent changes to the 2018 ISTQB Foundation Syllabus, the book adopts a practical, hands-on approach, covering the fundamental topics that every system and software tester should know. The authors are themselves developers of the ISTQB syllabus and are highly respected international authorities and teachers within the field of software testing. About ISTQB ISTQB is a multinational body overseeing the development of international qualifications in software testing. It offers an internationally recognized qualification that ensures there is an international, common understanding of software and system testing issues.",
-      "price": 52.50,
+      "price": 52.5,
       "rating": 4
     },
     {
@@ -142,6 +142,18 @@
       "email": "bala@mail.com",
       "password": "321",
       "id": 3
+    },
+    {
+      "userName": "Juan Carlos",
+      "email": "juanca@gmial.com",
+      "password": "234",
+      "id": 4
+    },
+    {
+      "userName": "Juan Carlos",
+      "email": "juanca@gmail.com",
+      "password": "234",
+      "id": 5
     }
   ]
 }
