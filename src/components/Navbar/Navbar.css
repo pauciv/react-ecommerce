@@ -2,17 +2,6 @@
     display: flex;
 }
 
-.header {
-    height: 60px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    background-color: #131921;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
 .header__logo {
     width: 50px;
     object-fit: contain;
@@ -21,13 +10,20 @@
 
 .header__search {
     display: flex;
-    flex: 1;
-    align-items: center;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.header__searchInput {
+    margin-right: -10px;
 }
 
 .header__nav {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 400px;
 }
 
 .header__option {

@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './assets/css/global.css';
 
-//! usando el archivo de barril
+// usando el archivo de barril
 import { Navbar } from './components';
 
 import Store from './components/Store/Store';
-import Footer from './components/Footer/Footer';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Router from './routes/AppRouter';
 import Cart from './components/Cart/Cart';
 import WishlistProvider from './context/WishlistProvider';
@@ -20,7 +19,6 @@ import { AuthProvider } from './context/AuthProvider';
 import Buy from './components/Buy/Buy';
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
-import { AuthContext } from './context/AuthContext';
 import ProductPage from './components/ProductPage/ProductPage';
 
 function App() {

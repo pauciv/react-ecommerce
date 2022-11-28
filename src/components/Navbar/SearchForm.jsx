@@ -15,7 +15,7 @@ const SearchForm = () => {
         //   event.preventDefault();
         //   setSearch(event.target.searchInput.value);
         // }}
-        className="d-flex"
+        className="d-flex w-100"
       >
         <input
           type="text"

@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Clean Code",
       "image": "https://m.media-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "Even bad code can function. But if code isn’t clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn’t have to be that way. Noted software expert Robert C. Martin presents a revolutionary paradigm with Clean Code: A Handbook of Agile Software Craftsmanship. Martin has teamed up with his colleagues from Object Mentor to distill their best agile practice of cleaning code “on the fly” into a book that will instill within you the values of a software craftsman and make you a better programmer―but only if you work at it. What kind of work will you be doing? You’ll be reading code―lots of code. And you will be challenged to think about what’s right about that code, and what’s wrong with it. More importantly, you will be challenged to reassess your professional values and your commitment to your craft. Clean Code is divided into three parts. The first describes the principles, patterns, and practices of writing clean code. The second part consists of several case studies of increasing complexity. Each case study is an exercise in cleaning up code―of transforming a code base that has some problems into one that is sound and efficient. The third part is the payoff: a single chapter containing a list of heuristics and “smells” gathered while creating the case studies. The result is a knowledge base that describes the way we think when we write, read, and clean code. Readers will come away from this book understanding How to tell the difference between good and bad code How to write good code and how to transform bad code into good code How to create good names, good functions, good objects, and good classes How to format code for maximum readability How to implement complete error handling without obscuring code logic How to unit test and practice test-driven development This book is a must for any developer, software engineer, project manager, team lead, or systems analyst with an interest in producing better code.",
       "price": 35.61,
       "rating": 4
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "title": "The Pragmatic Programmer",
       "image": "https://m.media-amazon.com/images/I/51IA4hT6jrL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "“One of the most significant books in my life.” ―Obie Fernandez, Author, The Rails Way “Twenty years ago, the first edition of The Pragmatic Programmer completely changed the trajectory of my career. This new edition could do the same for yours.” ―Mike Cohn, Author of Succeeding with Agile , Agile Estimating and Planning , and User Stories Applied “. . . filled with practical advice, both technical and professional, that will serve you and your projects well for years to come.” ―Andrea Goulet, CEO, Corgibytes, Founder, LegacyCode.Rocks “. . . lightning does strike twice, and this book is proof.” ―VM (Vicky) Brasseur, Director of Open Source Strategy, Juniper Networks The Pragmatic Programmer is one of those rare tech books you’ll read, re-read, and read again over the years. Whether you’re new to the field or an experienced practitioner, you’ll come away with fresh insights each and every time. Dave Thomas and Andy Hunt wrote the first edition of this influential book in 1999 to help their clients create better software and rediscover the joy of coding. These lessons have helped a generation of programmers examine the very essence of software development, independent of any particular language, framework, or methodology, and the Pragmatic philosophy has spawned hundreds of books, screencasts, and audio books, as well as thousands of careers and success stories. Now, twenty years later, this new edition re-examines what it means to be a modern programmer. Topics range from personal responsibility and career development to architectural techniques for keeping your code flexible and easy to adapt and reuse. Read this book, and you’ll learn how to: Fight software rot Learn continuously Avoid the trap of duplicating knowledge Write flexible, dynamic, and adaptable code Harness the power of basic tools Avoid programming by coincidence Learn real requirements Solve the underlying problems of concurrent code Guard against security vulnerabilities Build teams of Pragmatic Programmers Take responsibility for your work and career Test ruthlessly and effectively, including property-based testing Implement the Pragmatic Starter Kit Delight your users Written as a series of self-contained sections and filled with classic and fresh anecdotes, thoughtful examples, and interesting analogies, The Pragmatic Programmer illustrates the best approaches and major pitfalls of many different aspects of software development. Whether you’re a new coder, an experienced programmer, or a manager responsible for software projects, use these lessons daily, and you’ll quickly see improvements in personal productivity, accuracy, and job satisfaction. You’ll learn skills and develop habits and attitudes that form the foundation for long-term success in your career. You’ll become a Pragmatic Programmer. Register your book for convenient access to downloads, updates, and/or corrections as they become available. See inside book for details.",
       "price": 36.17,
       "rating": 5
     },
@@ -20,7 +20,7 @@
       "id": 3,
       "title": "Cracking the Coding Interview",
       "image": "https://m.media-amazon.com/images/I/41oYsXjLvZL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "I am not a recruiter. I am a software engineer. And as such, I know what it's like to be asked to whip up brilliant algorithms on the spot and then write flawless code on a whiteboard. I've been through this —as a candidate and as an interviewer. Cracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers. The result is this book. Learn how to uncover the hints and hidden details in a question, discover how to break down a problem into manageable chunks, develop techniques to unstick yourself when stuck, learn (or re-learn) core computer science concepts, and practice on 189 interview questions and solutions. These interview questions are real; they are not pulled out of computer science textbooks. They reflect what’s truly being asked at the top companies, so that you can be as prepared as possible.",
       "price": 35.95,
       "rating": 4.5
     },
@@ -28,7 +28,7 @@
       "id": 4,
       "title": "JavaScript: The Definitive Guide",
       "image": "https://m.media-amazon.com/images/I/51HbNW6RzhL._SX375_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "JavaScript is the programming language of the web and is used by more software developers today than any other programming language. For nearly 25 years this best seller has been the go-to guide for JavaScript programmers. The seventh edition is fully updated to cover the 2020 version of JavaScript, and new chapters cover classes, modules, iterators, generators, Promises, async/await, and metaprogramming. You'll find illuminating and engaging example code throughout. This book is for programmers who want to learn JavaScript and for web developers who want to take their understanding and mastery to the next level. It begins by explaining the JavaScript language itself, in detail, from the bottom up. It then builds on that foundation to cover the web platform and Node.js. Topics include: Types, values, variables, expressions, operators, statements, objects, and arrays Functions, classes, modules, iterators, generators, Promises, and async/await JavaScript's standard library: data structures, regular expressions, JSON, i18n, etc. The web platform: documents, components, graphics, networking, storage, and threads Node.js: buffers, files, streams, threads, child processes, web clients, and web servers Tools and language extensions that professional JavaScript developers rely on.",
       "price": 30.99,
       "rating": 4
     },
@@ -36,7 +36,7 @@
       "id": 5,
       "title": "Clean Architecture",
       "image": "https://m.media-amazon.com/images/I/41-sN-mzwKL._SX381_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "Building upon the success of best-sellers The Clean Coder and Clean Code, legendary software craftsman Robert C. Uncle Bob Martin shows how to bring greater professionalism and discipline to application architecture and design.   As with his other books, Martin's Clean Architecture doesn't merely present multiple choices and options, and say use your best judgment: it tells you what choices to make, and why those choices are critical to your success. Martin offers direct, no-nonsense answers to key architecture and design questions like: What are the best high level structures for different kinds of applications, including web, database, thick-client, console, and embedded apps? What are the core principles of software architecture? What is the role of the architect, and what is he/she really trying to achieve? What are the core principles of software design? How do designs and architectures go wrong, and what can you do about it? What are the disciplines and practices of professional architects and designers? Clean Architecture is essential reading for every software architect, systems analyst, system designer, and software manager -- and for any programmer who aspires to these roles or is impacted by their work.",
       "price": 34.19,
       "rating": 4
     },
@@ -44,7 +44,7 @@
       "id": 6,
       "title": "Software Architecture: The Hard Parts",
       "image": "https://m.media-amazon.com/images/I/51qZnL+B63L._SX258_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "There are no easy decisions in software architecture. Instead, there are many hard parts--difficult problems or issues with no best practices--that force you to choose among various compromises. With this book, you'll learn how to think critically about the trade-offs involved with distributed architectures. Architecture veterans and practicing consultants Neal Ford, Mark Richards, Pramod Sadalage, and Zhamak Dehghani discuss strategies for choosing an appropriate architecture. By interweaving a story about a fictional group of technology professionals--the Sysops Squad--they examine everything from how to determine service granularity, manage workflows and orchestration, manage and decouple contracts, and manage distributed transactions to how to optimize operational characteristics, such as scalability, elasticity, and performance. By focusing on commonly asked questions, this book provides techniques to help you discover and weigh the trade-offs as you confront the issues you face as an architect. Analyze trade-offs and effectively document your decisions Make better decisions regarding service granularity Understand the complexities of breaking apart monolithic applications Manage and decouple contracts between services Handle data in a highly distributed architecture Learn patterns to manage workflow and transactions when breaking apart applications.",
       "price": 30.00,
       "rating": 4.5
     },
@@ -52,7 +52,7 @@
       "id": 7,
       "title": "Engineers Survival Guide",
       "image": "https://m.media-amazon.com/images/I/41lkYRqFsUL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "There are a lot of amazing technical books out there. But what about your life as an engineer? How you interact with others? How happy are you with your career? If you've been feeling alone in your journey and keep wishing you had a friend or a mentor you could get some advice about non-technical aspects, look no further! Inside, you will find the summary of advice, tactics, and tricks learned the hard way through many years of working on mission-critical components, complex system designs supporting billions of users, and working with thousands of the most brilliant engineers around the world. Have a survival guide for most situations you'll be facing throughout your career as an engineer and learn how to play for the long game.",
       "price": 29.99,
       "rating": 4
     },
@@ -60,7 +60,7 @@
       "id": 8,
       "title": "Software Engineering at Google",
       "image": "https://m.media-amazon.com/images/I/41uvuuFt06S._SX379_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "Today, software engineers need to know not only how to program effectively but also how to develop proper engineering practices to make their codebase sustainable and healthy. This book emphasizes this difference between programming and software engineering. How can software engineers manage a living codebase that evolves and responds to changing requirements and demands over the length of its life? Based on their experience at Google, software engineers Titus Winters and Hyrum Wright, along with technical writer Tom Manshreck, present a candid and insightful look at how some of the world’s leading practitioners construct and maintain software. This book covers Google’s unique engineering culture, processes, and tools and how these aspects contribute to the effectiveness of an engineering organization. You’ll explore three fundamental principles that software organizations should keep in mind when designing, architecting, writing, and maintaining code: How time affects the sustainability of software and how to make your code resilient over time How scale affects the viability of software practices within an engineering organization What trade-offs a typical engineer needs to make when evaluating design and development decisions.",
       "price": 24.70,
       "rating": 4
     },
@@ -68,7 +68,7 @@
       "id": 9,
       "title": "Learning Algorithms",
       "image": "https://m.media-amazon.com/images/I/41qI4ODE9ES._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "When it comes to writing efficient code, every software professional needs to have an effective working knowledge of algorithms. In this practical book, author George Heineman (Algorithms in a Nutshell) provides concise and informative descriptions of key algorithms that improve coding. Software developers, testers, and maintainers will discover how algorithms solve computational problems creatively. Each chapter builds on earlier chapters through eye-catching visuals and a steady rollout of essential concepts, including an algorithm analysis to classify the performance of every algorithm presented in the book. At the end of each chapter, you'll get to apply what you've learned to a novel challenge problem -- simulating the experience you might find in a technical code interview. With this book, you will: Examine fundamental algorithms central to computer science and software engineering Learn common strategies for efficient problem solving -- such as divide and conquer, dynamic programming, and greedy approaches Analyze code to evaluate time complexity using big O notation Use existing Python libraries and data structures to solve problems using algorithms Understand the main steps of important algorithms.",
       "price": 31.49,
       "rating": 4
     },
@@ -76,7 +76,7 @@
       "id": 10,
       "title": "The Complete Software Developer's Career Guide",
       "image": "https://m.media-amazon.com/images/I/51CYOFLNoHL._SX404_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "Developer careers are tough and few know the secrets to land top jobs. Why isn’t talent enough? John Sonmez discovered that technical knowledge alone isn't enough to break through to the next income level - developers need soft skills like the ability to learn new technologies, communicate clearly with management and consulting clients, negotiate the best rate, and unite teammates in working toward a common goal. Nobody teaches these soft skills. This guide contains strategies for everyone from Entry-Level to Senior Developers and gives guidance for Brand New Developers as well.",
       "price": 25.99,
       "rating": 4
     },
@@ -84,7 +84,7 @@
       "id": 11,
       "title": "Docker: Up & Running",
       "image": "https://m.media-amazon.com/images/I/51LlwzoO5hS._SX379_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "Docker is rapidly changing the way organizations deploy software at scale. However, understanding how Linux containers fit into your workflow—and getting the integration details right—is not a trivial task. With the updated edition of this practical guide, you’ll learn how to use Docker to package your applications with all of their dependencies and then test, ship, scale, and support your containers in production. This edition includes significant updates to the examples and explanations that reflect the substantial changes that have occurred over the past couple of years. Sean Kane and Karl Matthias have added a complete chapter on Docker Compose, deeper coverage of Docker Swarm mode, introductions to both Kubernetes and AWS Fargate, examples on how to optimize your Docker images, and much more.",
       "price": 48.49,
       "rating": 4
     },
@@ -92,7 +92,7 @@
       "id": 12,
       "title": "Node.js Design Patterns",
       "image": "https://m.media-amazon.com/images/I/51SBVyxyfxL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "Learn proven patterns, techniques, and tricks to take full advantage of the Node.js platform. Master well-known design principles to create applications that are readable, extensible, and that can grow big. In this book, we will show you how to implement a series of best practices and design patterns to help you create efficient and robust Node.js applications with ease. We kick off by exploring the basics of Node.js, analyzing its asynchronous event driven architecture and its fundamental design patterns. We then show you how to build asynchronous control flow patterns with callbacks, promises and async/await. Next, we dive into Node.js streams, unveiling their power and showing you how to use them at their full capacity. Following streams is an analysis of different creational, structural, and behavioral design patterns that take full advantage of JavaScript and Node.js. Lastly, the book dives into more advanced concepts such as Universal JavaScript, scalability and messaging patterns to help you build enterprise-grade distributed applications. Throughout the book, you'll see Node.js in action with the help of several real-life examples leveraging technologies such as LevelDB, Redis, RabbitMQ, ZeroMQ, and many others. They will be used to demonstrate a pattern or technique, but they will also give you a great introduction to the Node.js ecosystem and its set of solutions.",
       "price": 46.74,
       "rating": 4
     },
@@ -100,23 +100,23 @@
       "id": 13,
       "title": "Foundations of Software Testing",
       "image": "https://m.media-amazon.com/images/I/415EAeMW9nL._SX383_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "Now in its fourth edition, Foundations of Software Testing: ISTQB Certification is the essential guide to software testing and to the ISTQB Foundation qualification. Completely updated to comprehensively reflect the most recent changes to the 2018 ISTQB Foundation Syllabus, the book adopts a practical, hands-on approach, covering the fundamental topics that every system and software tester should know. The authors are themselves developers of the ISTQB syllabus and are highly respected international authorities and teachers within the field of software testing. About ISTQB ISTQB is a multinational body overseeing the development of international qualifications in software testing. It offers an internationally recognized qualification that ensures there is an international, common understanding of software and system testing issues.",
       "price": 52.50,
       "rating": 4
     },
     {
       "id": 14,
-      "title": "Docker: Up & Running",
-      "image": "https://m.media-amazon.com/images/I/51LlwzoO5hS._SX379_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
-      "price": 48.49,
+      "title": "Designing and Prototyping Interfaces with Figma",
+      "image": "https://m.media-amazon.com/images/I/41XvwYmWsQL._SX404_BO1,204,203,200_.jpg",
+      "description": "Discover user experience and user interface design best practices while mastering a wide array of tools across Figma and FigJam with this full-color guide. A driving force of the design tools market, Figma makes it easy to work with classic design features while enabling unique innovations and opening up real-time collaboration possibilities. It comes as no surprise that many designers decide to switch from other tools to Figma. In this book, you'll be challenged to design a user interface for a responsive mobile application having researched and understood user needs. You'll become well-versed with the process in a step-by-step manner by exploring the theory first and gradually moving on to practice. You'll begin your learning journey by covering the basics of user experience research with FigJam and the process of creating a complete design using Figma tools such as Components, Variants, Auto Layout, and much more. You'll also learn how to prototype your design and explore the potential of community resources such as templates and plugins. By the end of this Figma book, you'll have a solid understanding of the user interface workflow, managing essential Figma tools, and organizing your workflow.",
+      "price": 33.26,
       "rating": 4
     },
     {
       "id": 15,
       "title": "The Nature of Software Development",
       "image": "https://m.media-amazon.com/images/I/514lvxHb+kL._SX538_BO1,204,203,200_.jpg",
-      "description": "Lorem ipsum...",
+      "description": "You need to get value from your software project. You need it free, now, and perfect. We can't get you there, but we can help you get to cheaper, sooner, and better. This book leads you from the desire for value down to the specific activities that help good Agile projects deliver better software sooner, and at a lower cost. Using simple sketches and a few words, the author invites you to follow his path of learning and understanding from a half century of software development and from his engagement with Agile methods from their very beginning. The book describes software development, starting from our natural desire to get something of value. Each topic is described with a picture and a few paragraphs. You're invited to think about each topic; to take it in. You'll think about how each step into the process leads to the next. You'll begin to see why Agile methods ask for what they do, and you'll learn why a shallow implementation of Agile can lead to only limited improvement. This is not a detailed map, nor a step-by-step set of instructions for building the perfect project. There is no map or instructions that will do that for you. You need to build your own project, making it a bit more perfect every day. To do that effectively, you need to build up an understanding of the whole process. This book points out the milestones on your journey of understanding the nature of software development done well. It takes you to a location, describes it briefly, and leaves you to explore and fill in your own understanding.",
       "price": 21.49,
       "rating": 4
     }
@@ -124,7 +124,7 @@
   "users": [
     {
       "id": 1,
-      "userName": "Pau Civill",
+      "userName": "Pau",
       "email": "pau@mail.com",
       "mobileNumber": "688839761",
       "password": "123qwe",
@@ -133,7 +133,7 @@
     },
     {
       "userName": "Pepe",
-      "email": "786357653",
+      "email": "pepe@mail.com",
       "password": "123456",
       "id": 2
     },

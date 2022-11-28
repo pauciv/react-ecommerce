@@ -30,7 +30,7 @@ const Navbar = ({ handleSearch }) => {
     <>
       {/* <div className="flex__container"> */}
       {/* <nav className="header"> */}
-      <NavbarB sticky="top" className="bg-black shadow-sm mb-2">
+      <NavbarB sticky="top" className="bg-black shadow-sm mb-2 d-flex justify-content-between">
         <Link to="/">
           <img
             className="header__logo"
