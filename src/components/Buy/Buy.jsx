@@ -77,84 +77,73 @@ const Buy = () => {
   };
 
   return (
-    <>
     <div className="login">
-      {/* <Link to="/"> */}
-      <img className="login__logo" src="logo512.png" />
-      {/* </Link> */}
+      <div className="login__container mt-4">
+        <h2>Address</h2>
 
-      <div>
-        <div className="login__container">
+        <form onSubmit={onFormSubmit}>
+          <h2>Full name</h2>
+          <input
+            type="text"
+            name="userName"
+            value={userName}
+            onChange={onInputChange}
+          />
+
+          <h2>Mobile number</h2>
+          <input
+            type="text"
+            name="mobileNumber"
+            value={mobileNumber}
+            onChange={onInputChange}
+          />
+
+          <h2>Country/Region</h2>
+          <input
+            type="text"
+            name="country"
+            value={country}
+            onChange={onInputChange}
+          />
+
           <h2>Address</h2>
+          <input
+            type="text"
+            name="address"
+            value={address}
+            onChange={onInputChange}
+          />
 
-          <form onSubmit={onFormSubmit}>
-            <h2>Full name</h2>
-            <input
-              type="text"
-              name="userName"
-              value={userName}
-              onChange={onInputChange}
-            />
+          <h2>Postal code</h2>
+          <input
+            type="text"
+            name="postalCode"
+            value={postalCode}
+            onChange={onInputChange}
+          />
 
-            <h2>Mobile number</h2>
-            <input
-              type="text"
-              name="mobileNumber"
-              value={mobileNumber}
-              onChange={onInputChange}
-            />
+          <h2>City</h2>
+          <input
+            type="text"
+            name="city"
+            value={city}
+            onChange={onInputChange}
+          />
 
-            {/* TODO: select */}
-            <h2>Country/Region</h2>
-            <input
-              type="text"
-              name="country"
-              value={country}
-              onChange={onInputChange}
-            />
+          <h2>Province</h2>
+          <input
+            type="text"
+            name="province"
+            value={province}
+            onChange={onInputChange}
+          />
 
-            <h2>Address</h2>
-            <input
-              type="text"
-              name="address"
-              value={address}
-              onChange={onInputChange}
-            />
-
-            <h2>Postal code</h2>
-            <input
-              type="text"
-              name="postalCode"
-              value={postalCode}
-              onChange={onInputChange}
-            />
-
-            <h2>City</h2>
-            <input
-              type="text"
-              name="city"
-              value={city}
-              onChange={onInputChange}
-            />
-
-            <h2>Province</h2>
-            <input
-              type="text"
-              name="province"
-              value={province}
-              onChange={onInputChange}
-            />
-
-            <Button type="submit" className="login__signInButton">
-              Use this address
-            </Button>
-          </form>
-        </div>
+          <Button type="submit" className="login__signInButton">
+            Buy
+          </Button>
+        </form>
       </div>
     </div>
-
-    {/* <Checkout /> */}
-    </>
   );
 };
 

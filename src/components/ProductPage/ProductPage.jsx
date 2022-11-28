@@ -1,12 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { getData, url } from '../../utilities/api/getProducts';
+import { Card, Container } from 'react-bootstrap';
+import { Navigate, useParams } from 'react-router-dom';
 
 const ProductPage = ({ products }) => {
   console.log(products);
 
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const getProductById = (products, id) => {
     return products.find((product) => product.id === id);
@@ -19,10 +17,12 @@ const ProductPage = ({ products }) => {
   }
 
   return (
-    <>
-      <h1>{product.title}</h1>
-      <p>{product.description}</p>
-    </>
+    <Container>
+      <Card className='p-4'>
+        <Card.Title>{product.title}</Card.Title>
+        <Card.Text>{product.description}</Card.Text>
+      </Card>
+    </Container>
   );
 };
 

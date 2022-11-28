@@ -8,6 +8,11 @@
     margin: 0 20px;
 }
 
+.logo {
+    margin-right: 30px;
+    color: white;
+}
+
 .header__search {
     display: flex;
     width: 100%;
@@ -34,6 +39,10 @@
     color: white;
 }
 
+.header__option:hover {
+    cursor: pointer;
+  }
+
 .header__optionBasket {
     color: white;
     display: flex;
@@ -44,6 +53,7 @@
     font-size: 16px;
     font-weight: 600;
     color: #61dafb;
+    margin-bottom: -3px;
 }
 
 .header__cartIncon {

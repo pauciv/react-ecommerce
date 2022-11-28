@@ -39,29 +39,7 @@ const Store = ({ products, error, loading }) => {
             <h2>No products obtained</h2>
           )}
         </Row>
-
-        {/* <div className="home__row">
-          {(products &&
-            products.map((product) => (
-              <Product
-                key={product.id}
-                id={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-                rating={product.rating}
-                addToCart={() => addToCart(product.id)}
-              />
-            ))) || <h2>No products obtained</h2>}
-        </div> */}
-
-        {/* <div>
-            <Checkout cart={cart} />
-          </div> */}
       </Container>
-
-      {/* <p>{JSON.stringify(cart)}</p> */}
-      {/* {console.log(cart)} */}
     </main>
   );
 };
