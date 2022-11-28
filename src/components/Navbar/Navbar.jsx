@@ -5,7 +5,6 @@ import './Navbar.css';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import { Link } from 'react-router-dom';
 
-import { getTotalItems } from '../Subtotal/Subtotal';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useCartContext } from '../../context/CartProvider';
 import SearchForm from './SearchForm';
@@ -28,13 +27,11 @@ const Navbar = ({ handleSearch }) => {
 
   return (
     <>
-      {/* <div className="flex__container"> */}
-      {/* <nav className="header"> */}
       <NavbarB sticky="top" className="bg-black shadow-sm mb-2 d-flex justify-content-between">
         <Link to="/">
           <img
             className="header__logo"
-            src="../../logo512.png" /* src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" */
+            src="../../logo512.png"
             alt="reactjs logo"
           />
         </Link>
@@ -56,8 +53,6 @@ const Navbar = ({ handleSearch }) => {
           </span>
           }
         
-          {/* <span className="header__option">Orders</span> */}
-
           <Link to="/wishlist">
             <span className="header__option">Wishlist</span>
           </Link>

@@ -1,0 +1,26 @@
+.cart__item--quantity {
+  margin-top: -18px;
+  margin-bottom: -4px;
+  margin-left: -6px;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart__item--delete {
+  margin-top: -18px;
+  margin-bottom: -4px;
+  margin-right: -16px;
+  width: 22px;
+  height: 22px;
+}
+
+.cart__item--delete:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}

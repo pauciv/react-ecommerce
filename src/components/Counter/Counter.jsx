@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useCartContext } from '../../context/CartProvider';
 
@@ -7,8 +6,7 @@ const Counter = ({ id, itemQuantity }) => {
 
   return (
     <div className="d-flex align-items-center h-2">
-      <p>Qty: {itemQuantity}</p> {/* numItems que sea el value de un input? */}
-      {/* <input type='num' value={itemQuantity} /> */}
+      <p className="mt-3">Qty: {itemQuantity}</p>
       <Button
         onClick={() => addToCart(id)}
         variant="outline-secondary"

@@ -32,7 +32,7 @@ const Checkout = () => {
           <Subtotal cart={cartItems} />
         </div>
       </div>
-      <div className="checkout__right">
+      <div className="checkout__right mh-25">
         <Subtotal cart={cartItems} />
 
         {/* TODO: user ? ve al Buy con los datos rellenados : ve al Login */}

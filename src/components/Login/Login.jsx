@@ -27,13 +27,11 @@ const Login = () => {
     email: '',
     password: '',
   });
-  // console.log('loginState = ', loginState);
 
   const { email, password } = loginState;
 
   const onInputChange = ({ target }) => {
     const { name, value } = target;
-    // console.log(name, value);
 
     setLoginState({
       ...loginState,
@@ -98,7 +96,7 @@ const Login = () => {
   return (
     <div className="login">
       {/* <Link to="/"> */}
-      <img className="login__logo" src="../../../public/logo512.png" />
+      <img className="login__logo" src="../../logo512.png" />
       {/* </Link> */}
 
       <div>
@@ -124,7 +122,6 @@ const Login = () => {
 
             <Button
               type="submit"
-              // onClick={signIn}
               className="login__signInButton"
             >
               Sign In
@@ -133,7 +130,7 @@ const Login = () => {
         </div>
 
         <Link to="/register">
-          <button className="login__registerButton">Create your Account</button>
+          <Button variant="outline-secondary" className="login__registerButton">Create your Account</Button>
         </Link>
       </div>
     </div>

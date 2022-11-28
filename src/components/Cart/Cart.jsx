@@ -20,7 +20,7 @@ const Cart = () => {
           {cartItems ? (
             cartItems.map((item) => <CartItem key={item.id} {...item} />)
           ) : (
-            <h3>Your Cart is empty</h3>
+            null
           )}
         </div>
       </aside>
